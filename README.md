@@ -26,10 +26,3 @@ yarn dev
 4. open [http://localhost:3000](http://localhost:3000) with your browser to see the app  
   
   
-## Getting Started: Backend  
-1. move to the backend directory  
-```bash
-cd backend
-```
-
-
