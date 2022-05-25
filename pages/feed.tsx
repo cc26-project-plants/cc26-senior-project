@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
 
-interface CoolProps {
-  foo: number;
-  bar?: string;
-}
-
 const Feed = () => {
   const [count, setCount] = useState(0);
 

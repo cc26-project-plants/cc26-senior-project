@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.css";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <form>
+      <h2>Start Page</h2>
+      {/* <form>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
@@ -43,7 +42,7 @@ const Home: NextPage = () => {
         <button type="submit" className="btn btn-secondary">
           Submit
         </button>
-      </form>
+      </form> */}
     </div>
   );
 };
