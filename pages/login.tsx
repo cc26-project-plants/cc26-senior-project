@@ -4,19 +4,18 @@ import { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Form, Button } from "react-bootstrap";
 import Link from "next/link";
-import Login from "./login";
 
-const SignUp: NextPage = () => {
+const Login: NextPage = () => {
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
   const passwordConfirmRef: any = useRef();
 
   return (
     <div>
-      <h2>Join Project Plant!</h2>
+      <h2>Project Plant</h2>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+          <h2 className="text-center mb-4">Log in</h2>
           <Form>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -32,18 +31,18 @@ const SignUp: NextPage = () => {
             </Form.Group>
           </Form>
           <Button className="w-100" type="submit">
-            Sign Up
+            Log In
           </Button>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account?{" "}
-        <Link href="/index">
-          <a>Login</a>
+        Or create your account today!{" "}
+        <Link href="/signup">
+          <a>Sign up!</a>
         </Link>
       </div>
     </div>
   );
 };
 
-export default SignUp;
+export default Login;
