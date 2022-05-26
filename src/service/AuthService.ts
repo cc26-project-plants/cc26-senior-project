@@ -8,7 +8,7 @@ export const AuthService = {
       const userCredential = await firebase.auth().signInWithPopup(provider);
       console.log(userCredential);
       return {
-        user: userCredential,
+        user: userCredential.user,
       };
     } catch (e: any) {
       return {

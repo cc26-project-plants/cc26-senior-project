@@ -1,24 +1,30 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { AuthService } from "../service/AuthService";
 
 //interface for createContext
 
 const authContext = createContext(null);
 
-export function AuthProvider() {
+export default function useAuth() {
+  return useContext(authContext);
+}
+
+export function AuthProvider(props: any) {
   const [user, setUser] = useState<any>(null);
   const [error, setError] = useState("");
 
-  const LoginWithGoogle = async () => {
+  const loginWithGoogle = async () => {
     const { error, user } = await AuthService.LoginWithGoogle();
     setUser(user ?? null);
     setError(error ?? "");
   };
 
-  const login = async () => {
+  const logout = async () => {
     await AuthService.logout();
     setUser(null);
   };
 
-  return <authContext.Provider value={} />;
+  const value = { user, error, loginWithGoogle, logout };
+
+  return <authContext.Provider value={value} {...props} />;
 }
