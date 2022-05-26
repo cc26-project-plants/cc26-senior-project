@@ -3,10 +3,10 @@ import React from "react";
 import { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Form, Button } from "react-bootstrap";
-import Login from "./login";
+import Main from "./main";
 
 const Index = () => {
-  return <Login />;
+  return <Main />;
 };
 
 export default Index;

@@ -5,17 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Form, Button } from "react-bootstrap";
 import Link from "next/link";
 import useAuth from "../src/hook/auth";
+import { withPubic } from "../src/hook/route";
 
-const Login: NextPage = () => {
+function Login<NextPage>({ auth }) {
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
-  const { user, loginWithGoogle, error }: any = useAuth();
+  const { user, loginWithGoogle, error }: any = auth;
 
   return (
     <div>
       <h2>Project Plant</h2>
       {error && <p>{error}</p>}
-      <p>{user?.uid}</p>
+      <p>{user?.displayName}</p>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log in</h2>
@@ -42,6 +43,6 @@ const Login: NextPage = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default withPubic(Login); //This makes the index Just "Loading.."
