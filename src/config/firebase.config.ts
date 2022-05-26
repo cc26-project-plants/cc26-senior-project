@@ -11,5 +11,9 @@ const app = firebase.initializeApp({
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 });
 
+if (!firebase.apps.length) {
+  firebase.initializeApp(app);
+}
+
 export const auth = app.auth();
 export default app;

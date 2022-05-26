@@ -8,7 +8,6 @@ import Link from "next/link";
 const Login: NextPage = () => {
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
-  const passwordConfirmRef: any = useRef();
 
   return (
     <div>
@@ -24,10 +23,6 @@ const Login: NextPage = () => {
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
           </Form>
           <Button className="w-100" type="submit">
