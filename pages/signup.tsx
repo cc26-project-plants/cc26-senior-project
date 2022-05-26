@@ -4,17 +4,17 @@ import { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Form, Button } from "react-bootstrap";
 
-const Home: NextPage = () => {
+const SignUp: NextPage = () => {
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
   const passwordConfirmRef: any = useRef();
 
   return (
     <div>
-      <h2>Project Plant</h2>
+      <h2>Join Project Plant!</h2>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Log in</h2>
+          <h2 className="text-center mb-4">Sign Up</h2>
           <Form>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -30,15 +30,15 @@ const Home: NextPage = () => {
             </Form.Group>
           </Form>
           <Button className="w-100" type="submit">
-            Log In
+            Sign Up
           </Button>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Or create your account today! Sign up!
+        Already have an account? Login
       </div>
     </div>
   );
 };
 
-export default Home;
+export default SignUp;
