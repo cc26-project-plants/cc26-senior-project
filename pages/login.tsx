@@ -7,7 +7,7 @@ import Link from "next/link";
 import useAuth from "../src/hook/auth";
 import { withPubic } from "../src/hook/route";
 
-function Login<NextPage>({ auth }) {
+function Login<NextPage>({ auth }: { auth: any }) {
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
   const { user, loginWithGoogle, error }: any = auth;
@@ -20,7 +20,7 @@ function Login<NextPage>({ auth }) {
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log in</h2>
-          <Form>
+          {/* <Form>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
@@ -29,18 +29,12 @@ function Login<NextPage>({ auth }) {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-          </Form>
+          </Form> */}
           <Button className="w-100" type="submit" onClick={loginWithGoogle}>
             Log In
           </Button>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Or create your account today!{" "}
-        <Link href="/signup">
-          <a>Sign up!</a>
-        </Link>
-      </div>
     </div>
   );
 }

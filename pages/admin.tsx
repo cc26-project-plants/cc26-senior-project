@@ -1,7 +1,7 @@
 import React from "react";
 import { withProtected } from "../src/hook/route";
 
-function Admin({ auth }) {
+function Admin({ auth }: { auth: any }) {
   const { logout } = auth;
   return (
     <div>

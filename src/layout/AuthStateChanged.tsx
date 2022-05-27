@@ -5,6 +5,7 @@ import useAuth from "../hook/auth";
 
 function AuthStateChanged({ children }: { children: any }) {
   const { setUser } = useAuth();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
