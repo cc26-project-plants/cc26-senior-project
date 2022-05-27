@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
 import React from "react";
-import { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Form, Button } from "react-bootstrap";
-import Login from "./login";
 
-const Index = () => {
-  return <Login />;
+const Home: NextPage = () => {
+  return (
+    <div>
+      <h1>This is index</h1>
+    </div>
+  );
 };
 
-export default Index;
+export default Home;
