@@ -8,7 +8,6 @@ import {
 import { auth } from "../config/firebase";
 
 const AuthContext = createContext<any>({});
-
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({
@@ -18,7 +17,6 @@ export const AuthContextProvider = ({
 }) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  console.log(user);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -42,7 +40,6 @@ export const AuthContextProvider = ({
   };
 
   const login = (email: string, password: string) => {
-    console.log("Hello");
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -51,16 +48,9 @@ export const AuthContextProvider = ({
     await signOut(auth);
   };
 
-  const values = {
-    user,
-    login,
-    signup,
-    logout,
-  };
-
   return (
-    <AuthContext.Provider value={values}>
-      {!loading && children}
+    <AuthContext.Provider value={{ user, login, signup, logout }}>
+      {loading ? null : children}
     </AuthContext.Provider>
   );
 };
