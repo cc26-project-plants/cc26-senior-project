@@ -4,7 +4,7 @@ import Link from "next/link";
 import { withProtected } from "../src/hook/route";
 
 import Navbar from "./Navbar ";
-import admin from "./admin";
+
 
 const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;

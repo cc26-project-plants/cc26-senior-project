@@ -15,7 +15,6 @@ function Admin({ auth }: { auth: any }) {
         </Link>
         <Button type="button" className="btn btn-success w-25 my-5"
         onClick={logout}
-        
         >Log out</Button>
       </div>
     </div>
