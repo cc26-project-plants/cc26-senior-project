@@ -1,6 +1,4 @@
 import { useState } from "react";
-//import { Navbar } from 'react-bootstrap'
-import { Button } from 'react-bootstrap';
 import Link from "next/link";
 
 export default function Navbar(){
