@@ -3,6 +3,9 @@ import { withProtected } from "../src/hook/route";
 import { Button } from 'react-bootstrap';
 import Link from "next/link";
 
+//className;
+//line 13: tailwind
+//button: bootstrap
 function Admin({ auth }: { auth: any }) {
   const { logout } = auth;
   return (

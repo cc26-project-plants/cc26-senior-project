@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { withProtected } from "../src/hook/route";
@@ -6,18 +6,22 @@ import { withProtected } from "../src/hook/route";
 import Navbar from "./Navbar ";
 
 
+
 const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
+
   return (
     <div>
-      <div>My Plants Status</div>
-      <Navbar />
-
-
-      {/* <p>Hi! {user?.displayName} Welcome to Plants!</p> */}
-      {/* <Link href="/admin">
-        <a>Logout</a>
-      </Link> */}
+      <div
+      className="font-mono max-w-screen-md h-14 bg-green-50"
+      >My Plants Status</div>
+      <div className="flex flex-row ">
+        <Navbar />
+        <div 
+        className="font-mono w-96 h-96 px-5 bg-green-600"
+        >Main Field
+        </div>
+      </div>
     </div>
   );
 };
