@@ -4,12 +4,15 @@ import Link from "next/link";
 import { withProtected } from "../src/hook/route";
 
 import Navbar from "./Navbar ";
-
-
+import FeedPlant from "./FeedPlant";
 
 const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
-
+const [modalShow, setModalShow]= useState(false)
+  const displayModal = ()=>{
+    setModalShow(true)
+  }
+  
   return (
     <div>
       <div
@@ -20,6 +23,8 @@ const Main = () => {
         <div 
         className="font-mono w-96 h-96 px-5 bg-green-600"
         >Main Field
+        {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
+        {modalShow && <FeedPlant onClick={displayModal}/>}
         </div>
       </div>
     </div>
