@@ -1,12 +1,18 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import "../src/config/firebase.config";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
+import { AuthProvider } from "../src/hook/auth";
+import AuthStateChanged from "../src/layout/AuthStateChanged";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  return <Component {...pageProps} />;
+  return (
+    <AuthProvider>
+      <AuthStateChanged>
+        <Component {...pageProps} />
+      </AuthStateChanged>
+    </AuthProvider>
+  );
 }
 
 export default MyApp;

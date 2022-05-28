@@ -1,72 +1,56 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { useAuth } from "../contexts/authContext";
+import type { NextPage } from "next";
+import React from "react";
+import { useRef } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, Form, Button } from "react-bootstrap";
+import Link from "next/link";
+import useAuth from "../src/hook/auth";
+import { withPubic } from "../src/hook/route";
 
-const Login = () => {
-  const router = useRouter();
-  const { user, login } = useAuth();
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleLogin = async (e: any) => {
-    e.preventDefault();
-    try {
-      await login(data.email, data.password);
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+function Login<NextPage>({ auth }: { auth: any }) {
+  const emailRef: any = useRef();
+  const passwordRef: any = useRef();
+  const { user, loginWithGoogle, error }: any = auth;
 
   return (
     <div
       style={{
-        width: "40%",
+        width: "50vh",
         margin: "auto",
       }}
     >
-      <h1 className="text-center my-3 ">Login To Project Plants</h1>
-      <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                email: e.target.value,
-              })
-            }
-            value={data.email}
-            required
-            type="text"
-            placeholder="Enter email"
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value,
-              })
-            }
-            value={data.password}
-            required
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-      </Form>
+      <h2>Project Plant</h2>
+      {error && <p>{error}</p>}
+      <p>{user?.displayName}</p>
+      <Card>
+        <Card.Body>
+          <h2 className="text-center mb-4">Log in</h2>
+          <Form>
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+          </Form>
+          <Button className="w-100" type="submit" onClick={loginWithGoogle}>
+            Log In
+          </Button>
+          <Button
+            className="w-100"
+            type="submit"
+            onClick={() => {
+              console.log("Click");
+            }}
+          >
+            Log In 2
+          </Button>
+        </Card.Body>
+      </Card>
     </div>
   );
-};
+}
 
-export default Login;
+export default withPubic(Login); //This makes the index Just "Loading.."

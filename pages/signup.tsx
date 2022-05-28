@@ -1,73 +1,50 @@
+import type { NextPage } from "next";
+import React from "react";
+import { useRef } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, Form, Button } from "react-bootstrap";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { useAuth } from "../contexts/authContext";
+import Link from "next/link";
+import Login from "./login";
 
-const Signup = () => {
-  const router = useRouter();
-  const { user, signup } = useAuth();
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleSignup = async (e: any) => {
-    e.preventDefault();
-    try {
-      await signup(data.email, data.password);
-      router.push("/login");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+const SignUp: NextPage = () => {
+  const emailRef: any = useRef();
+  const passwordRef: any = useRef();
+  const passwordConfirmRef: any = useRef();
 
   return (
-    <div
-      style={{
-        width: "40%",
-        margin: "auto",
-      }}
-    >
-      <h1 className="text-center my-3 ">Signup</h1>
-      <Form onSubmit={handleSignup}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            required
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                email: e.target.value,
-              })
-            }
-            value={data.email}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            required
-            onChange={(e: any) =>
-              setData({
-                ...data,
-                password: e.target.value,
-              })
-            }
-            value={data.password}
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Signup
-        </Button>
-      </Form>
+    <div>
+      <h2>Join Project Plant!</h2>
+      <Card>
+        <Card.Body>
+          <h2 className="text-center mb-4">Sign Up</h2>
+          <Form>
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Form.Group id="password-confirm">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordConfirmRef} required />
+            </Form.Group>
+          </Form>
+          <Button className="w-100" type="submit">
+            Sign Up
+          </Button>
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        Already have an account?{" "}
+        <Link href="/index">
+          <a>Login</a>
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default Signup;
+export default SignUp;
