@@ -2,27 +2,23 @@
   
 **Project Plants**  
 PLANT HOTEL🌿  
-Users – sign up/ user authentication  
+Users – log in/user authentication  
 Plants – plant profile   
 Hardware – data   
-Features: Add friend for plant authentication - friends water plants for you  
   
   
 ## Getting Started: Frontend  
-1. move to the frontend directory  
+1. move to the root directory  
 ```bash
-cd frontend
+$ cd cc26-senior-project
 ```
 2. download dependencies  
 ```bash
-npm i
+$ npm install
 ```
-3. run the development server  
+3. run the app  
 ```bash
-npm run dev
-# or
-yarn dev
+$ npm start
 ```
 4. open [http://localhost:3000](http://localhost:3000) with your browser to see the app  
-  
   
