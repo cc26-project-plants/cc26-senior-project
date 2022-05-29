@@ -1,6 +1,5 @@
-import Router from "next/router";
-import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { useState } from "react";
+import { Form, Button, Card } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import { auth } from "../config/firebase";
@@ -24,6 +23,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(data?.email, data?.password);
+      console.log(currentUser);
       router.push("/");
     } catch (err) {
       setError("Failed to log in");
@@ -94,7 +94,6 @@ export default function Login() {
               Log In
             </Button>
           </Form>
-          <>{""}</>
           <Button
             disabled={loading}
             className="w-100"

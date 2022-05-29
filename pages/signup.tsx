@@ -1,4 +1,3 @@
-import Router from "next/router";
 import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
@@ -7,7 +6,6 @@ import { useRouter } from "next/router";
 const Signup = () => {
   const router = useRouter();
   const { user, signup } = useAuth();
-  console.log(user);
   const [data, setData] = useState({
     email: "",
     password: "",
