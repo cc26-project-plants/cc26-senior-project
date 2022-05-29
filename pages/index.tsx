@@ -5,7 +5,7 @@ import { Card, Form, Button } from "react-bootstrap";
 import Main from "./main";
 
 const Index = () => {
-  return <Main />;
+  return <h2>this is index</h2>;
 };
 
 export default Index;
