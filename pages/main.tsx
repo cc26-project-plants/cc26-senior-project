@@ -1,22 +1,44 @@
-import React from "react";
+import React, { useDebugValue, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { PlantData } from "./charts/Data";
 import Link from "next/link";
 import { withProtected } from "../src/hook/route";
 
 import Navbar from "./Navbar ";
-
+import TempLevel from "./charts/TempLevel";
 
 const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
+  const chartTempData = PlantData.map((val) => val.data);
+  const [tempData, setTempData] = useState({
+    labels: PlantData.map((val) => val.id),
+    datasets: [
+      {
+        labels: "Temp",
+        data: chartTempData.map((val, index) => {
+          return val[index].lightLevel;
+        }),
+      },
+    ],
+  });
   return (
     <div>
-      <p>Main(lets draw your app here)</p>
-      {/* <p>Hi! {user?.displayName} Welcome to Plants!</p> */}
-      {/* <Link href="/admin">
-        <a>Logout</a>
-      </Link> */}
+      <div className="font-mono max-w-screen h-14 bg-green-100 align-middle ">
+        Happa
+      </div>
+      <div className="flex flex-row  ">
+        <Navbar />
+        <div className="font-mono  w-screen h-screen  bg-green-600">
+          Main Field here
+          <div className=" w-2/4">
+            <TempLevel chartData={tempData} />
+          </div>
+          {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
+          {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default withProtected(Main);
+export default Main;

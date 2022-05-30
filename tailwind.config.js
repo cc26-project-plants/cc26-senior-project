@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 module.exports = {
   mode: "jit",
   content: [
@@ -5,7 +7,14 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: theme =>({
+        'leafframe': "url('/images/leafframe.png')",
+        'rainyframe': "url('/images/rainyframe.png')",
+        'soilframe': "url('/images/soilframe.png')",
+        'tabletframe': "url('/images/tabletframe.png')",
+      }),
+    },
   },
   plugins: [],
 };
