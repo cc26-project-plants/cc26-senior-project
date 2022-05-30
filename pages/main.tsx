@@ -10,11 +10,18 @@ const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
   return (
     <div>
-      <p>Main(lets draw your app here)</p>
-      {/* <p>Hi! {user?.displayName} Welcome to Plants!</p> */}
-      {/* <Link href="/admin">
-        <a>Logout</a>
-      </Link> */}
+      <div
+      className="font-mono max-w-screen-md h-14 bg-green-50"
+      >My Plants Status</div>
+      <div className="flex flex-row ">
+        <Navbar />
+        <div 
+        className="font-mono w-96 h-96 px-5 bg-green-600"
+        >Main Field here
+        {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
+        {modalShow && <FeedPlant onClick={displayModal}/>}
+        </div>
+      </div>
     </div>
   );
 };
