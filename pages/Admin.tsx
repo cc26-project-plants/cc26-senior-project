@@ -2,12 +2,14 @@ import React from "react";
 import { withProtected } from "../src/hook/route";
 import { Button } from "react-bootstrap";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext"
 
 //className;
 //line 13: tailwind
 //button: bootstrap
 function Admin({ auth }: { auth: any }) {
-  const { logout } = auth;
+  // const { logout } = auth;
+  const { logout } = useAuth();
   return (
     <div>
       <div className="flex flex-col container mx-auto p-8">
@@ -28,4 +30,5 @@ function Admin({ auth }: { auth: any }) {
   );
 }
 
-export default withProtected(Admin);
+// export default withProtected(Admin);
+export default Admin;

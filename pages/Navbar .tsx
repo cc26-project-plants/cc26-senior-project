@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import FeedPlant from "./FeedPlant";
+import { useAuth } from "../context/AuthContext"
 
 //className: all tailwind
 export default function Navbar({}){
+    const { logout } = useAuth();
     const menu: { name: string; link: string}[]=[
         // {name:"Feed my plant", link:"/"},
         {name:"Check Camera", link:"/CheckCamera"},
