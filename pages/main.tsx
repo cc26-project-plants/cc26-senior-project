@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Link from "next/link";
-import { withProtected } from "../src/hook/route";
+// import { withProtected } from "../src/hook/route";
 
 import Navbar from "./Navbar ";
 import FeedPlant from "./FeedPlant";
@@ -31,4 +31,5 @@ const [modalShow, setModalShow]= useState(false)
   );
 };
 
-export default withProtected(Main);
+// export default withProtected(Main);
+export default Main;
