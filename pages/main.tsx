@@ -1,18 +1,13 @@
-import React,{ useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Link from "next/link";
-// import { withProtected } from "../src/hook/route";
+import Link from "next/link";
+import { withProtected } from "../src/hook/route";
 
 import Navbar from "./Navbar ";
-import FeedPlant from "./FeedPlant";
+
 
 const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
-const [modalShow, setModalShow]= useState(false)
-  const displayModal = ()=>{
-    setModalShow(true)
-  }
-  
   return (
     <div>
       <div
@@ -31,5 +26,4 @@ const [modalShow, setModalShow]= useState(false)
   );
 };
 
-// export default withProtected(Main);
-export default Main;
+export default withProtected(Main);
