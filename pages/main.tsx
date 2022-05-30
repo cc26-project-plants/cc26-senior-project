@@ -9,12 +9,15 @@ import TempLevel from "./charts/TempLevel";
 
 const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
+  const chartTempData = PlantData.map((val) => val.data);
   const [tempData, setTempData] = useState({
     labels: PlantData.map((val) => val.id),
     datasets: [
       {
         labels: "Temp",
-        data: PlantData.map((val) => console.log(val)),
+        data: chartTempData.map((val, index) => {
+          return val[index].lightLevel;
+        }),
       },
     ],
   });
