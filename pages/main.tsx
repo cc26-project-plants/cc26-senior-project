@@ -22,7 +22,7 @@ const [modalShow, setModalShow]= useState(false)
         <Navbar />
         <div 
         className="font-mono w-96 h-96 px-5 bg-green-600"
-        >Main Field
+        >Main Field here
         {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
         {modalShow && <FeedPlant onClick={displayModal}/>}
         </div>
