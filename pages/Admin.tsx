@@ -1,5 +1,5 @@
 import React from "react";
-import { withProtected } from "../src/hook/route";
+// import { withProtected } from "../src/hook/route";
 import { Button } from "react-bootstrap";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext"
@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext"
 //className;
 //line 13: tailwind
 //button: bootstrap
-function Admin({ auth }: { auth: any }) {
+function Admin() {
   // const { logout } = auth;
   const { logout } = useAuth();
   return (
