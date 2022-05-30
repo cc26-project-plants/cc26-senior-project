@@ -9,12 +9,12 @@ const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
   return (
     <div>
-      <div className="font-mono max-w-screen-md h-14 bg-green-50">
-        My Plants Status
+      <div className="font-mono max-w-screen h-14 bg-green-100 align-middle ">
+        Happa
       </div>
-      <div className="flex flex-row ">
+      <div className="flex flex-row  ">
         <Navbar />
-        <div className="font-mono w-96 h-96 px-5 bg-green-600">
+        <div className="font-mono  w-screen h-screen  bg-green-600">
           Main Field here
           {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
           {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}

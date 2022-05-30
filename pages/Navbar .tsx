@@ -1,61 +1,64 @@
 import { useState } from "react";
 import Link from "next/link";
 // import FeedPlant from "./FeedPlant";
-import { useAuth } from "../context/AuthContext"
+import { useAuth } from "../context/AuthContext";
 
 //className: all tailwind
-export default function Navbar({}){
-    const { logout } = useAuth();
-    const menu: { name: string; link: string}[]=[
-        // {name:"Feed my plant", link:"/"},
-        {name:"Check Camera", link:"/CheckCamera"},
-        {name:"Check Humidity", link:"/Humidity"},
-        {name:"Check Soil moist", link:"/SoilMoist"},
-        {name:"Check Temperature", link:"/Temperature"},
-    ]
-    // let [open, setOpen] = useState(false);
-        // const [open, setOpen] = useState(false)
-    // const toggle = ()=>{
-    //     setOpen(prevState => !prevState)
-    // }
-    const [modalShow, setModalShow]= useState(false)
-    const displayModal = ()=>{
-      setModalShow(true)
-    }
+export default function Navbar({}) {
+  const { logout } = useAuth();
+  const menu: { name: string; link: string }[] = [
+    // {name:"Feed my plant", link:"/"},
+    { name: "Check Camera", link: "/CheckCamera" },
+    { name: "Check Humidity", link: "/Humidity" },
+    { name: "Check Soil moist", link: "/SoilMoist" },
+    { name: "Check Temperature", link: "/Temperature" },
+  ];
+  // let [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false)
+  // const toggle = ()=>{
+  //     setOpen(prevState => !prevState)
+  // }
+  const [modalShow, setModalShow] = useState(false);
+  const displayModal = () => {
+    setModalShow(true);
+  };
 
-    return (
-    <div className="h-96 w-48 bg-lime-400 list-none">
-        <div>
+  return (
+    <div className=" w-96 h-screen  bg-lime-400 list-none">
+      <div>
         <li>
-            <div
+          {/* <div
             onClick={displayModal}
-            // href={"/"} 
+            // href={"/"}
             className="font-mono w-40 inline-block text-sm px-4 py-2 leading-none border rounded
             no-underline text-green-700 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >Feed my plant
-            </div>
+          >
+            Feed my plant
+          </div> */}
         </li>
         {menu.map((menu) => (
-            <li key={menu.name}>
-                <a 
-                href={menu.link} 
-                className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
-                no-underline text-green-700 border-white 
-                hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
-                {menu.name}
-                </a>
-            </li> 
-            
-        ))}     
-        </div>
-        <Link href="/admin">
+          <li key={menu.name} className=" flex justify-center">
             <a
-            className="font-mono w-40 inline-block text-sm px-4 py-2 leading-none border rounded
+              href={menu.link}
+              className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
+                no-underline text-green-700 border-white 
+                hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+            >
+              {menu.name}
+            </a>
+          </li>
+        ))}
+      </div>
+      {/* <Link href="/admin">
+        <a
+          className="font-mono w-40 inline-block text-sm px-4 py-2 leading-none border rounded
             no-underline text-green-700 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 mb-8 lg:mt-0"
-            >Logout</a>
-        </Link>
+        >
+          Logout
+        </a>
+      </Link> */}
     </div>
-    )
+  );
 }
