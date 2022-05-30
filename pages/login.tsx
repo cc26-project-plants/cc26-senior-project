@@ -21,7 +21,7 @@ function Login() {
     try {
       setLoading(true);
       await login(data?.email, data?.password);
-      router.push("/");
+      router.push("/main");
     } catch (err) {
       console.log(err);
     }
