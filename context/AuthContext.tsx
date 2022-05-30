@@ -25,7 +25,7 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState<any>();
   const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
@@ -38,18 +38,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     signInWithEmailAndPassword(auth, email, password);
   }
 
-  function logout() {
-    console.log(currentUser);
+  async function logout() {
+    setCurrentUser(null);
     return auth.signOut();
   }
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user: any) => {
-      setCurrentUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser({
+          uid: user.uid,
+          email: user.email,
+        });
+      } else {
+        setCurrentUser(null);
+      }
       setLoading(false);
     });
-
-    return unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   return (

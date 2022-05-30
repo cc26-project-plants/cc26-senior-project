@@ -3,9 +3,9 @@ import { Button, Card, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 
-const Signup = () => {
+function Signup() {
   const router = useRouter();
-  const { user, signup } = useAuth();
+  const { signup } = useAuth();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -25,7 +25,7 @@ const Signup = () => {
   return (
     <div
       style={{
-        width: "40%",
+        width: "25%",
         margin: "auto",
       }}
     >
@@ -72,6 +72,6 @@ const Signup = () => {
       </Card>
     </div>
   );
-};
+}
 
 export default Signup;

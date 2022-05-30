@@ -5,10 +5,9 @@ import { useRouter } from "next/router";
 import { auth } from "../config/firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-export default function Login() {
+function Login() {
   const router = useRouter();
   const { currentUser, login } = useAuth();
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     email: "",
@@ -20,13 +19,10 @@ export default function Login() {
   async function handleSubmit(e: any) {
     e.preventDefault();
     try {
-      setError("");
       setLoading(true);
       await login(data?.email, data?.password);
-      console.log(currentUser);
       router.push("/");
     } catch (err) {
-      setError("Failed to log in");
       console.log(err);
     }
 
@@ -47,7 +43,7 @@ export default function Login() {
   return (
     <div
       style={{
-        width: "40%",
+        width: "25%",
         margin: "auto",
       }}
     >
@@ -85,6 +81,7 @@ export default function Login() {
                 placeholder="Password"
               />
             </Form.Group>
+
             <Button
               disabled={loading}
               className="w-100"
@@ -93,16 +90,18 @@ export default function Login() {
             >
               Log In
             </Button>
+            <Button
+              disabled={loading}
+              className="w-100"
+              onClick={(e: any) => signInWithGoogle(e)}
+            >
+              Log In With Google
+            </Button>
           </Form>
-          <Button
-            disabled={loading}
-            className="w-100"
-            onClick={(e: any) => signInWithGoogle(e)}
-          >
-            Log In With Google
-          </Button>
         </Card.Body>
       </Card>
     </div>
   );
 }
+
+export default Login;
