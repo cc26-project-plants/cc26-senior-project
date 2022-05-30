@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "next/link";
+// import Link from "next/link";
 import { withProtected } from "../src/hook/route";
 
 import Navbar from "./Navbar ";
