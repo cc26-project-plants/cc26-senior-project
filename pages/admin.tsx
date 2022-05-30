@@ -1,14 +1,11 @@
 import React from "react";
 // import { withProtected } from "../src/hook/route";
 import { Button } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
-import { useAuth } from "../context/AuthContext"
 
-//className;
-//line 13: tailwind
-//button: bootstrap
+
 function Admin() {
-  // const { logout } = auth;
   const { logout } = useAuth();
   return (
     <div>
@@ -30,5 +27,4 @@ function Admin() {
   );
 }
 
-// export default withProtected(Admin);
 export default Admin;
