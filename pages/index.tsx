@@ -1,12 +1,16 @@
 import type { NextPage } from "next";
 import React from "react";
-import { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Form, Button } from "react-bootstrap";
 import Main from "./main";
+import { useAuth } from "../context/AuthContext";
 
 const Index = () => {
-  return <Main />;
+  const { logout } = useAuth();
+  return (
+    <div>
+      <button onClick={logout}>Logout</button>
+    </div>
+  );
 };
 
 export default Index;

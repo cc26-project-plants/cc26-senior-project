@@ -10,10 +10,7 @@ const Main = () => {
   // const { user, loginWithGoogle, error }: any = auth;
   return (
     <div>
-      <div>My Plants Status</div>
-      <Navbar />
-
-
+      <p>Main(lets draw your app here)</p>
       {/* <p>Hi! {user?.displayName} Welcome to Plants!</p> */}
       {/* <Link href="/admin">
         <a>Logout</a>

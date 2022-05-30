@@ -1,6 +1,5 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import "firebase/compat/firestore";
 
 const app = firebase.initializeApp({
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -10,10 +9,6 @@ const app = firebase.initializeApp({
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 });
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(app);
-}
 
 export const auth = app.auth();
 export default app;

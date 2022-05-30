@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
-import firebase from "firebase/compat/app";
-import "firebase/auth";
-import useAuth from "../hook/auth";
+// import React, { useEffect, useState, createContext } from "react";
+// import firebase from "firebase/compat/app";
+// import "firebase/auth";
+// import useAuth from "../hook/auth";
 
-function AuthStateChanged({ children }: { children: any }) {
-  const { setUser } = useAuth();
+// const authUserContext = createContext({});
 
-  const [loading, setLoading] = useState(true);
+// function AuthStateChanged({ children }: { children: any }) {
+//   const { setUser }: any = useAuth();
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-  }, []);
+//   const [loading, setLoading] = useState(true);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+//   useEffect(() => {
+//     firebase.auth().onAuthStateChanged((user) => {
+//       setUser(user);
+//       setLoading(false);
+//     });
+//   }, []);
 
-  return children;
-}
+//   if (loading) {
+//     return <h1>Loading...</h1>;
+//   }
 
-export default AuthStateChanged;
+//   return children;
+// }
+
+// export default AuthStateChanged;
