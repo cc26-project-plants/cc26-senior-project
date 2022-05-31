@@ -29,7 +29,9 @@ export default function Navbar({}) {
           </li>
         ))}
       </div>
-      <div className="w-120 flex justify-center">
+      <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-20"></div>
+
+      <div className="w-120 flex justify-center sticky bottom-0">
         <Link href="/admin">
             <a
             className="font-mono w-40 inline-block text-sm px-4 py-2 leading-none border rounded

@@ -63,12 +63,12 @@ const Main = () => {
     console.log("hello")
     createChart();
     return;
-  }, [showLight,showTemp]);
+  }, [showLight, showTemp]);
 
   return (
     <div>
       <div className="flex justify-between font-mono max-w-screen h-20 bg-green-100 align-middle ">
-        <div className="align-text-bottom bg-hutaba bg-contain bg-no-repeat bg-center ">
+        <div className="align-text-bottom bg-leaf bg-contain bg-no-repeat bg-center ">
           Happa
         </div>
         <button
