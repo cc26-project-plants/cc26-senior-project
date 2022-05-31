@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "deploy": "npm run build && gcloud app deploy",
     "lint": "next lint"
   },
