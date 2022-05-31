@@ -61,7 +61,6 @@ const Main = () => {
 
   useEffect(() => {
     createChart();
-    return;
   }, []);
 
   return (
