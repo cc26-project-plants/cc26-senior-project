@@ -9,13 +9,13 @@ const Main = () => {
   const { temp, humdidity, soilWater, timeStamp, light } = useData();
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
-  const [showSoilWater, setSoilWater] = useState(false);
+  // const [showSoilWater, setSoilWater] = useState(false);
   const [tempData, setTempData] = useState({});
   const [lightData, setLightData] = useState({});
   const hideEverything = () => {
     setShowLight(false);
     setShowTemp(false);
-    setSoilWater(false);
+    // setSoilWater(false);
   };
   const displayLight = () => {
     hideEverything();
@@ -25,11 +25,11 @@ const Main = () => {
     hideEverything();
     setShowTemp(true);
   };
-  const displaySoilWater = () => {
-    setShowLight(false);
-    setShowTemp(false);
-    setSoilWater(true);
-  };
+  // const displaySoilWater = () => {
+  //   setShowLight(false);
+  //   setShowTemp(false);
+  //   setSoilWater(true);
+  // };
 
   function createChart() {
     setTempData({
@@ -60,9 +60,10 @@ const Main = () => {
   }
 
   useEffect(() => {
+    console.log("hello")
     createChart();
     return;
-  }, []);
+  }, [showLight,showTemp]);
 
   return (
     <div>
@@ -116,12 +117,12 @@ const Main = () => {
               Humidity
             </button>
           </div>
-            <div className="h-50 w-50 mx-10">
+
               {showLight && <LightLevel chartData={tempData} />}
               {showTemp && <TempLevel chartData={tempData} />}
               {/* {showSoilMoist && <SoilMoist chartData={tempData} />}
               {showHumidity && <Humidity chartData={tempData} />} */}
-            </div>
+
         </div>
       </div>
     </div>
