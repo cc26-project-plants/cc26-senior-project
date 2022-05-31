@@ -8,8 +8,8 @@ import Link from "next/link";
 function Admin() {
   const { logout } = useAuth();
   return (
-    <div>
-      <div className="flex flex-col container mx-auto p-8">
+    <div className="bg-lime-400 w-screen h-screen">
+      <div className="flex flex-col container mx-auto p-8 ">
         <Link href="/main">
           <Button type="button" className="btn btn-info w-25 my-5">
             Go Back to Main Page
