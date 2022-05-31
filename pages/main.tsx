@@ -1,20 +1,17 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import PlantData from "./charts/Data.json";
-// import Link from "next/link";
-// import { withProtected } from "../src/hook/route";
 import Navbar from "./Navbar ";
 import TempLevel from "./charts/TempLevel";
 import LightLevel from "./charts/LightLevel";
-
-interface PlantData {
-  Data: any;
-}
+import { useData } from "../context/GetData";
 
 const Main = () => {
+  const { temp, humdidity, soilWater, timeStamp, light } = useData();
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
   const [showSoilWater, setSoilWater] = useState(false);
+  const [tempData, setTempData] = useState({});
+  const [lightData, setLightData] = useState({});
   const hideEverything = () => {
     setShowLight(false);
     setShowTemp(false);
@@ -33,38 +30,38 @@ const Main = () => {
     setShowTemp(false);
     setSoilWater(true);
   };
-  let plantTemperatureArray: string[] = [];
-  let plantTemperatureTimeArray: number[] = [];
-  function getTemp() {
-    // let plantDataValues =
-    // PlantData.data._fieldsProto.sensorData.arrayValue.values;
 
-    //Return Data
-    // plantTemperatureArray = plantDataValues.map(
-    //   (val: any) => val.mapValue.fields.temperature.integerValue
-    // );
-    // plantTemperatureTimeArray = plantDataValues.map(
-    //   (val: any) => val.mapValue.fields.timestamp.timestampValue.nanos
-    // );
-    // console.log(plantTemperatureArray);
-    // console.log(plantTemperatureTimeArray);
+  function createChart() {
+    setTempData({
+      labels: timeStamp,
+      datasets: [
+        {
+          label: "Temperature",
+          data: temp,
+          backgroundColor: ["rgba(75,192,192,1)"],
+          borderColor: "black",
+          borderWidth: 2,
+        },
+      ],
+    });
+    /////
+    setLightData({
+      labels: timeStamp,
+      datasets: [
+        {
+          label: "Light Level",
+          data: light,
+          backgroundColor: ["rgba(75,192,192,1)"],
+          borderColor: "black",
+          borderWidth: 2,
+        },
+      ],
+    });
   }
 
-  const [tempData, setTempData] = useState({
-    labels: plantTemperatureTimeArray,
-    datasets: [
-      {
-        label: "Temperature",
-        data: plantTemperatureArray,
-        backgroundColor: ["rgba(75,192,192,1)"],
-        borderColor: "black",
-        borderWidth: 2,
-      },
-    ],
-  });
-
   useEffect(() => {
-    getTemp();
+    createChart();
+    return;
   }, []);
 
   return (
