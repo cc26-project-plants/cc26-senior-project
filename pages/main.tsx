@@ -118,9 +118,9 @@ const Main = () => {
 
   return (
     <div>
-      <div className="flex justify-between font-mono max-w-screen h-20 bg-sycamore-50 align-middle ">
-        <div className="w-40 h-20 bg-leaf bg-contain bg-no-repeat bg-center text-center ml-24">
-          <h4 className="flex justify-start mt-12 ml-2 text-apple-600">
+      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
+        <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-24">
+          <h4 className="flex justify-start mt-10 ml-0 text-apple-500">
             Happa
           </h4>
         </div>
@@ -128,8 +128,8 @@ const Main = () => {
           <button
             className="w-40 h-20 inline-block text-sm leading-none border rounded
               no-underline text-white border-teal-500 bg-apple-300 
-              hover:border-transparent hover:text-white hover:bg-teal-500 
-              shadow-gray-200 shadow-lg 
+              hover:border-transparent hover:text-white hover:bg-apple-400 
+              shadow-gray-200 drop-shadow-md
               "
           >
             My Page
@@ -138,7 +138,9 @@ const Main = () => {
             <button
               className="w-40 h-20 inline-block text-sm leading-none border rounded
               no-underline text-white border-sycamore-500 bg-apple-300
-              hover:border-transparent hover:text-white hover:bg-teal-500"
+              hover:border-transparent hover:text-white hover:bg-apple-400
+              shadow-md
+              "
             >
               Log Out
             </button>
@@ -146,16 +148,16 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="flex flex-row ">
+      <div className="flex flex-row">
         <Navbar />
         <div className="font-mono  w-screen h-screen bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
-          <div className="flex justify-around mb-10">
+          <div className="flex justify-around mt-7 mb-10">
             <button
               onClick={displayLight}
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
             no-underline text-apple-500 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
-            shadow-apple-300 shadow-md
+            shadow-apple-400 shadow-md
             "
             >
               light
@@ -166,7 +168,7 @@ const Main = () => {
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
             no-underline text-apple-500 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
-            shadow-apple-300 shadow-md
+            shadow-apple-400 shadow-md
             "
             >
               Temperature
@@ -177,7 +179,7 @@ const Main = () => {
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
             no-underline text-apple-500 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
-            shadow-apple-300 shadow-md
+            shadow-apple-400 shadow-md
             "
             >
               Soil Moisture
@@ -187,7 +189,7 @@ const Main = () => {
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
             no-underline text-apple-500 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 
-            shadow-apple-300 shadow-md
+            shadow-apple-400 shadow-md
             "
             >
               Humidity

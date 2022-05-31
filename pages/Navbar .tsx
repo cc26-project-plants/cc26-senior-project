@@ -7,15 +7,17 @@ export default function Navbar({}) {
   ];
 
   return (
-    <div className=" w-96 h-screen bg-apple-300 list-none ">
-      <div className="mt-24 ">
+    <div className="w-96 h-screen bg-apple-300 list-none">
+      <div className="mt-24">
         {menu.map((menu) => (
-          <li key={menu.name} className=" flex justify-center mt-1 ">
+          <li key={menu.name} className="flex justify-center mt-1">
             <a
               href={menu.link}
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
-                no-underline text-gray-50 border-white  shadow-lg
-                hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+                no-underline text-gray-50 border-white
+                hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
+                shadow-apple-400 shadow-md
+                "
             >
               {menu.name}
             </a>
