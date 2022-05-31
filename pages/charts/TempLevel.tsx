@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineController,
@@ -22,7 +22,7 @@ function TempLevel({ chartData }) {
     BarElement
   );
 
-  return <Bar data={chartData} />;
+  return <Line data={chartData} />;
 }
 
 export default TempLevel;
