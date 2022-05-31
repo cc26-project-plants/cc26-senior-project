@@ -1,5 +1,5 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
+import React, { useEffect } from "react";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineController,
@@ -11,7 +11,7 @@ import {
   BarElement,
 } from "chart.js";
 
-function LightLevel({ chartData }) {
+function TempLevel({ chartData }) {
   ChartJS.register(
     LineController,
     LineElement,
@@ -21,6 +21,8 @@ function LightLevel({ chartData }) {
     CategoryScale,
     BarElement
   );
-  return <Line data={chartData} />;
+
+  return <Bar data={chartData} />;
 }
-export default LightLevel
+
+export default TempLevel;
