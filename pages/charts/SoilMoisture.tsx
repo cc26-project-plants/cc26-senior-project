@@ -11,7 +11,7 @@ import {
   BarElement,
 } from "chart.js";
 
-function Temp({ chartData }) {
+function SoilMoist({ chartData }) {
   ChartJS.register(
     LineController,
     LineElement,
@@ -23,4 +23,4 @@ function Temp({ chartData }) {
   );
   return <Bar data={chartData} />;
 }
-export default Temp
+export default SoilMoist;

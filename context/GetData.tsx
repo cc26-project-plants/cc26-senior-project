@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import axios from "axios";
+import moment from "moment";
 
 const DataContext = createContext<any>({});
 
@@ -40,9 +41,10 @@ export default function DataProvider({
       )
     );
     setTimeStamp(
-      allPlantStats.map(
-        (element: { timestamp: any }) => element.timestamp._seconds
-      )
+      allPlantStats.map((element: { timestamp: any }) => {
+        let dates = moment.unix(element.timestamp._seconds);
+        return moment(dates).format("MMM Do, h:mm:ss a");
+      })
     );
   };
 
