@@ -1,5 +1,6 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link";
 import Navbar from "./Navbar ";
 import TempLevel from "./charts/TempLevel";
 import LightLevel from "./charts/LightLevel";
@@ -68,14 +69,23 @@ const Main = () => {
   return (
     <div>
       <div className="flex justify-between font-mono max-w-screen h-20 bg-green-100 align-middle ">
-        <div className="align-text-bottom bg-leaf bg-contain bg-no-repeat bg-center ">
+        <div className="w-40 h-20 bg-leaf bg-contain bg-no-repeat bg-center text-center align-middle">
           Happa
         </div>
-        <button
-          className="w-40 inline-block text-sm leading-none border rounded
-          no-underline text-white border-teal-500 bg-green-600
-          hover:border-transparent hover:text-white hover:bg-teal-500"
-        >My Page</button>
+        <div>
+          <button
+              className="w-40 h-20 inline-block text-sm leading-none border rounded
+              no-underline text-white border-teal-500 bg-green-600
+              hover:border-transparent hover:text-white hover:bg-teal-500 " 
+            >My Page</button>
+          <Link href="/admin">
+            <button
+              className="w-40 h-20 inline-block text-sm leading-none border rounded
+              no-underline text-white border-teal-500 bg-green-600
+              hover:border-transparent hover:text-white hover:bg-teal-500"
+            >Log Out</button>
+          </Link>
+       </div>
       </div>
 
       <div className="flex flex-row">
