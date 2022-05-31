@@ -13,6 +13,7 @@ module.exports = {
         'rainyframe': "url('/images/rainyframe.png')",
         'soilframe': "url('/images/soilframe.png')",
         'tabletframe': "url('/images/tabletframe.png')",
+        'hutaba': "url('/images/hutaba.png')",
       }),
     },
   },

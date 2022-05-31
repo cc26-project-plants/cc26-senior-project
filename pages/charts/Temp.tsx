@@ -11,7 +11,7 @@ import {
   BarElement,
 } from "chart.js";
 
-function LightLevel({ chartData }) {
+function Temp({ chartData }) {
   ChartJS.register(
     LineController,
     LineElement,
@@ -23,4 +23,4 @@ function LightLevel({ chartData }) {
   );
   return <Bar data={chartData} />;
 }
-export default LightLevel
+export default Temp
