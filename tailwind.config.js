@@ -14,6 +14,7 @@ module.exports = {
         'soilframe': "url('/images/soilframe.png')",
         'tabletframe': "url('/images/tabletframe.png')",
         'hutaba': "url('/images/hutaba.png')",
+        'leaf': "url('/images/leaf.png')",
       }),
     },
   },
