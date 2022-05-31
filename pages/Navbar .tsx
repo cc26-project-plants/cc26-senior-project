@@ -15,7 +15,7 @@ export default function Navbar({}) {
               href={menu.link}
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
                 no-underline text-gray-50 border-white
-                hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
+                hover:border-transparent hover:text-teal-600 hover:bg-apple-50 mt-4 lg:mt-0
                 shadow-apple-400 shadow-md
                 "
             >
