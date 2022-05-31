@@ -1,11 +1,9 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "next/link";
-import { withProtected } from "../src/hook/route";
 import Navbar from "./Navbar ";
 import TempLevel from "./charts/TempLevel";
 import LightLevel from "./charts/LightLevel";
-import { useData } from "../context/getdata";
+import { useData } from "../context/GetData";
 
 interface PlantData {
   Data: any;
