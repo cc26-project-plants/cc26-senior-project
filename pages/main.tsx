@@ -7,10 +7,6 @@ import TempLevel from "./charts/TempLevel";
 import LightLevel from "./charts/LightLevel";
 import { useData } from "../context/getdata";
 
-interface PlantData {
-  Data: any;
-}
-
 const Main = () => {
   const { temp, humdidity, soilWater, timeStamp, light } = useData();
   const [showLight, setShowLight] = useState(false);
@@ -66,8 +62,8 @@ const Main = () => {
   }
 
   useEffect(() => {
-    console.log(timeStamp);
     createChart();
+    return;
   }, []);
 
   return (
