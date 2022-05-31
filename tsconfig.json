@@ -22,7 +22,8 @@
     "**/*.tsx",
     "context/AuthContext.jsx",
     "pages/login.jsx",
-    "pages/login.jsx"
+    "pages/login.jsx",
+    "pages/charts/Data.js"
   ],
   "exclude": ["node_modules"]
 }
