@@ -40,4 +40,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# notes
+deploy_notes.md
 docker_notes.md
