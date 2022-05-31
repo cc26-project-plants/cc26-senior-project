@@ -58,7 +58,6 @@ const Main = () => {
       <div className="flex flex-row  ">
         <Navbar />
         <div className="font-mono  w-screen h-screen  bg-green-600">
-          {/* Main Field here */}
           <div>
             <button
             onClick={displayLight}
@@ -66,7 +65,6 @@ const Main = () => {
             no-underline text-yellow-100 border-white 
             hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
             >light</button>
-            {/* {showLight && <LightLevel chartData={tempData} />} */}
 
             <button
             onClick={displayTemp}
@@ -84,11 +82,8 @@ const Main = () => {
 
             {showLight && <LightLevel chartData={tempData} />}
             {showTemp && <Temp chartData={tempData} />}
-            {/* {showSoilWater && <Temp chartData={tempData} />} */}
-            {/* <LightLevel chartData={tempData} /> */}
+
           </div>
-          {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
-          {/* {modalShow && <FeedPlant onClick={displayModal}/>} */}
         </div>
       </div>
     </div>
