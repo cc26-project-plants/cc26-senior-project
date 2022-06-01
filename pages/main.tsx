@@ -12,6 +12,7 @@ import { useData } from "../context/GetData";
 
 const Main = () => {
   const { temp, humdidity, soilWater, timeStamp, light } = useData();
+  const { currentUser } = useAuth();
   const { logout } = useAuth();
   const router = useRouter();
   const [showLight, setShowLight] = useState(false);
@@ -115,10 +116,10 @@ const Main = () => {
     });
   }
 
-  function handleLogOut(e) {
+  async function handleLogOut(e: any) {
     e.preventDefault();
     try {
-      logout();
+      await logout();
       router.push("/login");
     } catch (err) {
       console.log(err);

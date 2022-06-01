@@ -40,7 +40,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   async function logout() {
     setCurrentUser(null);
-    return auth.signOut();
+    auth.signOut();
   }
 
   useEffect(() => {
@@ -55,6 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
       setLoading(false);
     });
+    console.log("Hello");
     return () => unsubscribe();
   }, []);
 

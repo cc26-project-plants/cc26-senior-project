@@ -41,18 +41,21 @@ function Login() {
   };
 
   return (
-    <div
-      style={{
-        width: "25%",
-        margin: "auto",
-      }}
-    >
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          <Form onSubmit={(e: any) => signInWithGoogle(e)}>
+    <div>
+      <div className=" bg-loginBg h-screen flex justify-start flex-col">
+        <div className=" w-1/2 h-1/2  mt-16 ml-16 p-44">
+          <form
+            onSubmit={(e: any) => signInWithGoogle(e)}
+            className={
+              " bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white"
+            }
+          >
+            <h2 className="text-center text-white font-thin ">
+              Welcome to Happa!
+            </h2>
+            <h2 className="text-center text-white font-thin">Log In</h2>
             <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label className="text-white">Email</Form.Label>
               <Form.Control
                 type="email"
                 onChange={(e: any) =>
@@ -67,7 +70,7 @@ function Login() {
               />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label className="text-white">Password</Form.Label>
               <Form.Control
                 type="password"
                 onChange={(e: any) =>
@@ -81,25 +84,26 @@ function Login() {
                 placeholder="Password"
               />
             </Form.Group>
-
-            <Button
-              disabled={loading}
-              className="w-100"
-              type="submit"
-              onClick={(e: any) => handleSubmit(e)}
-            >
-              Log In
-            </Button>
-            <Button
-              disabled={loading}
-              className="w-100"
-              onClick={(e: any) => signInWithGoogle(e)}
-            >
-              Log In With Google
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
+            <div className=" flex justify-center flex-col">
+              <button
+                disabled={loading}
+                className="w-1/2 text-white justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
+                type="submit"
+                onClick={(e: any) => handleSubmit(e)}
+              >
+                Log In
+              </button>
+              <button
+                disabled={loading}
+                className="w-1/2 text-white justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400 flex flex-col"
+                onClick={(e: any) => signInWithGoogle(e)}
+              >
+                Log In With Google
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
