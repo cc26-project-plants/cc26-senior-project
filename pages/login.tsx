@@ -41,65 +41,68 @@ function Login() {
   };
 
   return (
-    <div
-      style={{
-        width: "25%",
-        margin: "auto",
-      }}
-    >
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
-          <Form onSubmit={(e: any) => signInWithGoogle(e)}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                onChange={(e: any) =>
-                  setData({
-                    ...data,
-                    email: e.target.value,
-                  })
-                }
-                required
-                value={data.email}
-                placeholder="Enter email"
-              />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                onChange={(e: any) =>
-                  setData({
-                    ...data,
-                    password: e.target.value,
-                  })
-                }
-                value={data.password}
-                required
-                placeholder="Password"
-              />
-            </Form.Group>
-
-            <Button
+    <div>
+      <div className=" bg-loginBg  h-screen w-screen flex  flex-row items-center">
+        <div className=" w-1/6 "></div>
+        <form
+          onSubmit={(e: any) => signInWithGoogle(e)}
+          className={
+            " bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/3 min-w-fit  min-h-fit"
+          }
+        >
+          <h2 className="text-center text-white font-thin ">
+            Welcome to Happa!
+          </h2>
+          <h2 className="text-center text-white font-thin ">Log In</h2>
+          <Form.Group id="email">
+            <Form.Label className="text-white">Email</Form.Label>
+            <Form.Control
+              type="email"
+              onChange={(e: any) =>
+                setData({
+                  ...data,
+                  email: e.target.value,
+                })
+              }
+              required
+              value={data.email}
+              placeholder="Enter email"
+            />
+          </Form.Group>
+          <Form.Group id="password">
+            <Form.Label className="text-white">Password</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e: any) =>
+                setData({
+                  ...data,
+                  password: e.target.value,
+                })
+              }
+              value={data.password}
+              required
+              placeholder="Password"
+            />
+          </Form.Group>
+          <div className=" flex justify-center flex-col">
+            <button
               disabled={loading}
-              className="w-100"
+              className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400 "
               type="submit"
               onClick={(e: any) => handleSubmit(e)}
             >
               Log In
-            </Button>
-            <Button
+            </button>
+            <button
               disabled={loading}
-              className="w-100"
+              className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
               onClick={(e: any) => signInWithGoogle(e)}
             >
               Log In With Google
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

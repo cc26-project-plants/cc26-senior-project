@@ -49,6 +49,7 @@ module.exports = {
         tabletframe: "url('/images/tabletframe.png')",
         hutaba: "url('/images/hutaba.png')",
         leaf: "url('/images/leaf.png')",
+        loginBg: "url('/images/loginBg.png')",
       }),
     },
   },

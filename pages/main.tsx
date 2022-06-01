@@ -2,14 +2,19 @@ import React, { useDebugValue, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import Navbar from "./Navbar ";
+import { useRouter } from "next/router";
 import TempLevel from "./charts/TempLevel";
 import LightLevel from "./charts/LightLevel";
 import SoilMoist from "./charts/SoilMoisture";
 import HumidityLevel from "./charts/HumidityLevel";
+import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/GetData";
 
 const Main = () => {
   const { temp, humdidity, soilWater, timeStamp, light } = useData();
+  const { currentUser } = useAuth();
+  const { logout } = useAuth();
+  const router = useRouter();
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
   const [showHumidity, setShowHumidity] = useState(false);
@@ -111,6 +116,16 @@ const Main = () => {
     });
   }
 
+  async function handleLogOut(e: any) {
+    e.preventDefault();
+    try {
+      await logout();
+      router.push("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
     createChart();
     return;
@@ -136,6 +151,9 @@ const Main = () => {
           </button>
           <Link href="/admin">
             <button
+              onClick={(e) => {
+                handleLogOut(e);
+              }}
               className="w-40 h-20 inline-block text-sm leading-none border rounded
               no-underline text-white border-sycamore-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
