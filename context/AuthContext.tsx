@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import { auth } from "../config/firebase";
-import { useRouter } from "next/router";
+
 import {
   getAuth,
   signOut,
