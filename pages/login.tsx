@@ -108,7 +108,7 @@ function Login() {
             <div>
               <p
               className="text-white mt-10">
-                if you do not have account, signup below
+                If you haven&apos;t signed up, sign up now!
               </p>
               <Link href="/signup">
                 <button

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Card, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
+import { sendStatusCode } from "next/dist/server/api-utils";
 
 
 function Signup() {
@@ -17,13 +18,23 @@ function Signup() {
     password: "",
   });
 
+  const [sentData, setsentData] = useState({
+      userName: data.userName,
+      plantId: data.plantID,
+      plantName: data.plantName,
+      plantType: data.plantType
+  });
+
+  const [returnData, setRetunData] = useState({})
+
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
     try {
       await signup(data.email, data.password);
+      await createUser()
+      // await getReturnData()
       router.push("/");
-      createUser()
       // console.log("data",data)
     } catch (err) {
       console.log(err);
@@ -31,15 +42,28 @@ function Signup() {
   };
 
   const createUser = async ()=>{
-    const newUser = {
-      userName: data.userName,
-      plantId: data.plantID,
-      plantName: data.plantName,
-      plantType: data.plantType
-    }
-    console.log("new user", newUser)
-    await axios.post("https://happa-26-backend.an.r.appspot.com/users/", newUser)
+    // const sentData = {
+    //   userName: data.userName,
+    //   plantId: data.plantID,
+    //   plantName: data.plantName,
+    //   plantType: data.plantType
+    // }
+    console.log("sentData", sentData)
+    const response = await axios.post("https://happa-26-backend.an.r.appspot.com/users/", sentData);
+    const returnGetData = response.data;
+    setRetunData(returnGetData)
   }
+
+  // const getReturnData = async () =>{
+  //   try{
+  //     const response = await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`);
+  //     const returnGetData = response.data
+  //     console.log(returnGetData)
+  //     setRetunData(returnGetData)
+  //   }catch(error){
+  //     console.error("error")
+  //   }
+  // }
 
   return (
     <div>
