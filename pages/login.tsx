@@ -95,7 +95,7 @@ function Login() {
             </button>
             <button
               disabled={loading}
-              className="w-1/2 text-white justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400 flex flex-col min-1/2"
+              className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400 "
               onClick={(e: any) => signInWithGoogle(e)}
             >
               Log In With Google

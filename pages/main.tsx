@@ -1,5 +1,6 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Form, Button, Card } from "react-bootstrap";
 import Link from "next/link";
 import Navbar from "./Navbar ";
 import { useRouter } from "next/router";
@@ -8,21 +9,15 @@ import LightLevel from "./charts/LightLevel";
 import SoilMoist from "./charts/SoilMoisture";
 import HumidityLevel from "./charts/HumidityLevel";
 import { useAuth } from "../context/AuthContext";
-import { useData } from "../context/GetData";
 
 const Main = () => {
-  const { temp, humdidity, soilWater, timeStamp, light } = useData();
-  const { currentUser } = useAuth();
-  const { logout } = useAuth();
+  const { setCurrentUser, logout } = useAuth();
   const router = useRouter();
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
   const [showHumidity, setShowHumidity] = useState(false);
   const [showSoilMoist, setShowSoilWater] = useState(false);
-  const [tempData, setTempData] = useState({});
-  const [lightData, setLightData] = useState({});
-  const [soilData, setSoilData] = useState({});
-  const [humidityData, setHumidityData] = useState({});
+
   const hideEverything = () => {
     setShowLight(false);
     setShowTemp(false);
@@ -46,94 +41,20 @@ const Main = () => {
     setShowHumidity(true);
   };
 
-  function createChart() {
-    setTempData({
-      labels: timeStamp,
-      datasets: [
-        {
-          label: "Temperature",
-          data: temp,
-          backgroundColor: ["rgba(75,192,192,1)"],
-          borderColor: "black",
-          borderWidth: 2,
-        },
-      ],
-    });
-    /////
-    setLightData({
-      labels: timeStamp,
-      datasets: [
-        {
-          label: "Light Level",
-          data: light,
-          backgroundColor: ["rgba(75,192,192,1)"],
-          borderColor: "black",
-          borderWidth: 2,
-        },
-      ],
-    });
-    //////
-    setLightData({
-      labels: timeStamp,
-      datasets: [
-        {
-          label: "Soil Moisture",
-          data: light,
-          backgroundColor: "#ebde81",
-          borderColor: "#fad45c",
-          borderWidth: 1.5,
-        },
-      ],
-    });
-    //////
-    setSoilData({
-      labels: timeStamp,
-      datasets: [
-        {
-          label: "Soil Moisture",
-          data: soilWater,
-          backgroundColor: "#4b9fc4",
-          borderColor: "#296985",
-          borderWidth: 1.5,
-        },
-      ],
-    });
-    ////
-    setHumidityData({
-      labels: timeStamp,
-
-      datasets: [
-        {
-          label: "Humidity",
-          data: humdidity,
-          backgroundColor: "blue",
-          defaultFontColor: "black",
-          color: "black",
-          borderColor: "black",
-          borderWidth: 2,
-        },
-      ],
-    });
-  }
-
   async function handleLogOut(e: any) {
     e.preventDefault();
     try {
       await logout();
+      setCurrentUser(null);
       router.push("/login");
     } catch (err) {
       console.log(err);
     }
   }
 
-  useEffect(() => {
-    createChart();
-    return;
-  }, [showLight, showTemp, showHumidity, showSoilMoist]);
-
   return (
     <div>
-      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
+      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg ">
         <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-24">
           <h4 className="flex justify-start mt-10 ml-0 text-apple-500">
             Happa
@@ -154,7 +75,7 @@ const Main = () => {
               onClick={(e) => {
                 handleLogOut(e);
               }}
-              className="w-40 h-20 inline-block text-sm leading-none border rounded
+              className="w-40 h-20 inline-block text-sm leading-none border rounded 
               no-underline text-white border-sycamore-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
               shadow-md
@@ -166,9 +87,9 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="flex flex-row">
+      <div className="flex flex-row h-screen">
         <Navbar />
-        <div className="font-mono  w-screen h-screen bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
+        <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
           <div className="flex justify-around mt-7 mb-10">
             <button
               onClick={displayLight}
@@ -213,11 +134,21 @@ const Main = () => {
               Humidity
             </button>
           </div>
-          <div className="m-16">
-            {showLight && <LightLevel chartData={lightData} />}
-            {showTemp && <TempLevel chartData={tempData} />}
-            {showSoilMoist && <SoilMoist chartData={soilData} />}
-            {showHumidity && <HumidityLevel chartData={humidityData} />}
+          <div className="w-10/12 ml-28 ">
+            <div className="   bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3 ">
+              <Form className="w-28">
+                <Form.Select>
+                  <option>All</option>
+                  <option value="1">Month</option>
+                  <option value="2">Week</option>
+                  <option value="3">Day</option>
+                </Form.Select>
+              </Form>
+              {showLight && <LightLevel />}
+              {showTemp && <TempLevel />}
+              {showSoilMoist && <SoilMoist />}
+              {showHumidity && <HumidityLevel />}
+            </div>
           </div>
         </div>
       </div>

@@ -55,12 +55,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
       setLoading(false);
     });
-    console.log("Hello");
+    console.log(currentUser);
     return () => unsubscribe();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, signup, logout }}>
+    <AuthContext.Provider
+      value={{ setCurrentUser, currentUser, login, signup, logout }}
+    >
       {!loading && children}
     </AuthContext.Provider>
   );

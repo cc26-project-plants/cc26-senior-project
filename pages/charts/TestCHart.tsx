@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Bar } from "react-chartjs-2";
+import React, { useEffect, useState } from "react";
+import { Line } from "react-chartjs-2";
 import { useData } from "../../context/GetData";
 import {
   Chart as ChartJS,
@@ -10,29 +10,25 @@ import {
   Title,
   CategoryScale,
   BarElement,
+  ArcElement,
   Legend,
   Tooltip,
 } from "chart.js";
 
-function LightLevel() {
-  const { timeStamp, light } = useData();
-  const [dates, setDates] = useState(timeStamp);
-
-  console.log(timeStamp);
+function DoughnutLevel() {
+  const { humdidity, timeStamp } = useData();
   const data = {
     labels: timeStamp,
-
     datasets: [
       {
-        label: "Light Level",
-        data: light,
-        backgroundColor: "#ebde81",
-        borderColor: "#fad45c",
-        borderWidth: 1.5,
+        label: "Temperature",
+        data: humdidity,
+        backgroundColor: ["rgba(75,192,192,1)"],
+        borderColor: "black",
+        borderWidth: 2,
       },
     ],
   };
-
   ChartJS.register(
     LineController,
     LineElement,
@@ -41,10 +37,17 @@ function LightLevel() {
     Title,
     CategoryScale,
     BarElement,
+    ArcElement,
     Legend,
     Tooltip
   );
 
-  return <Bar data={data} />;
+  return (
+    <>
+      <h1>Chart</h1>
+      <Line data={data} />;
+    </>
+  );
 }
-export default LightLevel;
+
+export default DoughnutLevel;
