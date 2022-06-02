@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import { auth } from "../config/firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import Link from "next/link";
 
 function Login() {
   const router = useRouter();
@@ -101,7 +102,22 @@ function Login() {
               Log In With Google
             </button>
           </div>
-        </form>
+        {/* </form> */}
+ 
+ 
+            <div>
+              <p
+              className="text-white mt-10">
+                if you do not have account, signup below
+              </p>
+              <Link href="/signup">
+                <button
+                className="left-5 w-1/2 text-white min-w-1/2 justify-center bg-teal-700 outline outline-1 h-12 rounded-md outline-white hover:text-white hover:bg-teal-500"
+                >Signup  
+                </button>
+              </Link>
+            </div>
+            </form>
       </div>
     </div>
   );

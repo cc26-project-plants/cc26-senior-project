@@ -37,8 +37,8 @@ function Signup() {
       plantName: data.plantName,
       plantType: data.plantType
     }
-    // console.log("new user", newUser)
-    // await axios.post("https://happa-26-backend.an.r.appspot.com/users", newUser)
+    console.log("new user", newUser)
+    await axios.post("https://happa-26-backend.an.r.appspot.com/users/", newUser)
   }
 
   return (
@@ -53,7 +53,7 @@ function Signup() {
             >
 
             <h2 className="text-center font-thin">Signup</h2>
-            
+
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label
               className="font-semibold "
@@ -107,9 +107,9 @@ function Signup() {
                 value={data. plantType}
                 >
                   <option selected>Choose...</option>
-                  <option value="Cactus">Cactus（サボテン）</option>
-                  <option value="Sword Leaf">Sword Leaf（ソードリーフ）</option>
-                  <option value="Benjamin">Benjamin（ベンジャミン）</option>
+                  <option value="B">Cactus（サボテン）</option>
+                  <option value="B">Sword Leaf（ソードリーフ）</option>
+                  <option value="B">Benjamin（ベンジャミン）</option>
                 </Form.Select>
               </Form.Group>
 
