@@ -24,7 +24,6 @@ function TempLevel() {
       {
         label: "Temperature",
         data: temp,
-        backgroundColor: "#d47859",
         borderColor: "black",
         borderWidth: 2,
         fill: true,

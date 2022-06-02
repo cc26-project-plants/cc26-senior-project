@@ -46,7 +46,7 @@ export default function DataProvider({
     setTimeStamp(
       allPlantStats.map((element: { timestamp: any }) => {
         let dates = moment.unix(element.timestamp._seconds);
-        // moment(dates).fromNow();
+        console.log(moment(dates).format("L"));
         return moment(dates).format("MMM Do, h:mm:ss a");
       })
     );
@@ -58,7 +58,7 @@ export default function DataProvider({
 
   return (
     <DataContext.Provider
-      value={{ temp, humdidity, soilWater, timeStamp, light }}
+      value={{ temp, humdidity, soilWater, timeStamp, setTimeStamp, light }}
     >
       {children}
     </DataContext.Provider>

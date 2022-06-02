@@ -9,9 +9,12 @@ import LightLevel from "./charts/LightLevel";
 import SoilMoist from "./charts/SoilMoisture";
 import HumidityLevel from "./charts/HumidityLevel";
 import { useAuth } from "../context/AuthContext";
+import { useData } from "../context/GetData";
 
 const Main = () => {
   const { setCurrentUser, logout } = useAuth();
+  const { setTimeStamp, timeStamp } = useData();
+  const [dates, setDates] = useState(timeStamp);
   const router = useRouter();
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
@@ -50,6 +53,21 @@ const Main = () => {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  function handleDates(e) {
+    e.preventDefault();
+    const allDates = dates;
+    const days = dates.slice(-10);
+
+    if (e.target.value === "3") {
+      console.log("days");
+      setTimeStamp(days);
+    }
+    if (e.target.value === "0") {
+      setTimeStamp(allDates);
+    }
+    console.log(timeStamp);
   }
 
   return (
@@ -137,8 +155,8 @@ const Main = () => {
           <div className="w-10/12 ml-28 ">
             <div className="   bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3 ">
               <Form className="w-28">
-                <Form.Select>
-                  <option>All</option>
+                <Form.Select onChange={(e: any) => handleDates(e)}>
+                  <option value="0">All</option>
                   <option value="1">Month</option>
                   <option value="2">Week</option>
                   <option value="3">Day</option>

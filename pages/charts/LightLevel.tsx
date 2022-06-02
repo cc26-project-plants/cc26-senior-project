@@ -18,7 +18,6 @@ function LightLevel() {
   const { timeStamp, light } = useData();
   const [dates, setDates] = useState(timeStamp);
 
-  console.log(timeStamp);
   const data = {
     labels: timeStamp,
 
