@@ -46,7 +46,7 @@ export default function DataProvider({
     setTimeStamp(
       allPlantStats.map((element: { timestamp: any }) => {
         let dates = moment.unix(element.timestamp._seconds);
-        console.log(moment(dates).format("L"));
+        // console.log(moment(dates).format("L"));
         return moment(dates).format("MMM Do, h:mm:ss a");
       })
     );

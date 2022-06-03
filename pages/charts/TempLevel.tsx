@@ -12,8 +12,7 @@ import {
   Legend,
   Filler,
   Tooltip,
-  LineOptions,
-  BorderRadius,
+  Scale,
 } from "chart.js";
 
 function TempLevel() {

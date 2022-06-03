@@ -1,6 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { useData } from "../../context/GetData";
+import moment from "moment";
 import {
   Chart as ChartJS,
   LineController,
@@ -25,9 +26,6 @@ function SoilMoist() {
         borderWidth: 1.5,
       },
     ],
-    datalabels: {
-      color: "Red",
-    },
   };
   ChartJS.register(
     LineController,
