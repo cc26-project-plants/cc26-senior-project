@@ -1,5 +1,5 @@
-import axios from "axios";
 import Link from "next/link";
+import axios from "axios";
 
 function MyPage() {
   const getUserInfo = async () => {
