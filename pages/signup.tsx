@@ -7,7 +7,9 @@ import { useAuth } from "../context/AuthContext";
 
 function Signup() {
   const router = useRouter();
+
   const { signup } = useAuth();
+
   const [data, setData] = useState({
     userName: "",
     plantName: "",
@@ -16,20 +18,15 @@ function Signup() {
     email: "",
     _password: "",
   });
-
   const [returnData, setReturnData] = useState<any>();
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
-    try {
-      await signup(data.email, data._password);
-      await createUser();
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    await signup(data.email, data._password);
+    await createUser();
+    router.push("/");
+  }
 
   const createUser = async () => {
     const sentData = {
@@ -39,6 +36,7 @@ function Signup() {
       plantName: data.plantName,
       plantType: data.plantType,
     };
+
     const response = await axios.post(
       "https://happa-26-backend.an.r.appspot.com/users/",
       sentData
@@ -48,7 +46,7 @@ function Signup() {
     console.log(response);
     setReturnData(returnGetData);
     console.log("returnData", returnData);
-  };
+  }
 
   useEffect(() => {
     //  createUser();

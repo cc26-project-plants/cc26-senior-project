@@ -16,7 +16,7 @@ import {
 
 import { useData } from "../../context/GetData";
 
-function TempLevel() {
+const TempLevel = () => {
   const { timeStamp, temp } = useData();
   const data = {
     labels: timeStamp,

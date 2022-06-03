@@ -9,6 +9,6 @@ const Index = () => {
       <Login />
     </div>
   );
-};
+}
 
 export default Index;
