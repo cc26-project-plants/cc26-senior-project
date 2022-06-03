@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
-import { auth } from "../config/firebase";
 
+import { auth } from "../config/firebase";
 import {
   getAuth,
   signOut,
@@ -25,20 +25,21 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [currentUser, setCurrentUser] = useState<any>();
-  const [loading, setLoading] = useState(true);
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
 
-  function signup(email: string, password: string) {
+  const [currentUser, setCurrentUser] = useState<any>();
+  const [loading, setLoading] = useState(true);
+
+  const signup = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function login(email: string, password: string) {
+  const login = (email: string, password: string) => {
     signInWithEmailAndPassword(auth, email, password);
   }
 
-  async function logout() {
+  const logout = async () => {
     setCurrentUser(null);
     auth.signOut();
   }
@@ -54,8 +55,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setCurrentUser(null);
       }
       setLoading(false);
-    });
-    console.log(currentUser);
+    })
+
     return () => unsubscribe();
   }, []);
 

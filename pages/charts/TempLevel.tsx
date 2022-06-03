@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { useData } from "../../context/GetData";
 import {
   Chart as ChartJS,
   LineController,
@@ -15,7 +14,9 @@ import {
   Scale,
 } from "chart.js";
 
-function TempLevel() {
+import { useData } from "../../context/GetData";
+
+const TempLevel = () => {
   const { timeStamp, temp } = useData();
   const data = {
     labels: timeStamp,
