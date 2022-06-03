@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { useData } from "../../context/GetData";
 import {
   Chart as ChartJS,
   LineController,
@@ -14,6 +13,8 @@ import {
   Tooltip,
   Scale,
 } from "chart.js";
+
+import { useData } from "../../context/GetData";
 
 function TempLevel() {
   const { timeStamp, temp } = useData();

@@ -1,6 +1,5 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { useData } from "../../context/GetData";
 import {
   Chart as ChartJS,
   LineController,
@@ -12,6 +11,8 @@ import {
   Legend,
   Tooltip,
 } from "chart.js";
+
+import { useData } from "../../context/GetData";
 
 function HumidityLevel() {
   const { humdidity, timeStamp } = useData();

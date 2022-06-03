@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
-import { useAuth } from "../context/AuthContext";
-import { useRouter } from "next/router";
-import { auth } from "../config/firebase";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Form, Button, Card } from "react-bootstrap";
+
+import { auth } from "../config/firebase";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const router = useRouter();

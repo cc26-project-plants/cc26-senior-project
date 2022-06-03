@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Card, Form } from "react-bootstrap";
-import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
+import { Card, Form } from "react-bootstrap";
+import axios from "axios";
+
+import { useAuth } from "../context/AuthContext";
 
 function Signup() {
   const router = useRouter();

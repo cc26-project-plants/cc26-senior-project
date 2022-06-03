@@ -1,15 +1,16 @@
 import React, { useDebugValue, useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
-import Link from "next/link";
-import Navbar from "./Navbar";
-import { useRouter } from "next/router";
-import TempLevel from "./charts/TempLevel";
-import LightLevel from "./charts/LightLevel";
-import SoilMoist from "./charts/SoilMoisture";
-import HumidityLevel from "./charts/HumidityLevel";
+
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/GetData";
+import Navbar from "./components/Navbar";
+import LightLevel from "./charts/LightLevel";
+import TempLevel from "./charts/TempLevel";
+import SoilMoist from "./charts/SoilMoisture";
+import HumidityLevel from "./charts/HumidityLevel";
 
 const Main = () => {
   const { setCurrentUser, logout } = useAuth();

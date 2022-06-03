@@ -1,7 +1,5 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { useData } from "../../context/GetData";
-import moment from "moment";
 import {
   Chart as ChartJS,
   LineController,
@@ -12,6 +10,8 @@ import {
   CategoryScale,
   BarElement,
 } from "chart.js";
+
+import { useData } from "../../context/GetData";
 
 function SoilMoist() {
   const { soilWater, timeStamp } = useData();
