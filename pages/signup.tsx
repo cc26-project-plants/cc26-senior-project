@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Card, Form } from "react-bootstrap";
-import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import { sendStatusCode } from "next/dist/server/api-utils";
 import { useData } from "../context/GetData"
+import { Card, Form } from "react-bootstrap";
+import axios from "axios";
 
+import { useAuth } from "../context/AuthContext";
 
 function Signup({}) {
   const router = useRouter();
+
   const { signup } = useAuth();
   const {userData, setUserData} = useData();
   const [data, setData] = useState({
@@ -17,13 +18,13 @@ function Signup({}) {
     plantType: "",
     plantID: "",
     email: "",
-    password: "",
+    _password: "",
   });
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
-    await signup(data.email, data.password);
+    await signup(data.email, data._password);
     const newUser = await createUser();
     const newUserData = await sendNewUser(newUser);
     setUserData(newUserData);
@@ -169,10 +170,10 @@ function Signup({}) {
                   onChange={(e: any) =>
                     setData({
                       ...data,
-                      password: e.target.value,
+                      _password: e.target.value,
                     })
                   }
-                  value={data.password}
+                  value={data._password}
                 />
               </Form.Group>
               <button 
@@ -180,13 +181,13 @@ function Signup({}) {
                 type="submit" 
                 className="w-1/2 text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
                 >
-                Signup
-              </button>
-            </Form>
+                  Signup
+                </button>
+              </Form>
             </div>
           </Card.Body>
         </Card>
-      </div>   
+      </div>
     </div>
   );
 }

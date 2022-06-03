@@ -1,4 +1,4 @@
-export default function Navbar({}) {
+const Navbar = () => {
   const menu: { name: string; link: string }[] = [
     { name: "Check Camera", link: "/" },
     { name: "Share to Others", link: "/" },
@@ -7,7 +7,7 @@ export default function Navbar({}) {
   ];
 
   return (
-    <div className=" w-1/5  bg-apple-300 list-none">
+    <div className=" w-80  bg-apple-300 list-none ">
       <div className="mt-24">
         {menu.map((menu) => (
           <li key={menu.name} className="flex justify-center mt-1">
@@ -27,4 +27,6 @@ export default function Navbar({}) {
       <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-16"></div>
     </div>
   );
-}
+};
+
+export default Navbar;

@@ -1,19 +1,21 @@
 import React, { useDebugValue, useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
-import Link from "next/link";
-import Navbar from "./Navbar ";
-import { useRouter } from "next/router";
-import TempLevel from "./charts/TempLevel";
-import LightLevel from "./charts/LightLevel";
-import SoilMoist from "./charts/SoilMoisture";
-import HumidityLevel from "./charts/HumidityLevel";
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/GetData";
+import Navbar from "./components/Navbar";
+import LightLevel from "./charts/LightLevel";
+import TempLevel from "./charts/TempLevel";
+import SoilMoist from "./charts/SoilMoisture";
+import HumidityLevel from "./charts/HumidityLevel";
 
 const Main = () => {
-  const { setCurrentUser, logout } = useAuth();
   const router = useRouter();
+
+  const { setCurrentUser, logout } = useAuth();
+
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
   const [showHumidity, setShowHumidity] = useState(false);
@@ -24,55 +26,39 @@ const Main = () => {
     setShowTemp(false);
     setShowSoilWater(false);
     setShowHumidity(false);
-  };
+  }
+
   const displayLight = () => {
     hideEverything();
     setShowLight(true);
-  };
+  }
+
   const displayTemp = () => {
     hideEverything();
     setShowTemp(true);
-  };
+  }
+
   const displaySoilWater = () => {
     hideEverything();
     setShowSoilWater(true);
-  };
+  }
+
   const displayHumidity = () => {
     hideEverything();
     setShowHumidity(true);
-  };
-
-  async function handleLogOut(e: any) {
-    e.preventDefault();
-    try {
-      await logout();
-      setCurrentUser(null);
-      router.push("/login");
-    } catch (err) {
-      console.log(err);
-    }
   }
 
-  //Date filtering
-  // function handleDates(e) {
-  //   e.preventDefault();
-  //   const allDates = dates;
-  //   const days = dates.filter((element) => {
-  //     return element.includes("May");
-  //   });
-  //   if (e.target.value === "3") {
-  //     console.log("days");
-  //     setTimeStamp(days);
-  //   }
-  //   if (e.target.value === "0") {
-  //     setTimeStamp(allDates);
-  //   }
-  //   console.log(timeStamp);
-  // }
+  const handleLogOut = async (e: any) => {
+    e.preventDefault();
+
+    await logout();
+    setCurrentUser(null);
+    router.push("/login");
+  }
 
   return (
-    <div>
-      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg ">
+    <div className="h-screen w-screen">
+      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
         <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-24">
           <h4 className="flex justify-start mt-10 ml-0 text-apple-500">
             Happa
@@ -93,9 +79,7 @@ const Main = () => {
 
           <Link href="/admin">
             <button
-              onClick={(e) => {
-                handleLogOut(e);
-              }}
+              onClick={handleLogOut}
               className="w-40 h-20 inline-block text-sm leading-none border rounded 
               no-underline text-white border-sycamore-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
@@ -108,7 +92,7 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="flex flex-row h-screen">
+      <div className="flex flex-row h-screen ">
         <Navbar />
         <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
           <div className="flex justify-around mt-7 mb-10">
@@ -155,8 +139,8 @@ const Main = () => {
               Humidity
             </button>
           </div>
-          <div className="w-10/12 ml-28 ">
-            <div className="   bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3 ">
+          <div className="w-10/12 ml-28">
+            <div className="bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3">
               <Form className="w-28">
                 <Form.Select>
                   <option value="0">All</option>

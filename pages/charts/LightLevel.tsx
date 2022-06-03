@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
-import { useData } from "../../context/GetData";
 import {
   Chart as ChartJS,
   LineController,
@@ -14,13 +13,12 @@ import {
   Tooltip,
 } from "chart.js";
 
-function LightLevel() {
-  const { timeStamp, light } = useData();
-  const [dates, setDates] = useState(timeStamp);
+import { useData } from "../../context/GetData";
 
+const LightLevel = () => {
+  const { timeStamp, light } = useData();
   const data = {
     labels: timeStamp,
-
     datasets: [
       {
         label: "Light Level",
@@ -46,4 +44,5 @@ function LightLevel() {
 
   return <Bar data={data} />;
 }
+
 export default LightLevel;
