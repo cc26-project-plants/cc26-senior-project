@@ -4,11 +4,13 @@ import { Card, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
 import { sendStatusCode } from "next/dist/server/api-utils";
+import { useData } from "../context/GetData"
 
 
-function Signup() {
+function Signup({}) {
   const router = useRouter();
   const { signup } = useAuth();
+  const {userData, setUserData} = useData();
   const [data, setData] = useState({
     userName: "",
     plantName: "",
@@ -18,83 +20,32 @@ function Signup() {
     password: "",
   });
 
-  const [returnData, setReturnData] = useState({})
-  
-
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
-    try {
-      await signup(data.email, data.password);
-      const returnedData = await createUser();
-      setDataToState(returnedData);
-      console.log("in handle", returnData);
-      router.push("/");
-    } catch (err) {
-      console.log(err);
-    }
+    await signup(data.email, data.password);
+    const newUser = await createUser();
+    const newUserData = await sendNewUser(newUser);
+    setUserData(newUserData);
+    router.push("/welcome");
   };
 
   const createUser = async ()=>{
-    const sentData = {
+    const newUser = {
       userName: data.userName,
       email: data.email,
       plantId: data.plantID,
       plantName:data.plantType,
       plantType : data.plantType
     };
-
-    console.log("sentData", sentData)
-    const response = await axios.post("https://happa-26-backend.an.r.appspot.com/users/", sentData);
-    const returnedData = response.data.data;
-    console.log("returnedData",returnedData)
-    return returnedData;
+    return newUser
   }
 
-  const setDataToState = (returnedData) =>{
-    // setReturnData(returnedData);
-    setReturnData(state=>returnedData)
-    
-    console.log("returnData",returnData)
+  const sendNewUser = async (newUser)=>{
+    const response = await axios.post("https://happa-26-backend.an.r.appspot.com/users/", newUser);
+    const newUserData = response.data.data;
+    return newUserData
   }
-
-  // const getReturnData = async () =>{
-  //   try{
-  //     await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`)
-  //     .then(response =>{
-  //       const returnGetData = response.data;
-  //       console.log("infunc; returnGetData",returnGetData)
-  //       return returnGetData
-  //     }).then(returnGetData =>{
-  //       console.log("res",returnGetData)
-  //       setReturnData(returnGetData)
-  //       console.log("returndata",returnData)
-  //     })
-  //   }catch(error){
-  //     console.error("error")
-  //   }
-  // }
-  // useEffect(()=>{
-  //   createUser()
-  //   console.log("in effect", returnData)
-  // }, [])
-
-  // const getReturnData = async () =>{
-  //   try{
-  //     // const response = await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`);
-  //     // const returnGetData = response.data
-  //     // console.log(returnGetData)
-  //     // setRetunData(returnGetData)
-  //     await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`)
-  //     .then(response =>{
-  //       console.log("res data",response.data.data)
-  //       setReturnData(response.data.data)
-  //       console.log("in func", returnData)
-  //     })
-  //   }catch(error){
-  //     console.error("error")
-  //   }
-  // }
 
   return (
     <div>
@@ -133,7 +84,6 @@ function Signup() {
               >Plant Name</Form.Label>
               <p>Please give your plant a nickname</p>
               <Form.Control
-                //type="userName"
                 placeholder="Plant name"
                 required
                 onChange={(e: any) =>
@@ -242,3 +192,4 @@ function Signup() {
 }
 
 export default Signup;
+
