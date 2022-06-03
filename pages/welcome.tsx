@@ -1,16 +1,18 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import TopBar from "./components/TopBar";
-import WelcomeScreen from "./components/WelcomeScreen";
+import WelcomePage from "./components/WelcomeScreen";
 
-export default function welcome() {
+const Welcome = () => {
   return (
-    <div className="flex flex-col h-screen ">
+    <div className="flex flex-col h-screen">
       <TopBar />
       <div className="flex flex-row h-full">
         <Navbar />
-        <WelcomeScreen />
+        <WelcomePage />
       </div>
     </div>
   );
-}
+};
+
+export default Welcome;

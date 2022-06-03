@@ -27,6 +27,6 @@ const Navbar = () => {
       <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-16"></div>
     </div>
   );
-}
+};
 
 export default Navbar;

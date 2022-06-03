@@ -1,22 +1,22 @@
 import React from "react";
 import Link from "next/link";
-import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/router";
 
-export default function TopBar() {
-  const { logout, setCurrentUser } = useAuth();
+import { useAuth } from "../../context/AuthContext";
+
+const TopBar = () => {
   const router = useRouter();
 
-  async function handleLogOut(e: any) {
+  const { logout, setCurrentUser } = useAuth();
+
+  const handleLogOut = async (e: any) => {
     e.preventDefault();
-    try {
-      await logout();
-      setCurrentUser(null);
-      router.push("/login");
-    } catch (err) {
-      console.log(err);
-    }
-  }
+
+    await logout();
+    setCurrentUser(null);
+    router.push("/login");
+  };
+
   return (
     <div>
       <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
@@ -56,4 +56,6 @@ export default function TopBar() {
       </div>
     </div>
   );
-}
+};
+
+export default TopBar;
