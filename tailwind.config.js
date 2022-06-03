@@ -50,6 +50,8 @@ module.exports = {
         hutaba: "url('/images/hutaba.png')",
         leaf: "url('/images/leaf.png')",
         loginBg: "url('/images/loginBg.png')",
+        aloe: "url('/images/aloe.jpg')",
+        cactus: "url('/images/cactus.png')",
       }),
     },
   },
