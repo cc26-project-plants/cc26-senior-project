@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Form } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
@@ -18,14 +18,15 @@ function Signup() {
     password: "",
   });
 
-  const [sentData, setsentData] = useState({
-      userName: data.userName,
-      plantId: data.plantID,
-      plantName: data.plantName,
-      plantType: data.plantType
-  });
+  // const [sentData, setsentData] = useState({
+  //   userName: data.userName,
+  //   email: data.email,
+  //   plantId: data.plantID,
+  //   plantName: data.plantName,
+  //   plantType: data.plantType
+  // });
 
-  const [returnData, setRetunData] = useState({})
+  const [returnData, setReturnData] = useState<any>({})
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ function Signup() {
     try {
       await signup(data.email, data.password);
       await createUser()
+      //console.log("returnData", returnData)
       // await getReturnData()
       router.push("/");
       // console.log("data",data)
@@ -42,17 +44,26 @@ function Signup() {
   };
 
   const createUser = async ()=>{
-    // const sentData = {
-    //   userName: data.userName,
-    //   plantId: data.plantID,
-    //   plantName: data.plantName,
-    //   plantType: data.plantType
-    // }
+    const sentData = {
+      userName: data.userName,
+      email: data.email,
+      plantId: data.plantID,
+      plantName: data.plantName,
+      plantType: data.plantType
+    }
     console.log("sentData", sentData)
     const response = await axios.post("https://happa-26-backend.an.r.appspot.com/users/", sentData);
-    const returnGetData = response.data;
-    setRetunData(returnGetData)
+
+    const returnGetData = response.data.data;
+    console.log("returnGetData.data", returnGetData)
+    setReturnData(returnGetData)
+    // console.log("THISSSS",returnData)
+    console.log("returnData", returnData)
   }
+
+  // useEffect(()=>{
+  //   createUser();
+  // }, [])
 
   // const getReturnData = async () =>{
   //   try{
