@@ -18,26 +18,18 @@ function Signup() {
     password: "",
   });
 
-  // const [sentData, setsentData] = useState({
-  //   userName: data.userName,
-  //   email: data.email,
-  //   plantId: data.plantID,
-  //   plantName: data.plantName,
-  //   plantType: data.plantType
-  // });
-
-  const [returnData, setReturnData] = useState<any>({})
+  const [returnData, setReturnData] = useState({})
+  
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
     try {
       await signup(data.email, data.password);
-      await createUser()
-      //console.log("returnData", returnData)
-      // await getReturnData()
+      const returnedData = await createUser();
+      setDataToState(returnedData);
+      console.log("in handle", returnData);
       router.push("/");
-      // console.log("data",data)
     } catch (err) {
       console.log(err);
     }
@@ -48,29 +40,57 @@ function Signup() {
       userName: data.userName,
       email: data.email,
       plantId: data.plantID,
-      plantName: data.plantName,
-      plantType: data.plantType
-    }
+      plantName:data.plantType,
+      plantType : data.plantType
+    };
+
     console.log("sentData", sentData)
     const response = await axios.post("https://happa-26-backend.an.r.appspot.com/users/", sentData);
-
-    const returnGetData = response.data.data;
-    console.log("returnGetData.data", returnGetData)
-    setReturnData(returnGetData)
-    // console.log("THISSSS",returnData)
-    console.log("returnData", returnData)
+    const returnedData = response.data.data;
+    console.log("returnedData",returnedData)
+    return returnedData;
   }
 
+  const setDataToState = (returnedData) =>{
+    // setReturnData(returnedData);
+    setReturnData(state=>returnedData)
+    
+    console.log("returnData",returnData)
+  }
+
+  // const getReturnData = async () =>{
+  //   try{
+  //     await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`)
+  //     .then(response =>{
+  //       const returnGetData = response.data;
+  //       console.log("infunc; returnGetData",returnGetData)
+  //       return returnGetData
+  //     }).then(returnGetData =>{
+  //       console.log("res",returnGetData)
+  //       setReturnData(returnGetData)
+  //       console.log("returndata",returnData)
+  //     })
+  //   }catch(error){
+  //     console.error("error")
+  //   }
+  // }
   // useEffect(()=>{
-  //   createUser();
+  //   createUser()
+  //   console.log("in effect", returnData)
   // }, [])
 
   // const getReturnData = async () =>{
   //   try{
-  //     const response = await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`);
-  //     const returnGetData = response.data
-  //     console.log(returnGetData)
-  //     setRetunData(returnGetData)
+  //     // const response = await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`);
+  //     // const returnGetData = response.data
+  //     // console.log(returnGetData)
+  //     // setRetunData(returnGetData)
+  //     await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${data.email}`)
+  //     .then(response =>{
+  //       console.log("res data",response.data.data)
+  //       setReturnData(response.data.data)
+  //       console.log("in func", returnData)
+  //     })
   //   }catch(error){
   //     console.error("error")
   //   }
@@ -141,7 +161,7 @@ function Signup() {
                 }
                 value={data. plantType}
                 >
-                  <option selected>Choose...</option>
+                  <option >Choose...</option>
                   <option value="B">Cactus（サボテン）</option>
                   <option value="B">Sword Leaf（ソードリーフ）</option>
                   <option value="B">Benjamin（ベンジャミン）</option>
