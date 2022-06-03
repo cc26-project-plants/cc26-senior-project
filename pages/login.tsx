@@ -34,7 +34,7 @@ function Login() {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
-        router.push("/");
+        router.push("/main");
       })
       .catch((error) => {
         console.log(error);
