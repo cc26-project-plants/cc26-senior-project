@@ -7,47 +7,41 @@ import { Form, Button, Card } from "react-bootstrap";
 import { auth } from "../config/firebase";
 import { useAuth } from "../context/AuthContext";
 
-function Login() {
+const Login = () => {
   const router = useRouter();
+
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" });
   const { currentUser, login } = useAuth();
+
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const provider = new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt: "select_account" });
 
-  async function handleSubmit(e: any) {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      await login(data?.email, data?.password);
-      router.push("/main");
-    } catch (err) {
-      console.log(err);
-    }
 
+    setLoading(true);
+    await login(data?.email, data?.password);
+    router.push("/main");
     setLoading(false);
   }
 
-  const signInWithGoogle = (e: any) => {
+  const signInWithGoogle = async (e: any) => {
     e.preventDefault();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        router.push("/main");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
+    await signInWithPopup(auth, provider);
+    router.push("/main");
+  }
 
   return (
     <div>
       <div className=" bg-loginBg  h-screen w-screen flex  flex-row items-center">
         <div className=" w-1/6 "></div>
         <form
-          onSubmit={(e: any) => signInWithGoogle(e)}
+          onSubmit={signInWithGoogle}
           className={
             " bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/3 min-w-fit  min-h-fit"
           }
@@ -91,14 +85,14 @@ function Login() {
               disabled={loading}
               className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400 "
               type="submit"
-              onClick={(e: any) => handleSubmit(e)}
+              onClick={handleSubmit}
             >
               Log In
             </button>
             <button
               disabled={loading}
               className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
-              onClick={(e: any) => signInWithGoogle(e)}
+              onClick={signInWithGoogle}
             >
               Log In With Google
             </button>

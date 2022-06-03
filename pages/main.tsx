@@ -12,8 +12,10 @@ import SoilMoist from "./charts/SoilMoisture";
 import HumidityLevel from "./charts/HumidityLevel";
 
 const Main = () => {
-  const { setCurrentUser, logout } = useAuth();
   const router = useRouter();
+
+  const { setCurrentUser, logout } = useAuth();
+
   const [showLight, setShowLight] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
   const [showHumidity, setShowHumidity] = useState(false);
@@ -24,51 +26,35 @@ const Main = () => {
     setShowTemp(false);
     setShowSoilWater(false);
     setShowHumidity(false);
-  };
+  }
+
   const displayLight = () => {
     hideEverything();
     setShowLight(true);
-  };
+  }
+
   const displayTemp = () => {
     hideEverything();
     setShowTemp(true);
-  };
+  }
+
   const displaySoilWater = () => {
     hideEverything();
     setShowSoilWater(true);
-  };
+  }
+
   const displayHumidity = () => {
     hideEverything();
     setShowHumidity(true);
-  };
-
-  async function handleLogOut(e: any) {
-    e.preventDefault();
-    try {
-      await logout();
-      setCurrentUser(null);
-      router.push("/login");
-    } catch (err) {
-      console.log(err);
-    }
   }
 
-  //Date filtering
-  // function handleDates(e) {
-  //   e.preventDefault();
-  //   const allDates = dates;
-  //   const days = dates.filter((element) => {
-  //     return element.includes("May");
-  //   });
-  //   if (e.target.value === "3") {
-  //     console.log("days");
-  //     setTimeStamp(days);
-  //   }
-  //   if (e.target.value === "0") {
-  //     setTimeStamp(allDates);
-  //   }
-  //   console.log(timeStamp);
-  // }
+  const handleLogOut = async (e: any) => {
+    e.preventDefault();
+
+    await logout();
+    setCurrentUser(null);
+    router.push("/login");
+  }
 
   return (
     <div className="h-screen w-screen">
@@ -93,9 +79,7 @@ const Main = () => {
 
           <Link href="/admin">
             <button
-              onClick={(e) => {
-                handleLogOut(e);
-              }}
+              onClick={handleLogOut}
               className="w-40 h-20 inline-block text-sm leading-none border rounded 
               no-underline text-white border-sycamore-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
@@ -155,7 +139,7 @@ const Main = () => {
               Humidity
             </button>
           </div>
-          <div className="w-10/12 ml-28 ">
+          <div className="w-10/12 ml-28">
             <div className="bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3">
               <Form className="w-28">
                 <Form.Select>

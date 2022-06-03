@@ -14,7 +14,7 @@ import {
 
 import { useData } from "../../context/GetData";
 
-function HumidityLevel() {
+const HumidityLevel = () => {
   const { humdidity, timeStamp } = useData();
   const data = {
     labels: timeStamp,
@@ -39,6 +39,8 @@ function HumidityLevel() {
     Legend,
     Tooltip
   );
+
   return <Line data={data} />;
 }
+
 export default HumidityLevel;

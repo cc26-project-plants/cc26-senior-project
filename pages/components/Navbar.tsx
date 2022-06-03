@@ -1,4 +1,4 @@
-export default function Navbar({}) {
+const Navbar = () => {
   const menu: { name: string; link: string }[] = [
     { name: "Check Camera", link: "/" },
     { name: "Share to Others", link: "/" },
@@ -28,3 +28,5 @@ export default function Navbar({}) {
     </div>
   );
 }
+
+export default Navbar;

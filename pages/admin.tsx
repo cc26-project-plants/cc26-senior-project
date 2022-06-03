@@ -4,8 +4,9 @@ import { Button } from "react-bootstrap";
 
 import { useAuth } from "../context/AuthContext";
 
-function Admin() {
+const Admin = () => {
   const { logout } = useAuth();
+
   return (
     <div className="bg-green-100 w-screen h-screen">
       <div className="flex flex-col container mx-auto p-8 ">
