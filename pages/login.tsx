@@ -102,22 +102,19 @@ function Login() {
               Log In With Google
             </button>
           </div>
-        {/* </form> */}
- 
- 
-            <div>
-              <p
-              className="text-white mt-10">
-                If you haven&apos;t signed up, sign up now!
-              </p>
-              <Link href="/signup">
-                <button
-                className="left-5 w-1/2 text-white min-w-1/2 justify-center bg-teal-700 outline outline-1 h-12 rounded-md outline-white hover:text-white hover:bg-teal-500"
-                >Signup  
-                </button>
-              </Link>
-            </div>
-            </form>
+          {/* </form> */}
+
+          <div>
+            <p className="text-white mt-10">
+              If you haven&apos;t signed up, sign up now!
+            </p>
+            <Link href="/signup">
+              <button className="left-5 w-1/2 text-white min-w-1/2 justify-center bg-teal-700 outline outline-1 h-12 rounded-md outline-white hover:text-white hover:bg-teal-500">
+                Signup
+              </button>
+            </Link>
+          </div>
+        </form>
       </div>
     </div>
   );
