@@ -7,7 +7,7 @@ export default function Navbar({}) {
   ];
 
   return (
-    <div className="w-1/5  bg-apple-300 list-none">
+    <div className=" w-80  bg-apple-300 list-none h-screen">
       <div className="mt-24">
         {menu.map((menu) => (
           <li key={menu.name} className="flex justify-center mt-1">

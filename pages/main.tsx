@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
-
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/GetData";
 import Navbar from "./components/Navbar";
@@ -72,8 +71,8 @@ const Main = () => {
   // }
 
   return (
-    <div>
-      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg ">
+    <div className="h-screen w-screen">
+      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
         <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-24">
           <h4 className="flex justify-start mt-10 ml-0 text-apple-500">
             Happa
@@ -109,7 +108,7 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="flex flex-row h-screen">
+      <div className="flex flex-row h-screen ">
         <Navbar />
         <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
           <div className="flex justify-around mt-7 mb-10">
