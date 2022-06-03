@@ -2,7 +2,7 @@ import React, { useDebugValue, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import Link from "next/link";
-import Navbar from "./Navbar ";
+import Navbar from "./Navbar";
 import { useRouter } from "next/router";
 import TempLevel from "./charts/TempLevel";
 import LightLevel from "./charts/LightLevel";
@@ -156,7 +156,7 @@ const Main = () => {
             </button>
           </div>
           <div className="w-10/12 ml-28 ">
-            <div className="   bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3 ">
+            <div className="bg-apple-100  shadow-lg shadow-gray-600 rounded-lg p-3">
               <Form className="w-28">
                 <Form.Select>
                   <option value="0">All</option>

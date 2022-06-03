@@ -21,8 +21,7 @@ export default function DataProvider({
 
   const getAllData = async () => {
     const res = await axios.get(
-      //store id in variable
-      "https://happa-26-backend.an.r.appspot.com/plantStats/wdNtSRStxaQU9gc2QWM7"
+      `https://happa-26-backend.an.r.appspot.com/plantStats/wdNtSRStxaQU9gc2QWM7`
     );
     let allPlantStats = res.data.data.data.sensorData;
     setTemp(

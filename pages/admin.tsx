@@ -4,7 +4,6 @@ import { Button } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 
-
 function Admin() {
   const { logout } = useAuth();
   return (
