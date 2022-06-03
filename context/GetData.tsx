@@ -14,6 +14,7 @@ export default function DataProvider({ children }: { children: React.ReactNode }
   const [light, setLight] = useState();
   const [soilWater, setSoilWater] = useState();
   const [timeStamp, setTimeStamp] = useState();
+  const [userData, setUserData] = useState();
 
   const getAllData = async () => {
     const response = await axios.get(
@@ -57,7 +58,7 @@ export default function DataProvider({ children }: { children: React.ReactNode }
 
   return (
     <DataContext.Provider
-      value={{ temp, humdidity, soilWater, timeStamp, setTimeStamp, light }}
+      value={{ temp, humdidity, soilWater, timeStamp, setTimeStamp, light , userData, setUserData}}
     >
       {children}
     </DataContext.Provider>

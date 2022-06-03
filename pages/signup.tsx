@@ -4,12 +4,14 @@ import { Card, Form } from "react-bootstrap";
 import axios from "axios";
 
 import { useAuth } from "../context/AuthContext";
+import { useData } from "../context/GetData";
 
-function Signup() {
+const Signup = () => {
   const router = useRouter();
 
   const { signup } = useAuth();
 
+  const { userData, setUserData } = useData();
   const [data, setData] = useState({
     userName: "",
     plantName: "",
@@ -18,50 +20,46 @@ function Signup() {
     email: "",
     _password: "",
   });
-  const [returnData, setReturnData] = useState<any>();
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
     await signup(data.email, data._password);
-    await createUser();
-    router.push("/");
-  }
+    const newUser = await createUser();
+    const newUserData = await sendNewUser(newUser);
+    setUserData(newUserData);
+    router.push("/welcome");
+  };
 
   const createUser = async () => {
-    const sentData = {
+    const newUser = {
       userName: data.userName,
       email: data.email,
       plantId: data.plantID,
-      plantName: data.plantName,
+      plantName: data.plantType,
       plantType: data.plantType,
     };
+    return newUser;
+  };
 
+  const sendNewUser = async (newUser) => {
     const response = await axios.post(
       "https://happa-26-backend.an.r.appspot.com/users/",
-      sentData
+      newUser
     );
-
-    const returnGetData = await response.data.data;
-    console.log(response);
-    setReturnData(returnGetData);
-    console.log("returnData", returnData);
-  }
-
-  useEffect(() => {
-    //  createUser();
-    console.log(returnData);
-  }, []);
+    const newUserData = response.data.data;
+    return newUserData;
+  };
 
   return (
     <div>
       <div className="text-white font-thin">
         <Card>
-          <Card.Body className="bg-loginBg h-screen w-screen">
-            <div className="w-1/3 min-w-fit min-h-min max-h-screen">
+          <Card.Body className="bg-loginBg h-screen w-screen ">
+            <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
               <Form
                 onSubmit={handleSignup}
-                className="bg-gray-400 max-h-screen bg-opacity-50 p-3 object-contain rounded-md outline outline-white"
+                className=" bg-gray-400 max-h-screen bg-opacity-50 p-3 object-contain rounded-md outline outline-white"
               >
                 <h2 className="text-center font-thin">Signup</h2>
 
@@ -85,7 +83,6 @@ function Signup() {
                   <Form.Label className="font-semibold">Plant Name</Form.Label>
                   <p>Please give your plant a nickname</p>
                   <Form.Control
-                    //type="userName"
                     placeholder="Plant name"
                     required
                     onChange={(e: any) =>
@@ -185,6 +182,6 @@ function Signup() {
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
