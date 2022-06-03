@@ -79,15 +79,18 @@ const Main = () => {
           </h4>
         </div>
         <div>
-          <button
-            className="w-40 h-20 inline-block text-sm leading-none border rounded
-              no-underline text-white border-teal-500 bg-apple-300 
-              hover:border-transparent hover:text-white hover:bg-apple-400 
-              shadow-gray-200 drop-shadow-md
-              "
-          >
-            My Page
-          </button>
+          <Link href="/MyPage">
+            <button
+              className="w-40 h-20 inline-block text-sm leading-none border rounded
+                no-underline text-white border-teal-500 bg-apple-300 
+                hover:border-transparent hover:text-white hover:bg-apple-400 
+                shadow-gray-200 drop-shadow-md
+                "
+            >
+              My Page
+            </button>
+          </Link>
+
           <Link href="/admin">
             <button
               onClick={(e) => {
