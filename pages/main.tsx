@@ -58,7 +58,7 @@ const Main = () => {
   }
 
   return (
-    <div>
+    <div className="h-screen w-screen">
       <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
         <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-24">
           <h4 className="flex justify-start mt-10 ml-0 text-apple-500">
