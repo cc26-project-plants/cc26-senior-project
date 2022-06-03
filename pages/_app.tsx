@@ -7,7 +7,7 @@ import { AuthProvider } from "../context/AuthContext";
 import DataProvider from "../context/GetData";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <DataProvider>
       <AuthProvider>

@@ -12,8 +12,7 @@ import {
 } from "chart.js";
 
 import { useData } from "../../context/GetData";
-
-function SoilMoist() {
+const SoilMoist = () => {
   const { soilWater, timeStamp } = useData();
   const data = {
     labels: timeStamp,
@@ -27,6 +26,7 @@ function SoilMoist() {
       },
     ],
   };
+
   ChartJS.register(
     LineController,
     LineElement,
@@ -36,6 +36,8 @@ function SoilMoist() {
     CategoryScale,
     BarElement
   );
+
   return <Bar data={data} />;
 }
+
 export default SoilMoist;

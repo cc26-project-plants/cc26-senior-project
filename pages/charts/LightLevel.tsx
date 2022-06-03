@@ -15,13 +15,10 @@ import {
 
 import { useData } from "../../context/GetData";
 
-function LightLevel() {
+const LightLevel = () => {
   const { timeStamp, light } = useData();
-  const [dates, setDates] = useState(timeStamp);
-
   const data = {
     labels: timeStamp,
-
     datasets: [
       {
         label: "Light Level",
@@ -47,4 +44,5 @@ function LightLevel() {
 
   return <Bar data={data} />;
 }
+
 export default LightLevel;

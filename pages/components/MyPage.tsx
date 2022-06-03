@@ -1,12 +1,11 @@
 import Link from "next/link";
 import axios from "axios";
 
-function MyPage() {
+const MyPage = () => {
   const getUserInfo = async () => {
     const info = await axios.get(
       "https://happa-26-backend.an.r.appspot.com/users/"
     );
-    console.log(info.data);
   };
 
   return (
