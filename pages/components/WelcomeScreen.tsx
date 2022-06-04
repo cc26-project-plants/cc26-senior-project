@@ -10,7 +10,7 @@ const WelcomeScreen = () => {
   // }, []);
 
   return (
-    <div
+      <div
       className="w-screen  flex flex-col justify-center  items-center 
     shadow-lg overscroll-contain bg-apple-200"
     >

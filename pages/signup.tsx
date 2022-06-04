@@ -36,7 +36,7 @@ const Signup = () => {
       userName: data.userName,
       email: data.email,
       plantId: data.plantID,
-      plantName: data.plantType,
+      plantName: data.plantName,
       plantType: data.plantType,
     };
     return newUser;
@@ -109,9 +109,9 @@ const Signup = () => {
                     value={data.plantType}
                   >
                     <option>Choose...</option>
-                    <option value="B">Cactus（サボテン）</option>
-                    <option value="B">Sword Leaf（ソードリーフ）</option>
-                    <option value="B">Benjamin（ベンジャミン）</option>
+                    <option value="Cactus（サボテン）">Cactus（サボテン）</option>
+                    <option value="Sword Leaf（ソードリーフ">Sword Leaf（ソードリーフ）</option>
+                    <option value="Benjamin（ベンジャミン）">Benjamin（ベンジャミン）</option>
                   </Form.Select>
                 </Form.Group>
 
