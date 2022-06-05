@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Card, Form } from "react-bootstrap";
 import axios from "axios";
@@ -11,7 +11,7 @@ const Signup = () => {
 
   const { signup } = useAuth();
 
-  const { userData, setUserData } = useData();
+  const { setUserData } = useData();
   const [data, setData] = useState({
     userName: "",
     plantName: "",
