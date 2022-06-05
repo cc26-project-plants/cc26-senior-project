@@ -13,29 +13,38 @@ export default function DataProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [temp, setTemp] = useState();
-  const [humdidity, setHumidity] = useState();
-  const [light, setLight] = useState();
-  const [soilWater, setSoilWater] = useState();
-  const [timeStamp, setTimeStamp] = useState();
-  const [userData, setUserData] = useState();
+  const [temp, setTemp] = useState(0);
+  const [humdidity, setHumidity] = useState(0);
+  const [light, setLight] = useState(0);
+  const [soilWater, setSoilWater] = useState(0);
+  const [timeStamp, setTimeStamp] = useState(0);
+  const [userData, setUserData] = useState({
+    userId: "vcDJMzX0O1JLUU1Tzkch",
+    userName: "Grace",
+    plantName: ["Bob", "Rob", "Job"],
+    plantId: ["wdNtSRStxaQU9gc2QWM7", "5hGtJpjctQeSPJGmPE4P", "xb7nEiSy2N3gkCRw5bDL"],
+  });
+
+  const getCurrentPlantId = () => {
+    const currentPlantId = userData["currentPlantId"];
+    return currentPlantId;
+  }
 
   const getAllData = async () => {
+    const currentPlantId = getCurrentPlantId() || "wdNtSRStxaQU9gc2QWM7";
     const response = await axios.get(
-      "https://happa-26-backend.an.r.appspot.com/plantStats/wdNtSRStxaQU9gc2QWM7"
+      `https://happa-26-backend.an.r.appspot.com/plantStats/${currentPlantId}`
     );
     let allPlantStats = response.data.data.data.sensorData;
 
     setTemp(
       allPlantStats.map(
-        (element: { temperature: string }) => element.temperature
-      )
+        (element: { temperature: string }) => element.temperature)
     );
 
     setHumidity(
       allPlantStats.map(
-        (element: { humidityLevel: string }) => element.humidityLevel
-      )
+        (element: { humidityLevel: string }) => element.humidityLevel)
     );
 
     setLight(
@@ -44,8 +53,7 @@ export default function DataProvider({
 
     setSoilWater(
       allPlantStats.map(
-        (element: { soilWaterLevel: string }) => element.soilWaterLevel
-      )
+        (element: { soilWaterLevel: string }) => element.soilWaterLevel)
     );
 
     setTimeStamp(

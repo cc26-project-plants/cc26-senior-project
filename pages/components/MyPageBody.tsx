@@ -1,5 +1,6 @@
+import React from "react";
 import Link from "next/link";
-// import axios from "axios";
+
 import { useData } from "../../context/GetData";
 
 const MyPageBody = () => {
@@ -16,8 +17,7 @@ shadow-lg  bg-apple-200"
             <div className="leading-10">
               User Name:
               <br />
-              user name here
-              {/* {userData.userName} */}
+              {userData.userName}
             </div>
             <Link href="/addPlant">
               <button className="text-white mt-12 h-10 bg-teal-600 outline outline-1 rounded-md outline-white hover:text-white hover:bg-teal-400">
@@ -35,13 +35,18 @@ shadow-lg  bg-apple-200"
           <div className="ml-6">
             <div className="text-red-600">
               Plant Name:
-              {/* {userData.plantName[0]} */}
+              <br />
+              {userData.plantName[0]}
             </div>
             <div>
               Plant Type:
+              <br />
+              Cactus
               {/* {userData.plantType} */}
             </div>
-            <div>{/* Plant ID: {userData.plantId[0]} */}</div>
+            <div>
+              Plant ID:
+              {userData.plantId[0]}</div>
             <div>
               Plant Plofile
               <div className="ml-5 max-h-20 text-sm">
