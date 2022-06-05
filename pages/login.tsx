@@ -22,10 +22,13 @@ const Login = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     setLoading(true);
+
     await login(data?.email, data?.password);
-    router.push("/main");
+    // router.push("/welcome");
+
+    console.log("currentUser", currentUser);
+
     setLoading(false);
   }
 
@@ -33,7 +36,7 @@ const Login = () => {
     e.preventDefault();
 
     await signInWithPopup(auth, provider);
-    router.push("/main");
+    // router.push("/welcome");
   }
 
   return (
@@ -97,7 +100,6 @@ const Login = () => {
               Log In With Google
             </button>
           </div>
-          {/* </form> */}
 
           <div>
             <p className="text-white mt-10">

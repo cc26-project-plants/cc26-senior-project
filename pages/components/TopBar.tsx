@@ -26,7 +26,7 @@ const TopBar = () => {
           </h4>
         </div>
         <div>
-          <Link href="/MyPage">
+          <Link href="/myPage">
             <button
               className="w-40 h-20 inline-block text-sm leading-none border rounded
               no-underline text-white border-teal-500 bg-apple-300 

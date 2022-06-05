@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "npm run build && gcloud app deploy",
+    "deploy": "gcloud config set project happa-26 && npm run build && gcloud app deploy",
     "lint": "next lint"
   },
   "dependencies": {
