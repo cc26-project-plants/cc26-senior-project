@@ -25,16 +25,17 @@ const Login = () => {
 
     setLoading(true);
     await login(data?.email, data?.password);
+    console.log(currentUser);
     router.push("/main");
     setLoading(false);
-  }
+  };
 
   const signInWithGoogle = async (e: any) => {
     e.preventDefault();
 
     await signInWithPopup(auth, provider);
     router.push("/main");
-  }
+  };
 
   return (
     <div>
@@ -113,6 +114,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;
