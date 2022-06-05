@@ -25,28 +25,28 @@ const TopBar = () => {
             Happa
           </h4>
         </div>
-        <div>
-          <Link href="/myPage">
+        <div className="flex gap-2 mr-2">
+          <Link href="/mypage">
             <button
-              className="w-40 h-20 inline-block text-sm leading-none border rounded
-              no-underline text-white border-teal-500 bg-apple-300 
-              hover:border-transparent hover:text-white hover:bg-apple-400 
-              shadow-gray-200 drop-shadow-md
+              className="w-40 h-20 inline-block text-sm leading-none shadow-lg rounded-lg
+              no-underline text-white border-teal-500 bg-apple-300
+              hover:border-transparent hover:text-white hover:bg-apple-400
+              shadow-gray-200 
               "
             >
               My Page
             </button>
           </Link>
 
-          <Link href="/admin">
+          <Link href="/">
             <button
               onClick={(e) => {
                 handleLogOut(e);
               }}
-              className="w-40 h-20 inline-block text-sm leading-none border rounded 
-            no-underline text-white border-sycamore-500 bg-apple-300
-            hover:border-transparent hover:text-white hover:bg-apple-400
-            shadow-md
+              className="w-40 h-20 inline-block text-sm leading-none shadow-lg rounded-lg
+              no-underline text-white border-teal-500 bg-apple-300
+              hover:border-transparent hover:text-white hover:bg-apple-400
+              shadow-gray-200 
             "
             >
               Log Out
