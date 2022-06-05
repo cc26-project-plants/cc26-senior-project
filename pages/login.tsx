@@ -30,7 +30,7 @@ const Login = () => {
     console.log("currentUser", currentUser);
 
     setLoading(false);
-  }
+  };
 
   const signInWithGoogle = async (e: any) => {
     e.preventDefault();
@@ -115,6 +115,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

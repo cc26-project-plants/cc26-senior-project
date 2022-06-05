@@ -8,7 +8,11 @@ export function useData() {
   return useContext(DataContext);
 }
 
-export default function DataProvider({ children }: { children: React.ReactNode }) {
+export default function DataProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [temp, setTemp] = useState();
   const [humdidity, setHumidity] = useState();
   const [light, setLight] = useState();
@@ -58,7 +62,16 @@ export default function DataProvider({ children }: { children: React.ReactNode }
 
   return (
     <DataContext.Provider
-      value={{ temp, humdidity, soilWater, timeStamp, setTimeStamp, light , userData, setUserData}}
+      value={{
+        temp,
+        humdidity,
+        soilWater,
+        timeStamp,
+        setTimeStamp,
+        light,
+        userData,
+        setUserData,
+      }}
     >
       {children}
     </DataContext.Provider>
