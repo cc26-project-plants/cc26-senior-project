@@ -1,84 +1,81 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Card, Form } from "react-bootstrap";
 import axios from "axios";
+import Link from "next/link";
 
-import { useAuth } from "../context/AuthContext";
-import { useData } from "../context/GetData";
+// import { useAuth } from "../context/AuthContext";
+// import { useData } from "../context/GetData";
 
-const Signup = () => {
+const addPlant = ()=>{
   const router = useRouter();
+  // const { userData, setUserData } = useData();
 
-  const { signup } = useAuth();
 
-  const { userData, setUserData } = useData();
-  const [data, setData] = useState({
-    userName: "",
+  const [plantData, setPlantData] = useState({
     plantName: "",
     plantType: "",
     plantID: "",
     email: "",
-    _password: "",
   });
 
-  const handleSignup = async (e: any) => {
+  const handleAddPlant = async (e: any) => {
     e.preventDefault();
 
-    await signup(data.email, data._password);
-    const newUser = await createUser();
-    const newUserData = await sendNewUser(newUser);
-    setUserData(newUserData);
-    router.push("/welcome");
+    const newPlant = await createNewPlant();
+    const newPlantData = await sendNewPlant(newPlant);
+    // setUserData(newPlantData);
+    router.push("/main");
   };
 
-  const createUser = async () => {
-    const newUser = {
-      userName: data.userName,
-      email: data.email,
-      plantId: data.plantID,
-      plantName: data.plantName,
-      plantType: data.plantType,
+  const createNewPlant = async () => {
+    const newPlant = {
+      email: plantData.email,
+      plantId: plantData.plantID,
+      plantName: plantData.plantName,
+      plantType: plantData.plantType,
     };
-    return newUser;
+    console.log("[createNP]newPlant",newPlant)
+    return newPlant;
   };
 
-  const sendNewUser = async (newUser) => {
-    const response = await axios.post(
-      "https://happa-26-backend.an.r.appspot.com/users/",
-      newUser
-    );
-    const newUserData = response.data.data;
-    return newUserData;
+  const sendNewPlant = async (newPlant) => {
+    // const response = await axios.post(
+    //   "https://happa-26-backend.an.r.appspot.com/plants",
+    //   newPlant
+    // );
+    // const newPlantData = response.data.data;
+    // console.log("[send plant]newPlantData",newPlantData)
+    // console.log("[send plant]newPlant",newPlant)
+    // return newPlantData;
   };
+
 
   return (
     <div>
-      <div className="text-white font-thin">
+      <div className="text-white font-thin placeholder-gray-200">
+        <div
+         className="flex justify-between text-apple-500 items-center max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg"
+            ><h2 className="ml-12  font-mono ">Add Plant</h2>
+          <Link href="/main">
+            <button
+              className=" w-40 h-20 inline-block text-sm leading-none border rounded
+                no-underline text-white border-teal-500 bg-apple-300 
+                hover:border-transparent hover:text-white hover:bg-apple-400 
+                shadow-gray-200 drop-shadow-md
+                "
+            >
+              Back to Main
+            </button>
+          </Link>    
+        </div>
         <Card>
-          <Card.Body className="bg-loginBg h-screen w-screen ">
+          <Card.Body className="bg-apple-200  h-screen w-screen ">
             <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
               <Form
-                onSubmit={handleSignup}
+                onSubmit={handleAddPlant}
                 className=" bg-gray-400 max-h-screen bg-opacity-50 p-3 object-contain rounded-md outline outline-white"
               >
-                <h2 className="text-center font-thin">Signup</h2>
-
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-semibold ">User Name</Form.Label>
-                  <Form.Control
-                    type="userName"
-                    placeholder="Your name"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        userName: e.target.value,
-                      })
-                    }
-                    value={data.userName}
-                  />
-                </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label className="font-semibold">Plant Name</Form.Label>
                   <p>Please give your plant a nickname</p>
@@ -86,12 +83,12 @@ const Signup = () => {
                     placeholder="Plant name"
                     required
                     onChange={(e: any) =>
-                      setData({
-                        ...data,
+                      setPlantData({
+                        ...plantData,
                         plantName: e.target.value,
                       })
                     }
-                    value={data.plantName}
+                    value={plantData.plantName}
                   />
                 </Form.Group>
 
@@ -101,12 +98,12 @@ const Signup = () => {
                     className="custom-select mr-sm-3"
                     required
                     onChange={(e: any) =>
-                      setData({
-                        ...data,
+                      setPlantData({
+                        ...plantData,
                         plantType: e.target.value,
                       })
                     }
-                    value={data.plantType}
+                    value={plantData.plantType}
                   >
                     <option>Choose...</option>
                     <option value="Cactus（サボテン）">Cactus（サボテン）</option>
@@ -123,12 +120,12 @@ const Signup = () => {
                     placeholder="Plant ID"
                     required
                     onChange={(e: any) =>
-                      setData({
-                        ...data,
+                      setPlantData({
+                        ...plantData,
                         plantID: e.target.value,
                       })
                     }
-                    value={data.plantID}
+                    value={plantData.plantID}
                   />
                 </Form.Group>
 
@@ -136,44 +133,27 @@ const Signup = () => {
                   <Form.Label className="font-semibold">
                     Email address
                   </Form.Label>
+                  <p>*Please enter registered email address</p>
                   <Form.Control
                     type="email"
                     placeholder="Enter email"
                     required
                     onChange={(e: any) =>
-                      setData({
-                        ...data,
+                      setPlantData({
+                        ...plantData,
                         email: e.target.value,
                       })
                     }
-                    value={data.email}
+                    value={plantData.email}
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label className="font-semibold">Password</Form.Label>
-                  <p className="mt-0">
-                    * more than 6 characters with 2 numbers
-                  </p>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        _password: e.target.value,
-                      })
-                    }
-                    value={data._password}
-                  />
-                </Form.Group>
                 <button
                   // variant="primary"
                   type="submit"
                   className="w-1/2 text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
                 >
-                  Signup
+                  Add New Plant
                 </button>
               </Form>
             </div>
@@ -182,6 +162,7 @@ const Signup = () => {
       </div>
     </div>
   );
-};
 
-export default Signup;
+}
+
+export default addPlant
