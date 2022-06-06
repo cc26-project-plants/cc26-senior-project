@@ -7,7 +7,7 @@ import Link from "next/link";
 // import { useAuth } from "../context/AuthContext";
 // import { useData } from "../context/GetData";
 
-const addPlant = () => {
+const AddPlant = () => {
   const router = useRouter();
   // const { userData, setUserData } = useData();
 
@@ -167,4 +167,4 @@ const addPlant = () => {
   );
 };
 
-export default addPlant;
+export default AddPlant;
