@@ -48,7 +48,7 @@ const ChartBox = () => {
           onClick={displayLight}
           className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
+          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
         >
@@ -59,7 +59,7 @@ const ChartBox = () => {
           onClick={displayTemp}
           className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
+          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
         >
@@ -69,7 +69,7 @@ const ChartBox = () => {
           onClick={displaySoilWater}
           className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0
+          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
         >
@@ -79,7 +79,7 @@ const ChartBox = () => {
           onClick={displayHumidity}
           className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 
+          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
         >
@@ -95,6 +95,7 @@ const ChartBox = () => {
             <option value="3">Day</option>
           </Form.Select>
         </Form>
+        {/* {showLight && <TestChart />} */}
         {showLight && <LightLevel />}
         {showTemp && <TempLevel />}
         {showSoilMoist && <SoilMoist />}

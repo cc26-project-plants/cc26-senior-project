@@ -6,7 +6,7 @@ import ChartBox from "./components/ChartBox";
 
 const Main = () => {
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen overflow-hidden">
       <TopBar />
       <div className="flex flex-row h-full">
         <Navbar />

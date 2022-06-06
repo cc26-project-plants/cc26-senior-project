@@ -14,9 +14,13 @@ const TestChart = () => {
   const options = {
     chart: {
       type: "column",
-      backgroundColor: "#fff4cc",
+      backgroundColor: null,
     },
-
+    navigation: {
+      buttonOptions: {
+        enabled: false,
+      },
+    },
     title: {
       text: "Light Levels",
     },
@@ -39,22 +43,17 @@ const TestChart = () => {
       shared: true,
     },
 
-    series: [
-      {
-        name: "Light",
-        marker: {
-          symbol: "circle",
-          radius: 5,
-          fillColor: "#ffd942",
-        },
-        fillOpacity: 0.3,
-        data: light,
-      },
-    ],
-
     credits: {
       enabled: false,
     },
+    series: [
+      {
+        name: "Light",
+        color: "#ebde81",
+        borderColor: "#fad45c",
+        data: light,
+      },
+    ],
   };
 
   return (

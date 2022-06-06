@@ -34,21 +34,13 @@ shadow-lg  bg-apple-200"
           />
           <div className="ml-6">
             <div className="text-red-600">
-              Plant Name:
-              <br />
-              {userData.plantName[0]}
+              Plant Name: {userData.plantName[0]}
             </div>
             <div>
-              Plant Type:
-              <br />
-              Cactus
-              {/* {userData.plantType} */}
+              Plant Type: Cactus{/* {userData.plantType} */}
             </div>
             <div>
-              Plant ID:
-              {userData.plantId[0]}</div>
-            <div>
-              Plant Plofile
+              Plant Plofile:<br />
               <div className="ml-5 max-h-20 text-sm">
                 <div>average temperature: 30</div>
                 <div>average humidity: 50</div>

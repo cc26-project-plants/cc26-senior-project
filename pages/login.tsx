@@ -51,27 +51,29 @@ const Login = () => {
 
     await emailToUser();
     router.push("/welcome");
-  }
+  };
 
   const loginStatus = () => {
     if (!currentUser) return false;
     return currentUser.email ? true : false;
-  }
+  };
 
   const emailToUser = async () => {
     const userData = await getUserData();
     setUserData(userData);
-  }
+  };
 
   const getUserData = async () => {
-    const response = await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${currentUser.email}`);
+    const response = await axios.get(
+      `https://happa-26-backend.an.r.appspot.com/users/${currentUser.email}`
+    );
     const userData = response.data.data;
     return userData;
   };
 
   return (
     <div>
-      <div className="bg-loginBg h-screen w-screen flex flex-row items-center">
+      <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
         <div className=" w-1/6 "></div>
         <form
           onSubmit={signInWithGoogle}

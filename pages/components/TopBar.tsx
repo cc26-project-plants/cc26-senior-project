@@ -10,11 +10,9 @@ const TopBar = () => {
   const { logout, setCurrentUser } = useAuth();
 
   const handleLogOut = async (e: any) => {
-    e.preventDefault();
-
     await logout();
     setCurrentUser(null);
-    router.push("/login");
+    router.push("/");
   };
 
   return (

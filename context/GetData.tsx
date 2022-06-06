@@ -13,33 +13,30 @@ export default function DataProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const TEST_USER_ID = "wp2jBNN3c8Ydd075zYSI";
+  const TEST_PLANT_ID = "LKZvyihQuUbrszjk1h1u";
+
   const [temp, setTemp] = useState(0);
   const [humdidity, setHumidity] = useState(0);
   const [light, setLight] = useState(0);
   const [soilWater, setSoilWater] = useState(0);
   const [timeStamp, setTimeStamp] = useState(0);
   const [userData, setUserData] = useState({
-    userId: "vcDJMzX0O1JLUU1Tzkch",
+    userId: TEST_USER_ID,
     userName: "Grace",
     plantName: ["Bob", "Rob", "Job"],
-    plantId: [
-      "wdNtSRStxaQU9gc2QWM7",
-      "5hGtJpjctQeSPJGmPE4P",
-      "xb7nEiSy2N3gkCRw5bDL",
-    ],
+    plantId: [TEST_PLANT_ID, TEST_PLANT_ID, TEST_PLANT_ID],
+    currentPlantId: TEST_PLANT_ID,
   });
 
-  const getCurrentPlantId = () => {
-    const currentPlantId = userData["currentPlantId"];
-    return currentPlantId;
-  };
-
   const getAllData = async () => {
-    const currentPlantId = getCurrentPlantId() || "wdNtSRStxaQU9gc2QWM7";
+    const currentPlantId = userData.currentPlantId;
+
     const response = await axios.get(
       `https://happa-26-backend.an.r.appspot.com/plantStats/${currentPlantId}`
     );
-    let allPlantStats = response.data.data.data.sensorData;
+    const allData = response.data.data.data.status;
+    const allPlantStats = allData.slice(1);
 
     setTemp(
       allPlantStats.map(
