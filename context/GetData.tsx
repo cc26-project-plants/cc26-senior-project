@@ -39,7 +39,7 @@ export default function DataProvider({
     const response = await axios.get(
       `https://happa-26-backend.an.r.appspot.com/plantStats/${currentPlantId}`
     );
-    let allPlantStats = response.data.data.data.status;
+    let allPlantStats = response.data.data.data.sensorData;
 
     setTemp(
       allPlantStats.map(
