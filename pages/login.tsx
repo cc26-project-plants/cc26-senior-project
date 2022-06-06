@@ -34,8 +34,7 @@ const Login = () => {
     await login(data?.email, data?.password);
     if (!currentUser || !currentUser.email) return;
 
-    await emailToUser();
-    router.push("/welcome");
+    await setUserAndMove();
     setLoading(false);
   };
 
@@ -45,8 +44,7 @@ const Login = () => {
     await signInWithPopup(auth, provider);
     if (!currentUser || !currentUser.email) return;
 
-    await emailToUser();
-    router.push("/welcome");
+    await setUserAndMove();
   }
 
   const emailToUser = async () => {
@@ -59,6 +57,11 @@ const Login = () => {
     const userData = response.data.data;
     return userData;
   };
+
+  const setUserAndMove = async () => {
+    await emailToUser();
+    router.push("/welcome");
+  }
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
