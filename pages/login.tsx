@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
@@ -25,14 +25,9 @@ const Login = () => {
     password: "",
   });
 
-  const handleKeyDown = (e: any) => {
-    if(e.key === 'Enter') return;
-  }
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
-
     await login(data?.email, data?.password);
     if (!currentUser || !currentUser.email) {
       setErrorMessage(ERROR_MESSAGE);
@@ -44,7 +39,6 @@ const Login = () => {
 
   const signInWithGoogle = async (e: any) => {
     e.preventDefault();
-
     await signInWithPopup(auth, provider);
     if (!currentUser || !currentUser.email) {
       setErrorMessage(ERROR_MESSAGE);
@@ -53,15 +47,16 @@ const Login = () => {
 
     await setUserAndMove();
   }
-  
 
   const emailToUser = async () => {
     const userData = await getUserData();
     setUserData(userData);
-  }
+  };
 
   const getUserData = async () => {
-    const response = await axios.get(`https://happa-26-backend.an.r.appspot.com/users/${currentUser.email}`);
+    const response = await axios.get(
+      `https://happa-26-backend.an.r.appspot.com/users/${currentUser.email}`
+    );
     const userData = response.data.data;
     return userData;
   };
@@ -72,13 +67,9 @@ const Login = () => {
     router.push("/welcome");
   }
 
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-  }, []);
-
   return (
     <div>
-      <div className="bg-loginBg h-screen w-screen flex flex-row items-center">
+      <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
         <div className=" w-1/6 "></div>
         <form
           onSubmit={signInWithGoogle}
@@ -138,11 +129,11 @@ const Login = () => {
           </div>
 
           <div>
-            <p className="text-white mt-10">
+            <p className="text-white mt-10 mb-3">
               If you haven&apos;t signed up, sign up now!
             </p>
             <Link href="/signup">
-              <button className="left-5 w-1/2 text-white min-w-1/2 justify-center bg-teal-700 outline outline-1 h-12 rounded-md outline-white hover:text-white hover:bg-teal-500">
+              <button className="left-5 w-1/2 text-white min-w-1/2 justify-center bg-teal-700 outline outline-1 h-16 rounded-md outline-white hover:text-white hover:bg-teal-500">
                 Signup
               </button>
             </Link>

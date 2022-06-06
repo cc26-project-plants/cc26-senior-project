@@ -3,7 +3,6 @@ import { useData } from "../../context/GetData";
 
 const NewPlantBody = () => {
   const { newPlantData, setNewPlantData } = useData();
-    // console.log("newPlantData",newPlantData)
 
   return (
     <div

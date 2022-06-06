@@ -12,7 +12,16 @@ const Signup = () => {
   const { signup } = useAuth();
 
   const { setUserData } = useData();
-  const [data, setData] = useState({
+
+  interface inputData{
+    userName: string,
+    plantName: string,
+    plantType: string,
+    plantID: string,
+    email: string,
+    _password: string,
+  }
+  const [data, setData] = useState <inputData> ({
     userName: "",
     plantName: "",
     plantType: "",
@@ -32,7 +41,8 @@ const Signup = () => {
   };
 
   const createUser = () => {
-    const newUser = {
+    const newUser: { userName: string, email: string, plantId: string, plantName: string, plantType: string 
+    } = {
       userName: data.userName,
       email: data.email,
       plantId: data.plantID,
@@ -42,7 +52,7 @@ const Signup = () => {
     return newUser;
   };
 
-  const sendNewUser = async (newUser) => {
+  const sendNewUser = async (newUser: any) => {
     const response = await axios.post(
       "https://happa-26-backend.an.r.appspot.com/users/",
       newUser
@@ -52,133 +62,127 @@ const Signup = () => {
   };
 
   return (
-    <div className="h-screen w-screen">
-      <div className="text-white font-thin">
-        <Card>
-          <Card.Body className="bg-loginBg h-screen w-screen ">
-            <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
-              <Form
-                onSubmit={handleSignup}
-                className=" bg-gray-400 max-h-screen bg-opacity-50 p-3 object-contain rounded-md outline outline-white"
+    <div>
+      <div className="bg-loginBg h-screen w-screen flex items-center text-white">
+        <div className="w-1/6"></div>
+        <div className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/3 min-w-fit min-h-fit">
+          <h2 className="text-start font-thin text-6xl">Signup</h2>
+          <form onSubmit={handleSignup} className="grid grid-cols-2 gap-4">
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label className="font-semibold mt-6">User Name</Form.Label>
+              <Form.Control
+                type="userName"
+                placeholder="Your name"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    userName: e.target.value,
+                  })
+                }
+                value={data.userName}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicEmail" className=" mt-2">
+              <Form.Label className="font-semibold -mb-2">
+                Plant Name
+              </Form.Label>
+              <p>Please give your plant a nickname</p>
+              <Form.Control
+                placeholder="Plant name"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    plantName: e.target.value,
+                  })
+                }
+                value={data.plantName}
+              />
+            </Form.Group>
+
+            <Form.Group className="mt-2" controlId="formBasicEmail">
+              <Form.Label className="font-semibold">Plant Type</Form.Label>
+              <Form.Select
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    plantType: e.target.value,
+                  })
+                }
+                value={data.plantType}
               >
-                <h2 className="text-center font-thin">Signup</h2>
+                <option>Choose...</option>
+                <option value="Cactus（サボテン）">Cactus（サボテン）</option>
+                <option value="Sword Leaf（ソードリーフ">
+                  Sword Leaf（ソードリーフ）
+                </option>
+                <option value="Benjamin（ベンジャミン）">
+                  Benjamin（ベンジャミン）
+                </option>
+              </Form.Select>
+            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-semibold ">User Name</Form.Label>
-                  <Form.Control
-                    type="userName"
-                    placeholder="Your name"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        userName: e.target.value,
-                      })
-                    }
-                    value={data.userName}
-                  />
-                </Form.Group>
+            <Form.Group controlId="formBasicEmail" className="-mt-2">
+              <Form.Label className="font-semibold -mb-2">Plant ID</Form.Label>
+              <p>Please check the Plant ID enclosed with the device</p>
+              <Form.Control
+                type="text"
+                placeholder="Plant ID"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    plantID: e.target.value,
+                  })
+                }
+                value={data.plantID}
+              />
+            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-semibold">Plant Name</Form.Label>
-                  <p>Please give your plant a nickname</p>
-                  <Form.Control
-                    placeholder="Plant name"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        plantName: e.target.value,
-                      })
-                    }
-                    value={data.plantName}
-                  />
-                </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label className="font-semibold">Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    email: e.target.value,
+                  })
+                }
+                value={data.email}
+              />
+            </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-semibold">Plant Type</Form.Label>
-                  <Form.Select
-                    className="custom-select mr-sm-3"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        plantType: e.target.value,
-                      })
-                    }
-                    value={data.plantType}
-                  >
-                    <option>Choose...</option>
-                    <option value="Cactus（サボテン）">Cactus（サボテン）</option>
-                    <option value="Sword Leaf（ソードリーフ">Sword Leaf（ソードリーフ）</option>
-                    <option value="Benjamin（ベンジャミン）">Benjamin（ベンジャミン）</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-semibold">Plant ID</Form.Label>
-                  <p>Please check the Plant ID enclosed with the device</p>
-                  <Form.Control
-                    type="text"
-                    placeholder="Plant ID"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        plantID: e.target.value,
-                      })
-                    }
-                    value={data.plantID}
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label className="font-semibold">
-                    Email address
-                  </Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        email: e.target.value,
-                      })
-                    }
-                    value={data.email}
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label className="font-semibold">Password</Form.Label>
-                  <p className="mt-0">
-                    * more than 6 characters with 2 numbers
-                  </p>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    required
-                    onChange={(e: any) =>
-                      setData({
-                        ...data,
-                        _password: e.target.value,
-                      })
-                    }
-                    value={data._password}
-                  />
-                </Form.Group>
-                <button
-                  // variant="primary"
-                  type="submit"
-                  className="w-1/2 text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
-                >
-                  Signup
-                </button>
-              </Form>
-            </div>
-          </Card.Body>
-        </Card>
+            <Form.Group className="-mt-4" controlId="formBasicPassword">
+              <Form.Label className="font-semibold -mb-1">Password</Form.Label>
+              <p>* more than 6 characters with 2 numbers</p>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                required
+                onChange={(e: any) =>
+                  setData({
+                    ...data,
+                    _password: e.target.value,
+                  })
+                }
+                value={data._password}
+              />
+            </Form.Group>
+            <button
+              // variant="primary"
+              type="submit"
+              className=" text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 mb-9  rounded-md outline-white mt-2 hover:text-white hover:bg-teal-400"
+            >
+              Signup
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
