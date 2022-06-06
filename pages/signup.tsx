@@ -115,13 +115,9 @@ const Signup = () => {
                 value={data.plantType}
               >
                 <option>Choose...</option>
-                <option value="Cactus（サボテン）">Cactus（サボテン）</option>
-                <option value="Sword Leaf（ソードリーフ">
-                  Sword Leaf（ソードリーフ）
-                </option>
-                <option value="Benjamin（ベンジャミン）">
-                  Benjamin（ベンジャミン）
-                </option>
+                <option value="A">Cactus（サボテン）</option>
+                <option value="B">Sword Leaf（ソードリーフ）</option>
+                <option value="C">Benjamin（ベンジャミン）</option>
               </Form.Select>
             </Form.Group>
 
