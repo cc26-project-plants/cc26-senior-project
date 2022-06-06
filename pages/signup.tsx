@@ -12,7 +12,16 @@ const Signup = () => {
   const { signup } = useAuth();
 
   const { setUserData } = useData();
-  const [data, setData] = useState({
+
+  interface inputData{
+    userName: string,
+    plantName: string,
+    plantType: string,
+    plantID: string,
+    email: string,
+    _password: string,
+  }
+  const [data, setData] = useState <inputData> ({
     userName: "",
     plantName: "",
     plantType: "",
@@ -32,7 +41,8 @@ const Signup = () => {
   };
 
   const createUser = () => {
-    const newUser = {
+    const newUser: { userName: string, email: string, plantId: string, plantName: string, plantType: string 
+    } = {
       userName: data.userName,
       email: data.email,
       plantId: data.plantID,
@@ -42,7 +52,7 @@ const Signup = () => {
     return newUser;
   };
 
-  const sendNewUser = async (newUser) => {
+  const sendNewUser = async (newUser: any) => {
     const response = await axios.post(
       "https://happa-26-backend.an.r.appspot.com/users/",
       newUser
@@ -109,9 +119,9 @@ const Signup = () => {
                     value={data.plantType}
                   >
                     <option>Choose...</option>
-                    <option value="Cactus（サボテン）">Cactus（サボテン）</option>
-                    <option value="Sword Leaf（ソードリーフ">Sword Leaf（ソードリーフ）</option>
-                    <option value="Benjamin（ベンジャミン）">Benjamin（ベンジャミン）</option>
+                    <option value="A">Cactus（サボテン）</option>
+                    <option value="B">Sword Leaf（ソードリーフ）</option>
+                    <option value="C">Benjamin（ベンジャミン）</option>
                   </Form.Select>
                 </Form.Group>
 

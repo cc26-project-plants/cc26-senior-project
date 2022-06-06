@@ -18,7 +18,7 @@ const WelcomeScreen = () => {
         <h1 className="text-7xl mt-22 mb-32">Welcome {userData.userName}!</h1>
       </div>
       <div className="flex flex-row  justify-center gap-16 flex-wrap mb-11">
-        {userData.plantName.map((plant: any, index: any) => {
+        {userData.plantName.map((plant: string, index: number) => {
           return (
             // eslint-disable-next-line react/jsx-key
             <div onClick={() => {
