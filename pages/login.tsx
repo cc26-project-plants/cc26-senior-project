@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
@@ -23,39 +23,28 @@ const Login = () => {
     password: "",
   });
 
+  const handleKeyDown = (e: any) => {
+    if(e.key === 'Enter') return;
+  }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
+
     await login(data?.email, data?.password);
+    if (!currentUser || !currentUser.email) return;
 
-    const status = loginStatus();
-    if (!status) {
-      router.push("/login");
-      return;
-    }
-
-    await emailToUser();
-    router.push("/welcome");
+    await setUserAndMove();
     setLoading(false);
   };
 
   const signInWithGoogle = async (e: any) => {
     e.preventDefault();
+
     await signInWithPopup(auth, provider);
+    if (!currentUser || !currentUser.email) return;
 
-    const status = loginStatus();
-    if (!status) {
-      router.push("/login");
-      return;
-    }
-
-    await emailToUser();
-    router.push("/welcome");
-  }
-
-  const loginStatus = () => {
-    if (!currentUser) return false;
-    return currentUser.email ? true : false;
+    await setUserAndMove();
   }
 
   const emailToUser = async () => {
@@ -69,9 +58,18 @@ const Login = () => {
     return userData;
   };
 
+  const setUserAndMove = async () => {
+    await emailToUser();
+    router.push("/welcome");
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div>
-      <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
+      <div className="bg-loginBg h-screen w-screen flex flex-row items-center">
         <div className=" w-1/6 "></div>
         <form
           onSubmit={signInWithGoogle}

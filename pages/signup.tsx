@@ -25,13 +25,13 @@ const Signup = () => {
     e.preventDefault();
 
     await signup(data.email, data._password);
-    const newUser = await createUser();
+    const newUser = createUser();
     const newUserData = await sendNewUser(newUser);
     setUserData(newUserData);
     router.push("/welcome");
   };
 
-  const createUser = async () => {
+  const createUser = () => {
     const newUser = {
       userName: data.userName,
       email: data.email,
@@ -52,7 +52,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="h-screen w-screen">
       <div className="text-white font-thin">
         <Card>
           <Card.Body className="bg-loginBg h-screen w-screen ">

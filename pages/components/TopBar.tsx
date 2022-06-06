@@ -47,7 +47,7 @@ const TopBar = () => {
               no-underline text-white border-teal-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
               shadow-gray-200 
-            "
+              "
             >
               Log Out
             </button>
