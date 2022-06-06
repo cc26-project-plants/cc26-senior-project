@@ -62,12 +62,14 @@ export default function DataProvider({
 
     setTemp(
       allPlantStats.map(
-        (element: { temperature: string }) => element.temperature)
+        (element: { temperature: string }) => element.temperature
+      )
     );
 
     setHumidity(
       allPlantStats.map(
-        (element: { humidityLevel: string }) => element.humidityLevel)
+        (element: { humidityLevel: string }) => element.humidityLevel
+      )
     );
 
     setLight(
@@ -76,7 +78,8 @@ export default function DataProvider({
 
     setSoilWater(
       allPlantStats.map(
-        (element: { soilWaterLevel: string }) => element.soilWaterLevel)
+        (element: { soilWaterLevel: string }) => element.soilWaterLevel
+      )
     );
 
     setTimeStamp(
