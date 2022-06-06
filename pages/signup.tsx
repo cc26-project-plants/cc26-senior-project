@@ -52,7 +52,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="h-screen w-screen">
       <div className="text-white font-thin">
         <Card>
           <Card.Body className="bg-loginBg h-screen w-screen ">

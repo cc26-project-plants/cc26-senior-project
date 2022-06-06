@@ -4,7 +4,7 @@ import SideBar from "./components/SideBar";
 
 const MyPage = () => {
   return (
-    <div>
+    <div className="h-screen w-screen">
       <MyPageTopBar />
       <div className="flex flex-row h-full">
         <SideBar />

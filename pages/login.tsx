@@ -71,7 +71,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
+      <div className="bg-loginBg h-screen w-screen flex flex-row items-center">
         <div className=" w-1/6 "></div>
         <form
           onSubmit={signInWithGoogle}
