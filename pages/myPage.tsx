@@ -6,6 +6,7 @@ import SideBar from "./components/SideBar";
 function MyPage(){
     const {userData, setUserData} = useData();
     console.log("[mp]", userData);
+
     return (
       <div>
         <div className="bg-apple bg-apple-200 h-screen w-screen">
@@ -17,8 +18,7 @@ function MyPage(){
             className="w-40 h-20 inline-block text-sm leading-none border rounded
               no-underline text-white border-teal-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
-              shadow-gray-200 drop-shadow-md
-              "
+              shadow-gray-200 drop-shadow-md"
           >
             Back to Main
           </button>
@@ -36,8 +36,7 @@ function MyPage(){
                     <div className="flex flex-column font-mono">
                         <div className="leading-10"
                         > User Name:<br />
-                        user name here
-                        {/* {userData.userName} */}
+                        {userData.userName}
                         </div>
                         <Link href="/addPlant">
                             <button
@@ -61,11 +60,12 @@ function MyPage(){
                             {/* {userData.plantName[0]} */}
                         </div>
                         <div>
-                            Plant Type:
+                            Plant Type
                             {/* {userData.plantType} */}
                         </div>
                         <div>
-                            {/* Plant ID: {userData.plantId[0]} */}
+                            Plant ID: 
+                            {/* {userData.plantId[0]} */}
                         </div>
                         <div>
                             Plant Plofile
@@ -78,7 +78,7 @@ function MyPage(){
                     </div>
                 </div>
             </div>
-          <div className=" flex flex-column justify-evenly  container mg-auto my-10 h-64">
+          {/* <div className=" flex flex-column justify-evenly  container mg-auto my-10 h-64">
             <div
                 className="ml-10 bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-9/12"
             >next plant2
@@ -87,7 +87,7 @@ function MyPage(){
                 className="ml-10 bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-9/12"
             >next plant3
             </div>
-          </div>
+          </div> */}
         </div>
         </div>
       </div>

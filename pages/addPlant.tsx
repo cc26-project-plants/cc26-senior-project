@@ -23,9 +23,14 @@ const addPlant = ()=>{
     e.preventDefault();
 
     const newPlant = await createNewPlant();
-    const newPlantData = await sendNewPlant(newPlant);
-    // setUserData(newPlantData);
-    router.push("/main");
+    const checkAddPlant = await sendNewPlant(newPlant);
+    console.log("checkAddPlant", checkAddPlant)
+    // setUserData(getReturnPlantData);
+    // console.log("[handleAP]getReturnPlantData",getReturnPlantData)
+    // if(checkAddPlant){
+    //   router.push("/main");
+    // }
+    
   };
 
   const createNewPlant = async () => {
@@ -41,13 +46,14 @@ const addPlant = ()=>{
 
   const sendNewPlant = async (newPlant) => {
     const response = await axios.post(
-      "https://happa-26-backend.an.r.appspot.com/plants/",
+      `https://happa-26-backend.an.r.appspot.com/plants/${plantData.email}`,
       newPlant
     );
-    const newPlantData = response.data.data;
-    console.log("[send plant]newPlantData",newPlantData)
-    console.log("[send plant]newPlant",newPlant)
-    return newPlantData;
+    console.log("[res/sendNewPlant]", response.data.data)
+    // const checkAddPlant = response.data.success;
+    // console.log("[send plant]true or false",checkAddPlant)
+    // console.log("[send plant]newPlant",newPlant)
+    // return checkAddPlant;
   };
 
 
