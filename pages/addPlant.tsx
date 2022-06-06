@@ -40,14 +40,14 @@ const addPlant = ()=>{
   };
 
   const sendNewPlant = async (newPlant) => {
-    // const response = await axios.post(
-    //   "https://happa-26-backend.an.r.appspot.com/plants",
-    //   newPlant
-    // );
-    // const newPlantData = response.data.data;
-    // console.log("[send plant]newPlantData",newPlantData)
-    // console.log("[send plant]newPlant",newPlant)
-    // return newPlantData;
+    const response = await axios.post(
+      "https://happa-26-backend.an.r.appspot.com/plants/",
+      newPlant
+    );
+    const newPlantData = response.data.data;
+    console.log("[send plant]newPlantData",newPlantData)
+    console.log("[send plant]newPlant",newPlant)
+    return newPlantData;
   };
 
 
