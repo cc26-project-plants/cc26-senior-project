@@ -7,6 +7,7 @@ import LightLevel from "../charts/LightLevel";
 import TempLevel from "../charts/TempLevel";
 import SoilMoist from "../charts/SoilMoisture";
 import HumidityLevel from "../charts/HumidityLevel";
+import TestChart from "../charts/TestChart";
 
 const ChartBox = () => {
   const [showLight, setShowLight] = useState(false);

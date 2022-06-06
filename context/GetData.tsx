@@ -22,13 +22,17 @@ export default function DataProvider({
     userId: "vcDJMzX0O1JLUU1Tzkch",
     userName: "Grace",
     plantName: ["Bob", "Rob", "Job"],
-    plantId: ["wdNtSRStxaQU9gc2QWM7", "5hGtJpjctQeSPJGmPE4P", "xb7nEiSy2N3gkCRw5bDL"],
+    plantId: [
+      "wdNtSRStxaQU9gc2QWM7",
+      "5hGtJpjctQeSPJGmPE4P",
+      "xb7nEiSy2N3gkCRw5bDL",
+    ],
   });
 
   const getCurrentPlantId = () => {
     const currentPlantId = userData["currentPlantId"];
     return currentPlantId;
-  }
+  };
 
   const getAllData = async () => {
     const currentPlantId = getCurrentPlantId() || "wdNtSRStxaQU9gc2QWM7";
@@ -39,12 +43,14 @@ export default function DataProvider({
 
     setTemp(
       allPlantStats.map(
-        (element: { temperature: string }) => element.temperature)
+        (element: { temperature: string }) => element.temperature
+      )
     );
 
     setHumidity(
       allPlantStats.map(
-        (element: { humidityLevel: string }) => element.humidityLevel)
+        (element: { humidityLevel: string }) => element.humidityLevel
+      )
     );
 
     setLight(
@@ -53,7 +59,8 @@ export default function DataProvider({
 
     setSoilWater(
       allPlantStats.map(
-        (element: { soilWaterLevel: string }) => element.soilWaterLevel)
+        (element: { soilWaterLevel: string }) => element.soilWaterLevel
+      )
     );
 
     setTimeStamp(

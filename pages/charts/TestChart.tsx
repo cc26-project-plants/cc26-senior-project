@@ -3,14 +3,17 @@ import Highcharts from "highcharts";
 import HighchartsExporting from "highcharts/modules/exporting";
 import HighchartsReact from "highcharts-react-official";
 
+import { useData } from "../../context/GetData";
+
 if (typeof Highcharts === "object") {
   HighchartsExporting(Highcharts);
 }
 
 const TestChart = () => {
+  const { timeStamp, light } = useData();
   const options = {
     chart: {
-      type: "area",
+      type: "column",
       backgroundColor: "#fff4cc",
     },
 
@@ -21,20 +24,7 @@ const TestChart = () => {
       text: "Brought to you by Happa",
     },
     xAxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: timeStamp.map((date) => date),
       accessibility: {
         description: "Months of the year",
       },
@@ -42,11 +32,6 @@ const TestChart = () => {
     yAxis: {
       title: {
         text: "Light",
-      },
-      labels: {
-        formatter: function (value) {
-          return value + "°";
-        },
       },
     },
     tooltip: {
@@ -63,29 +48,7 @@ const TestChart = () => {
           fillColor: "#ffd942",
         },
         fillOpacity: 0.3,
-
-        data: [
-          7.0,
-          6.9,
-          9.5,
-          14.5,
-          18.2,
-          21.5,
-          25.2,
-          {
-            y: 26.5,
-            marker: {
-              symbol:
-                "url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/87/loudly-crying-face_1f62d.png)",
-              width: 25,
-              height: 25,
-            },
-          },
-          23.3,
-          18.3,
-          13.9,
-          9.6,
-        ],
+        data: light,
       },
     ],
 
@@ -102,3 +65,13 @@ const TestChart = () => {
 };
 
 export default TestChart;
+
+//{
+//   y: 26.5,
+//   marker: {
+//     symbol:
+//       "url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/87/loudly-crying-face_1f62d.png)",
+//     width: 25,
+//     height: 25,
+//   },
+// },
