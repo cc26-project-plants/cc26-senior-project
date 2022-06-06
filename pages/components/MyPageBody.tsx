@@ -16,7 +16,7 @@ const MyPageBody = () => {
             <div className="leading-10">
               User Name:
               <br />
-              {userData.userName}
+              <div className="text-2xl">{userData.userName}</div>
             </div>
             <Link href="/addPlant">
               <button className="text-white mt-12 h-10 bg-teal-600 outline outline-1 rounded-md outline-white hover:text-white hover:bg-teal-400">
@@ -50,24 +50,24 @@ const MyPageBody = () => {
         </div>
       </div>
       <p className="font-mono">other plants</p>
-      {/* <div
-      className="flex bg-gray-400 bg-opacity-50 rounded-md outline outline-white"> */}
-        <div className=" flex flex-row justify-evenly  container mg-auto my-5 h-64">
-          
-          <div className="bg-aloe scale-100  bg-center bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse">
+ 
+      <div className="flex flex-row">
+        <div className=" mg-auto my-5 h-64">          
+          <div className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse">
             <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md"
             > Name: Rob
             </div>
           </div>
         </div>
-        <div className=" flex flex-row justify-evenly  container mg-auto my-5 h-64">
+        <div className="mg-auto my-5 h-64">
           <div className="bg-aloe scale-100  bg-center bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse">
             <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md"
             > Name: Job
             </div>
           </div>
         </div>
-      {/* </div> */}
+      </div>  
+
     </div>
   );
 };

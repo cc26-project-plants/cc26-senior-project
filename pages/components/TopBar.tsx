@@ -38,7 +38,7 @@ const TopBar = () => {
 
           <Link href="/">
             <button
-              onClick={(e) => {
+              onClick={(e:any) => {
                 handleLogOut(e);
               }}
               className="w-40 h-20 inline-block text-sm leading-none shadow-lg rounded-lg
