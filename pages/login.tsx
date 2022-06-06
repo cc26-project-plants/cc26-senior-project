@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
@@ -23,16 +23,16 @@ const Login = () => {
     password: "",
   });
 
+  const handleKeyDown = (e: any) => {
+    if(e.key === 'Enter') return;
+  }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
-    await login(data?.email, data?.password);
 
-    const status = loginStatus();
-    if (!status) {
-      router.push("/login");
-      return;
-    }
+    await login(data?.email, data?.password);
+    if (!currentUser || !currentUser.email) return;
 
     await emailToUser();
     router.push("/welcome");
@@ -41,21 +41,12 @@ const Login = () => {
 
   const signInWithGoogle = async (e: any) => {
     e.preventDefault();
-    await signInWithPopup(auth, provider);
 
-    const status = loginStatus();
-    if (!status) {
-      router.push("/login");
-      return;
-    }
+    await signInWithPopup(auth, provider);
+    if (!currentUser || !currentUser.email) return;
 
     await emailToUser();
     router.push("/welcome");
-  }
-
-  const loginStatus = () => {
-    if (!currentUser) return false;
-    return currentUser.email ? true : false;
   }
 
   const emailToUser = async () => {
@@ -68,6 +59,10 @@ const Login = () => {
     const userData = response.data.data;
     return userData;
   };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <div>
