@@ -16,8 +16,10 @@ const Login = () => {
   provider.setCustomParameters({ prompt: "select_account" });
   const { currentUser, login } = useAuth();
 
+  const ERROR_MESSAGE = "Email not found or the password did not match the email.";
   const { setUserData } = useData();
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -27,36 +29,24 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     await login(data?.email, data?.password);
-
-    const status = loginStatus();
-    if (!status) {
-      router.push("/login");
+    if (!currentUser || !currentUser.email) {
+      setErrorMessage(ERROR_MESSAGE);
       return;
     }
 
-    await emailToUser();
-    router.push("/welcome");
-    setLoading(false);
+    await setUserAndMove();
   };
 
   const signInWithGoogle = async (e: any) => {
     e.preventDefault();
     await signInWithPopup(auth, provider);
-
-    const status = loginStatus();
-    if (!status) {
-      router.push("/login");
+    if (!currentUser || !currentUser.email) {
+      setErrorMessage(ERROR_MESSAGE);
       return;
     }
 
-    await emailToUser();
-    router.push("/welcome");
-  };
-
-  const loginStatus = () => {
-    if (!currentUser) return false;
-    return currentUser.email ? true : false;
-  };
+    await setUserAndMove();
+  }
 
   const emailToUser = async () => {
     const userData = await getUserData();
@@ -71,6 +61,12 @@ const Login = () => {
     return userData;
   };
 
+  const setUserAndMove = async () => {
+    await emailToUser();
+    setLoading(false);
+    router.push("/welcome");
+  }
+
   return (
     <div>
       <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
@@ -79,10 +75,10 @@ const Login = () => {
           onSubmit={signInWithGoogle}
           className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/3 min-w-fit min-h-fit"
         >
-          <h2 className="text-center text-white font-thin ">
+          <h2 className="text-center text-white font-thin">
             Welcome to Happa!
           </h2>
-          <h2 className="text-center text-white font-thin ">Log In</h2>
+          <h2 className="text-center text-white font-thin">Log In</h2>
           <Form.Group id="email">
             <Form.Label className="text-white">Email</Form.Label>
             <Form.Control
@@ -113,6 +109,7 @@ const Login = () => {
               placeholder="Password"
             />
           </Form.Group>
+          <h1 className="text-red-400 mt-6">{errorMessage}</h1>
           <div className="flex justify-center flex-col">
             <button
               disabled={loading}
