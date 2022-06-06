@@ -4,12 +4,20 @@ import { Card, Form } from "react-bootstrap";
 import axios from "axios";
 import Link from "next/link";
 import { useData } from "../context/GetData";
+import MyPageTopBar from "./components/MyPageTopBar";
+import SideBar from "./components/SideBar";
 
 const AddPlant = () => {
   const router = useRouter();
   const { newPlantData, setNewPlantData } = useData();
 
-  const [plantData, setPlantData] = useState({
+  interface plantInput{
+    plantName: string,
+    plantType: string,
+    plantID: string,
+    email: string
+  }
+  const [plantData, setPlantData] = useState <plantInput>({
     plantName: "",
     plantType: "",
     plantID: "",
@@ -32,12 +40,12 @@ const AddPlant = () => {
       })
       router.push("/newPlant");
     }
-    
   };
 
 
   const createNewPlant = async () => {
-    const newPlant = {
+    const newPlant : { email: string, plantId: string, plantName: string, plantType: string
+    }= {
       email: plantData.email,
       plantId: plantData.plantID,
       plantName: plantData.plantName,
@@ -47,33 +55,22 @@ const AddPlant = () => {
     return newPlant;
   };
 
-  const sendNewPlant = async (newPlant) => {
+  const sendNewPlant = async (newPlant: any) => {
     const response = await axios.post(
       `https://happa-26-backend.an.r.appspot.com/plants/${plantData.email}`,
       newPlant
     );
     // console.log("[res/sendNewPlant]", response.data.success)
-
     return response.data
   };
 
   return (
     <div>
       <div className="text-white font-thin placeholder-gray-200">
-        <div className="flex justify-between text-apple-500 items-center max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
-          <h2 className="ml-12  font-mono ">Add Plant</h2>
-          <Link href="/main">
-            <button
-              className=" w-40 h-20 inline-block text-sm leading-none border rounded
-                no-underline text-white border-teal-500 bg-apple-300 
-                hover:border-transparent hover:text-white hover:bg-apple-400 
-                shadow-gray-200 drop-shadow-md
-                "
-            >
-              Back to Main
-            </button>
-          </Link>
-        </div>
+      <MyPageTopBar />
+      <div className="flex flex-row h-full">
+        <SideBar />
+        
         <Card>
           <Card.Body className="bg-apple-200  h-screen w-screen ">
             <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
@@ -170,6 +167,7 @@ const AddPlant = () => {
             </div>
           </Card.Body>
         </Card>
+        </div>  
       </div>
     </div>
   );

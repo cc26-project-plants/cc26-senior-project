@@ -10,10 +10,10 @@ import HumidityLevel from "../charts/HumidityLevel";
 import TestChart from "../charts/TestChart";
 
 const ChartBox = () => {
-  const [showLight, setShowLight] = useState(false);
-  const [showTemp, setShowTemp] = useState(false);
-  const [showHumidity, setShowHumidity] = useState(false);
-  const [showSoilMoist, setShowSoilWater] = useState(false);
+  const [showLight, setShowLight] = useState<boolean>(false);
+  const [showTemp, setShowTemp] = useState<boolean>(false);
+  const [showHumidity, setShowHumidity] = useState<boolean>(false);
+  const [showSoilMoist, setShowSoilWater] = useState<boolean>(false);
 
   const hideEverything = () => {
     setShowLight(false);

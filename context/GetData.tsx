@@ -21,7 +21,15 @@ export default function DataProvider({
   const [light, setLight] = useState(0);
   const [soilWater, setSoilWater] = useState(0);
   const [timeStamp, setTimeStamp] = useState(0);
-  const [userData, setUserData] = useState({
+
+  interface testUserInput{
+    userId: string,
+    userName: string,
+    plantName: string[],
+    plantId: string[],
+    currentPlantId: string
+  }
+  const [userData, setUserData] = useState<testUserInput>({
     userId: TEST_USER_ID,
     userName: "Grace",
     plantName: ["Bob", "Rob", "Job"],
@@ -29,7 +37,11 @@ export default function DataProvider({
     currentPlantId: TEST_PLANT_ID,
   });
 
-  const [newPlantData, setNewPlantData] = useState({
+  interface newPlantInput{
+    newPlantId: string,
+    newPlantName:string
+  }
+  const [newPlantData, setNewPlantData] = useState<newPlantInput>({
       newPlantId: "",
       newPlantName:""
     })
