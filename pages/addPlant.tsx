@@ -3,13 +3,11 @@ import { useRouter } from "next/router";
 import { Card, Form } from "react-bootstrap";
 import axios from "axios";
 import Link from "next/link";
-
-// import { useAuth } from "../context/AuthContext";
-// import { useData } from "../context/GetData";
+import { useData } from "../context/GetData";
 
 const addPlant = () => {
   const router = useRouter();
-  // const { userData, setUserData } = useData();
+  const { newPlantData, setNewPlantData } = useData();
 
   const [plantData, setPlantData] = useState({
     plantName: "",
@@ -24,13 +22,19 @@ const addPlant = () => {
     const newPlant = await createNewPlant();
     const checkAddPlant = await sendNewPlant(newPlant);
     console.log("checkAddPlant", checkAddPlant)
-    // setUserData(getReturnPlantData);
-    // console.log("[handleAP]getReturnPlantData",getReturnPlantData)
-    // if(checkAddPlant){
-    //   router.push("/main");
-    // }
+
+    if(checkAddPlant.success){
+      // console.log("[success]",checkAddPlant.success)
+      // console.log("[data]",checkAddPlant.data)
+      setNewPlantData({
+        newPlantId: checkAddPlant.data.plantId.at(-1),
+        newPlantName: checkAddPlant.data.plantName.at(-1),
+      })
+      router.push("/newPlant");
+    }
     
   };
+
 
   const createNewPlant = async () => {
     const newPlant = {
@@ -48,11 +52,9 @@ const addPlant = () => {
       `https://happa-26-backend.an.r.appspot.com/plants/${plantData.email}`,
       newPlant
     );
-    console.log("[res/sendNewPlant]", response.data.data)
-    // const checkAddPlant = response.data.success;
-    // console.log("[send plant]true or false",checkAddPlant)
-    // console.log("[send plant]newPlant",newPlant)
-    // return checkAddPlant;
+    // console.log("[res/sendNewPlant]", response.data.success)
+
+    return response.data
   };
 
   return (
@@ -109,13 +111,13 @@ const addPlant = () => {
                     value={plantData.plantType}
                   >
                     <option>Choose...</option>
-                    <option value="Cactus（サボテン）">
+                    <option value="A">
                       Cactus（サボテン）
                     </option>
-                    <option value="Sword Leaf（ソードリーフ">
+                    <option value="B">
                       Sword Leaf（ソードリーフ）
                     </option>
-                    <option value="Benjamin（ベンジャミン）">
+                    <option value="C">
                       Benjamin（ベンジャミン）
                     </option>
                   </Form.Select>

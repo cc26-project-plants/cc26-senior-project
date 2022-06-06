@@ -25,6 +25,11 @@ export default function DataProvider({
     plantId: ["wdNtSRStxaQU9gc2QWM7", "5hGtJpjctQeSPJGmPE4P", "xb7nEiSy2N3gkCRw5bDL"],
   });
 
+  const [newPlantData, setNewPlantData] = useState({
+      newPlantId: "",
+      newPlantName:""
+    })
+
   const getCurrentPlantId = () => {
     const currentPlantId = userData["currentPlantId"];
     return currentPlantId;
@@ -79,6 +84,9 @@ export default function DataProvider({
         light,
         userData,
         setUserData,
+
+        newPlantData, 
+        setNewPlantData
       }}
     >
       {children}

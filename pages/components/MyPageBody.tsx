@@ -58,14 +58,14 @@ shadow-lg  bg-apple-200"
           </div>
         </div>
       </div>
-      <div className=" flex flex-column justify-evenly  container mg-auto my-10 h-64">
+      {/* <div className=" flex flex-column justify-evenly  container mg-auto my-10 h-64">
         <div className="ml-10 bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-9/12">
           next plant2
         </div>
         <div className="ml-10 bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-9/12">
           next plant3
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
