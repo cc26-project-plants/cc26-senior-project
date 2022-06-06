@@ -29,6 +29,16 @@ export default function DataProvider({
     currentPlantId: TEST_PLANT_ID,
   });
 
+  const [newPlantData, setNewPlantData] = useState({
+      newPlantId: "",
+      newPlantName:""
+    })
+
+  const getCurrentPlantId = () => {
+    const currentPlantId = userData["currentPlantId"];
+    return currentPlantId;
+  }
+
   const getAllData = async () => {
     const currentPlantId = userData.currentPlantId;
 
@@ -80,6 +90,9 @@ export default function DataProvider({
         light,
         userData,
         setUserData,
+
+        newPlantData, 
+        setNewPlantData
       }}
     >
       {children}
