@@ -26,7 +26,7 @@ const TopBar = () => {
           </h4>
         </div>
         <div className="flex gap-2 mr-2">
-          <Link href="/mypage">
+          <Link href="/myPage">
             <button
               className="w-40 h-20 inline-block text-sm leading-none shadow-lg rounded-lg
               no-underline text-white border-teal-500 bg-apple-300

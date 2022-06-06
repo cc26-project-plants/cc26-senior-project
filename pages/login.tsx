@@ -30,7 +30,7 @@ const Login = () => {
 
     const status = loginStatus();
     if (!status) {
-      router.push("/signup");
+      router.push("/login");
       return;
     }
 
@@ -45,7 +45,7 @@ const Login = () => {
 
     const status = loginStatus();
     if (!status) {
-      router.push("/signup");
+      router.push("/login");
       return;
     }
 
