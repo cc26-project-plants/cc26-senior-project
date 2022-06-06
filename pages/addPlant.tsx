@@ -7,10 +7,9 @@ import Link from "next/link";
 // import { useAuth } from "../context/AuthContext";
 // import { useData } from "../context/GetData";
 
-const addPlant = ()=>{
+const addPlant = () => {
   const router = useRouter();
   // const { userData, setUserData } = useData();
-
 
   const [plantData, setPlantData] = useState({
     plantName: "",
@@ -35,7 +34,7 @@ const addPlant = ()=>{
       plantName: plantData.plantName,
       plantType: plantData.plantType,
     };
-    console.log("[createNP]newPlant",newPlant)
+    console.log("[createNP]newPlant", newPlant);
     return newPlant;
   };
 
@@ -50,13 +49,11 @@ const addPlant = ()=>{
     // return newPlantData;
   };
 
-
   return (
     <div>
       <div className="text-white font-thin placeholder-gray-200">
-        <div
-         className="flex justify-between text-apple-500 items-center max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg"
-            ><h2 className="ml-12  font-mono ">Add Plant</h2>
+        <div className="flex justify-between text-apple-500 items-center max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
+          <h2 className="ml-12  font-mono ">Add Plant</h2>
           <Link href="/main">
             <button
               className=" w-40 h-20 inline-block text-sm leading-none border rounded
@@ -67,7 +64,7 @@ const addPlant = ()=>{
             >
               Back to Main
             </button>
-          </Link>    
+          </Link>
         </div>
         <Card>
           <Card.Body className="bg-apple-200  h-screen w-screen ">
@@ -106,9 +103,15 @@ const addPlant = ()=>{
                     value={plantData.plantType}
                   >
                     <option>Choose...</option>
-                    <option value="Cactus（サボテン）">Cactus（サボテン）</option>
-                    <option value="Sword Leaf（ソードリーフ">Sword Leaf（ソードリーフ）</option>
-                    <option value="Benjamin（ベンジャミン）">Benjamin（ベンジャミン）</option>
+                    <option value="Cactus（サボテン）">
+                      Cactus（サボテン）
+                    </option>
+                    <option value="Sword Leaf（ソードリーフ">
+                      Sword Leaf（ソードリーフ）
+                    </option>
+                    <option value="Benjamin（ベンジャミン）">
+                      Benjamin（ベンジャミン）
+                    </option>
                   </Form.Select>
                 </Form.Group>
 
@@ -162,7 +165,6 @@ const addPlant = ()=>{
       </div>
     </div>
   );
+};
 
-}
-
-export default addPlant
+export default addPlant;
