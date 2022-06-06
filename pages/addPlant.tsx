@@ -5,7 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useData } from "../context/GetData";
 
-const addPlant = () => {
+const AddPlant = () => {
   const router = useRouter();
   const { newPlantData, setNewPlantData } = useData();
 
@@ -175,4 +175,4 @@ const addPlant = () => {
   );
 };
 
-export default addPlant;
+export default AddPlant;
