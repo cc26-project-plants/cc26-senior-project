@@ -87,14 +87,14 @@ const ChartBox = () => {
         </button>
       </div>
       <div className="w-8/12 ml-52 bg-apple-100 shadow-lg shadow-gray-600 rounded-lg p-3">
-        <Form className="w-28">
+        {/* <Form className="w-28">
           <Form.Select>
             <option value="0">All</option>
             <option value="1">Month</option>
             <option value="2">Week</option>
             <option value="3">Day</option>
           </Form.Select>
-        </Form>
+        </Form> */}
         {/* {showLight && <TestChart />} */}
         {showLight && <LightLevel />}
         {showTemp && <TempLevel />}

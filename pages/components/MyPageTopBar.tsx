@@ -5,9 +5,9 @@ const MyPageTopBar = () => {
   return (
     <div>
       <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
-        <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-24">
-          <h4 className="flex justify-start mt-10 ml-0 text-apple-500">
-            My Page
+        <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-16">
+          <h4 className="flex justify-start mt-10 ml-2 text-apple-500">
+            MyPage
           </h4>
         </div>
         <div className="flex justify-between text-apple-500 items-center max-w-screen h-20 bg-apple-50 align-middle mr-2">
