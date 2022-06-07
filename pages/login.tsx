@@ -16,7 +16,8 @@ const Login = () => {
   provider.setCustomParameters({ prompt: "select_account" });
   const { currentUser, login } = useAuth();
 
-  const ERROR_MESSAGE = "Email not found or the password did not match the email.";
+  const ERROR_MESSAGE =
+    "Email not found or the password did not match the email.";
   const { setUserData } = useData();
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -46,7 +47,7 @@ const Login = () => {
     }
 
     await setUserAndMove();
-  }
+  };
 
   const emailToUser = async () => {
     const userData = await getUserData();
@@ -65,7 +66,7 @@ const Login = () => {
     await emailToUser();
     setLoading(false);
     router.push("/welcome");
-  }
+  };
 
   return (
     <div>
@@ -109,7 +110,7 @@ const Login = () => {
               placeholder="Password"
             />
           </Form.Group>
-          <h1 className="text-red-400 mt-6">{errorMessage}</h1>
+
           <div className="flex justify-center flex-col">
             <button
               disabled={loading}
@@ -145,3 +146,8 @@ const Login = () => {
 };
 
 export default Login;
+
+{
+  /* <> {<p className="text-red-400 mt-6">{errorMessage}</p>}</>
+   <h1 className="text-red-400 mt-6">{errorMessage}</h1> */
+}

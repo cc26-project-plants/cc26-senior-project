@@ -1,8 +1,11 @@
+import { useVisibility } from "../../context/VisibilityContext";
+
 const Navbar = () => {
-  const menu: { name: string; link: string }[] = [
-    { name: "Check Camera", link: "/" },
+  const { setChart, setControl } = useVisibility();
+  const menu: { name: string; link: any }[] = [
+    { name: "Plant Status", link: "status" },
     { name: "Share to Others", link: "/" },
-    { name: "Control Panel", link: "/" },
+    { name: "Control Panel", link: "control" },
     { name: "Check Automation", link: "/" },
   ];
 
@@ -10,9 +13,20 @@ const Navbar = () => {
     <div className=" w-80  bg-apple-300 list-none ">
       <div className="mt-24">
         {menu.map((menu) => (
-          <li key={menu.name} className="flex justify-center mt-1">
+          <li
+            key={menu.name}
+            className="flex justify-center mt-1 cursor-pointer select-none"
+          >
             <a
-              href={menu.link}
+              onClick={() => {
+                if (menu.link === "control") {
+                  setChart(false);
+                  setControl(true);
+                } else if (menu.link === "status") {
+                  setChart(true);
+                  setControl(false);
+                }
+              }}
               className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
                 no-underline text-gray-50 border-white
                 hover:border-transparent hover:text-teal-600 hover:bg-apple-50 mt-4 lg:mt-0
