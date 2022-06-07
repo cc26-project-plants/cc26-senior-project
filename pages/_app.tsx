@@ -7,16 +7,19 @@ import { AuthProvider } from "../context/AuthContext";
 import DataProvider from "../context/GetData";
 import "../styles/globals.css";
 import VisibilityProvider from "../context/VisibilityContext";
+import MqttProvider from "../context/MqttContext";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <VisibilityProvider>
-      <DataProvider>
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
-      </DataProvider>
-    </VisibilityProvider>
+    <MqttProvider>
+      <VisibilityProvider>
+        <DataProvider>
+          <AuthProvider>
+            <Component {...pageProps} />
+          </AuthProvider>
+        </DataProvider>
+      </VisibilityProvider>
+    </MqttProvider>
   );
 };
 
