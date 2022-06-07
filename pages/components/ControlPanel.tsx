@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Form } from "react-bootstrap";
-import mqtt from 'mqtt';
-
+import { useMqtt } from "../../context/MqttContext";
 
 const ControlPanel = () => {
-  const [lightToggle, setLightToggle] = useState(false);
+  const { messages, setMessages, lightToggle, setLightToggle } = useMqtt();
+  const [lightRange, setLightRange] = useState(0);
+
   const [waterToggle, setWaterToggle] = useState(false);
 
 
@@ -37,7 +37,15 @@ const ControlPanel = () => {
           <input
             type="checkbox"
             className="toggle toggle-lg toggle-accent"
-            onChange={toggleButton}
+            onChange={() => {
+              if (!lightToggle) {
+                setMessages("1");
+                setLightToggle(true);
+              } else {
+                setMessages("0");
+                setLightToggle(false);
+              }
+            }}
           />
         </div>
         <div className="w-8/12 ml-52 mt-14 bg-apple-100 shadow-lg flex flex-row justify-center gap-10 shadow-gray-600 rounded-lg p-3">
