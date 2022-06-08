@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import * as mqtt from "mqtt";
 let client: mqtt.MqttClient = mqtt.connect("ws://192.168.10.79:8888");
+// let client: mqtt.MqttClient = mqtt.connect(
+//   "wss://happa-26-mqtt.an.r.appspot.com:8808"
+// );
 
 const MqttContext = createContext<any>({});
 
@@ -21,11 +24,8 @@ export default function MqttProvider({
   let topic = "light/request";
 
   useEffect(() => {
-    console.log("client", client);
     client.on("connect", () => setConnectionStatus(true));
     client.publish(topic, messages);
-    console.log("publisher.publish:", messages);
-    console.log("Pass");
   }, [lightToggle]);
 
   return (
