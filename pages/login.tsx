@@ -85,6 +85,7 @@ const Login = () => {
             <Form.Label className="text-white">Email</Form.Label>
             <Form.Control
               type="email"
+              autoComplete="off"
               onChange={(e: any) =>
                 setData({
                   ...data,
@@ -100,6 +101,7 @@ const Login = () => {
             <Form.Label className="text-white">Password</Form.Label>
             <Form.Control
               type="password"
+              autoComplete="off"
               onChange={(e: any) =>
                 setData({
                   ...data,
