@@ -3,18 +3,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import TopBar from "./components/TopBar";
 import ChartBox from "./components/ChartBox";
-import ControlPanel from "./components/ControlPanel";
-import { useVisibility } from "../context/VisibilityContext";
 
 const Main = () => {
-  const { chart, control } = useVisibility();
   return (
-    <div className="h-screen w-screen overflow-hidden">
-      <TopBar />
+    <div className="h-screen w-screen">
+      <div className="">
+        <TopBar />
+      </div>
       <div className="flex flex-row h-full">
         <Navbar />
-        {control && <ControlPanel />}
-        {chart && <ChartBox />}
+        <ChartBox />
       </div>
     </div>
   );
