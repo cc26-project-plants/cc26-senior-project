@@ -10,7 +10,8 @@ const Navbar = () => {
   ];
 
   return (
-    <div className=" w-80  bg-apple-300 list-none ">
+    <div className="hidden md:flex">
+    <div className="w-80  bg-apple-300 list-none">
       <div className="mt-24">
         {menu.map((menu) => (
           <li
@@ -39,6 +40,7 @@ const Navbar = () => {
         ))}
       </div>
       <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-16"></div>
+    </div>
     </div>
   );
 };

@@ -46,7 +46,7 @@ const ChartBox = () => {
       <div className="flex flex-row justify-around mt-7 mb-10 ">
         <button
           onClick={displayLight}
-          className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
+          className="w-20 text-xs md:w-40 md:text-sm inline-block md:px-4 md:py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -57,7 +57,7 @@ const ChartBox = () => {
 
         <button
           onClick={displayTemp}
-          className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
+          className="w-20 text-xs md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -67,7 +67,7 @@ const ChartBox = () => {
         </button>
         <button
           onClick={displaySoilWater}
-          className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
+          className="w-20 text-xs md:w-40 inline-block tmd:ext-sm md:px-4 md:py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -77,7 +77,7 @@ const ChartBox = () => {
         </button>
         <button
           onClick={displayHumidity}
-          className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
+          className="w-20 text-xs md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -87,7 +87,7 @@ const ChartBox = () => {
         </button>
       </div>
       <div className="flex flex-row  justify-center mt-2 ">
-        <div className=" w-3/4   bg-apple-100 shadow-lg shadow-gray-600 rounded-lg p-3">
+        <div className="w-screen  md:w-3/4  bg-apple-100 shadow-lg shadow-gray-600 rounded-lg p-3">
           {/* <Form className="w-28">
           <Form.Select>
             <option value="0">All</option>
