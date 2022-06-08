@@ -10,7 +10,7 @@ import HumidityLevel from "../charts/HumidityLevel";
 import TestChart from "../charts/TestChart";
 
 const ChartBox = () => {
-  const [showLight, setShowLight] = useState<boolean>(false);
+  const [showLight, setShowLight] = useState<boolean>(true);
   const [showTemp, setShowTemp] = useState<boolean>(false);
   const [showHumidity, setShowHumidity] = useState<boolean>(false);
   const [showSoilMoist, setShowSoilWater] = useState<boolean>(false);
@@ -42,8 +42,8 @@ const ChartBox = () => {
     setShowHumidity(true);
   };
   return (
-    <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
-      <div className="flex justify-around mt-7 mb-10">
+    <div className="font-mono flex flex-col   w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
+      <div className="flex flex-row justify-around mt-7 mb-10 ">
         <button
           onClick={displayLight}
           className="w-40 inline-block text-sm px-4 py-2 leading-none border rounded
@@ -86,8 +86,9 @@ const ChartBox = () => {
           Humidity
         </button>
       </div>
-      <div className="w-8/12 ml-52 bg-apple-100 shadow-lg shadow-gray-600 rounded-lg p-3">
-        {/* <Form className="w-28">
+      <div className="flex flex-row  justify-center mt-2 ">
+        <div className=" w-3/4   bg-apple-100 shadow-lg shadow-gray-600 rounded-lg p-3">
+          {/* <Form className="w-28">
           <Form.Select>
             <option value="0">All</option>
             <option value="1">Month</option>
@@ -95,11 +96,12 @@ const ChartBox = () => {
             <option value="3">Day</option>
           </Form.Select>
         </Form> */}
-        {/* {showLight && <TestChart />} */}
-        {showLight && <LightLevel />}
-        {showTemp && <TempLevel />}
-        {showSoilMoist && <SoilMoist />}
-        {showHumidity && <HumidityLevel />}
+          {/* {showLight && <TestChart />} */}
+          {showLight && <LightLevel />}
+          {showTemp && <TempLevel />}
+          {showSoilMoist && <SoilMoist />}
+          {showHumidity && <HumidityLevel />}
+        </div>
       </div>
     </div>
   );
