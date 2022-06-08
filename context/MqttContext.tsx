@@ -13,19 +13,19 @@ export default function MqttProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [connectionStatus, setConnectionStatus] = useState(false);
-  const [messages, setMessages] = useState("");
-  const [lightToggle, setLightToggle] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<boolean>(false);
+  const [messages, setMessages] = useState<string>("");
+  const [lightToggle, setLightToggle] = useState<boolean>(false);
   //TODO
-  const [lightStatus, setLightStatus] = useState(false);
-  let topic = "light/request";
+  const [lightStatus, setLightStatus] = useState<boolean>(false);
+  let topic : string = "light/request";
 
   useEffect(() => {
-    console.log("client", client);
+    // console.log("client", client);
     client.on("connect", () => setConnectionStatus(true));
     client.publish(topic, messages);
     console.log("publisher.publish:", messages);
-    console.log("Pass");
+    // console.log("Pass");
   }, [lightToggle]);
 
   return (

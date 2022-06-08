@@ -19,8 +19,9 @@ const Login = () => {
   const ERROR_MESSAGE =
     "Email not found or the password did not match the email.";
   const { setUserData } = useData();
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
   const [data, setData] = useState({
     email: "",
     password: "",

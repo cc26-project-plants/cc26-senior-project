@@ -16,11 +16,11 @@ export default function DataProvider({
   const TEST_USER_ID = "wp2jBNN3c8Ydd075zYSI";
   const TEST_PLANT_ID = "LKZvyihQuUbrszjk1h1u";
 
-  const [temp, setTemp] = useState(0);
-  const [humdidity, setHumidity] = useState(0);
-  const [light, setLight] = useState(0);
-  const [soilWater, setSoilWater] = useState(0);
-  const [timeStamp, setTimeStamp] = useState(0);
+  const [temp, setTemp] = useState<number>(0);
+  const [humdidity, setHumidity] = useState<number>(0);
+  const [light, setLight] = useState<number>(0);
+  const [soilWater, setSoilWater] = useState<number>(0);
+  const [timeStamp, setTimeStamp] = useState<number>(0);
 
   interface testUserInput{
     userId: string,
@@ -46,7 +46,7 @@ export default function DataProvider({
       newPlantName:""
     })
 
-  const getCurrentPlantId = () => {
+  const getCurrentPlantId = () : any => {
     const currentPlantId = userData["currentPlantId"];
     return currentPlantId;
   }
