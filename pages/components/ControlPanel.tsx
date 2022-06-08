@@ -4,8 +4,14 @@ import { useMqtt } from "../../context/MqttContext";
 const ControlPanel = () => {
   const { messages, setMessages, lightToggle, setLightToggle } = useMqtt();
   const [lightRange, setLightRange] = useState(0);
+  const [value, setValue] = useState(0);
 
   const [waterToggle, setWaterToggle] = useState(false);
+
+  function handleRange(e) {
+    console.log(e.target.value);
+    setValue(e.target.value);
+  }
 
   return (
     <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
@@ -25,6 +31,26 @@ const ControlPanel = () => {
               }
             }}
           />
+          <div>
+            <input
+              onChange={(e) => {
+                handleRange(e);
+              }}
+              type="range"
+              min="0"
+              max="100"
+              value={value}
+              className="range range-accent"
+              step="25"
+            />
+            <div className="w-full flex justify-between text-xs px-2">
+              <span>|</span>
+              <span>|</span>
+              <span>|</span>
+              <span>|</span>
+              <span>|</span>
+            </div>
+          </div>
         </div>
         <div className="w-8/12 ml-52 mt-14 bg-apple-100 shadow-lg flex flex-row justify-center gap-10 shadow-gray-600 rounded-lg p-3">
           <h2 className=" text-2xl select-none">Water </h2>

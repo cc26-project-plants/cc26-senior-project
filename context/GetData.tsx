@@ -22,12 +22,12 @@ export default function DataProvider({
   const [soilWater, setSoilWater] = useState(0);
   const [timeStamp, setTimeStamp] = useState(0);
 
-  interface testUserInput{
-    userId: string,
-    userName: string,
-    plantName: string[],
-    plantId: string[],
-    currentPlantId: string
+  interface testUserInput {
+    userId: string;
+    userName: string;
+    plantName: string[];
+    plantId: string[];
+    currentPlantId: string;
   }
   const [userData, setUserData] = useState<testUserInput>({
     userId: TEST_USER_ID,
@@ -37,19 +37,19 @@ export default function DataProvider({
     currentPlantId: TEST_PLANT_ID,
   });
 
-  interface newPlantInput{
-    newPlantId: string,
-    newPlantName:string
+  interface newPlantInput {
+    newPlantId: string;
+    newPlantName: string;
   }
   const [newPlantData, setNewPlantData] = useState<newPlantInput>({
-      newPlantId: "",
-      newPlantName:""
-    })
+    newPlantId: "",
+    newPlantName: "",
+  });
 
   const getCurrentPlantId = () => {
     const currentPlantId = userData["currentPlantId"];
     return currentPlantId;
-  }
+  };
 
   const getAllData = async () => {
     const currentPlantId = userData.currentPlantId;
@@ -106,8 +106,8 @@ export default function DataProvider({
         userData,
         setUserData,
 
-        newPlantData, 
-        setNewPlantData
+        newPlantData,
+        setNewPlantData,
       }}
     >
       {children}
