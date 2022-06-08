@@ -70,11 +70,11 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
-        <div className=" w-1/6 "></div>
+      <div className="bg-loginBg  h-screen w-screen flex flex-row md:items-center md:justify-start items-center  justify-center ">
+        <div className=" md:w-1/6  "></div>
         <form
           onSubmit={signInWithGoogle}
-          className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/3 min-w-fit min-h-fit"
+          className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white   md:shrink-0 md:w-1/3 "
         >
           <h2 className="text-center text-white font-thin">
             Welcome to Happa!
