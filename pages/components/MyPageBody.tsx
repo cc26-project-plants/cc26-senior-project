@@ -4,22 +4,31 @@ import Link from "next/link";
 import { useData } from "../../context/GetData";
 
 const MyPageBody = () => {
-  const { userData, setUserData } = useData();
-  const [plantNames, setPlantNames] = useState([]);
-  const [displayPlant, setDisplayPlant] = useState({
-    plant: userData.plantName[0],
-  });
+  const { userData, setUserData, setCurrentPlantId } = useData();
+  const [plantName, setPlantName] = useState("");
 
-  function handleClick(name) {
-    setDisplayPlant({ plant: name });
-  }
+  const handleClick = (index) => {
+    const plantId = userData.plantId[index];
+    findPlantName();
+
+    setUserData({
+      ...userData,
+      currentPlantId: plantId,
+    });
+  };
+
+  const findPlantName = () => {
+    const plantIndex = userData.plantId.indexOf(userData.currentPlantId);
+    const newPlantName = userData.plantName[plantIndex];
+    setPlantName(newPlantName);
+  };
 
   useEffect(() => {
-    setPlantNames(userData.plantName.slice(1));
-  }, []);
+    findPlantName();
+  }, [userData]);
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center shadow-lg  bg-apple-200">
+    <div className="w-screen h-screen flex flex-col justify-center items-center shadow-lg  bg-apple-200 ">
       <div className="flex flex-row container mg-auto my-10 h-64">
         <div className="bg-gray-400 bg-opacity-50 p-10 font-mono mx-8 rounded-md outline outline-white w-1/4 min-w-fit  min-h-fit">
           <div className="flex flex-column font-mono">
@@ -42,7 +51,7 @@ const MyPageBody = () => {
         "
           />
           <div className="ml-6">
-            <div className="text-red-600">Plant Name: {displayPlant.plant}</div>
+            <div className="text-red-600">Plant Name: {plantName}</div>
             <div>Plant Type: Aloe{/* {userData.plantType} */}</div>
             <div>
               Plant Plofile:
@@ -59,20 +68,22 @@ const MyPageBody = () => {
       <p className="font-mono">your other plants</p>
 
       <div className="flex flex-row  justify-center gap-16 flex-wrap mb-11">
-        {plantNames.map((plant: string, index: number) => {
-          return (
-            <div
-              onClick={() => {
-                handleClick(plant);
-              }}
-              key={index}
-              className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
-            >
-              <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md">
-                Name: {plant}
+        {userData.plantName.map((plant: string, index: number) => {
+          if (plant !== plantName) {
+            return (
+              <div
+                onClick={() => {
+                  handleClick(index);
+                }}
+                key={index}
+                className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
+              >
+                <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md">
+                  Name: {plant}
+                </div>
               </div>
-            </div>
-          );
+            );
+          }
         })}
       </div>
     </div>

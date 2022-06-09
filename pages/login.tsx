@@ -19,8 +19,9 @@ const Login = () => {
   const ERROR_MESSAGE =
     "Email not found or the password did not match the email.";
   const { setUserData } = useData();
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -70,11 +71,11 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-loginBg  h-screen w-screen flex flex-row items-center">
-        <div className=" w-1/6 "></div>
+      <div className="bg-loginBg  h-screen w-screen flex flex-row md:items-center md:justify-start items-center  justify-center ">
+        <div className=" md:w-1/6  "></div>
         <form
           onSubmit={signInWithGoogle}
-          className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/3 min-w-fit min-h-fit"
+          className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white   md:shrink-0 md:w-1/3 "
         >
           <h2 className="text-center text-white font-thin">
             Welcome to Happa!
@@ -84,6 +85,7 @@ const Login = () => {
             <Form.Label className="text-white">Email</Form.Label>
             <Form.Control
               type="email"
+              autoComplete="off"
               onChange={(e: any) =>
                 setData({
                   ...data,
@@ -99,6 +101,7 @@ const Login = () => {
             <Form.Label className="text-white">Password</Form.Label>
             <Form.Control
               type="password"
+              autoComplete="off"
               onChange={(e: any) =>
                 setData({
                   ...data,

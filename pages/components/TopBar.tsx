@@ -17,7 +17,7 @@ const TopBar = () => {
 
   return (
     <div>
-      <div className="flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
+      <div className="hidden md:flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
         <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-12">
           <h4 className="flex justify-start mt-10 ml-6 text-apple-500">
             Happa

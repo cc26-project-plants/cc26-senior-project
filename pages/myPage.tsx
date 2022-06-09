@@ -4,7 +4,7 @@ import SideBar from "./components/SideBar";
 
 const MyPage = () => {
   return (
-    <div className="h-screen w-screen overflow-x-hidden">
+    <div className="h-screen w-screen overflow-x-hidden ">
       <MyPageTopBar />
       <div className="flex flex-row h-full">
         <SideBar />

@@ -74,6 +74,7 @@ const Signup = () => {
                 type="userName"
                 placeholder="Your name"
                 required
+                autoComplete="off"
                 onChange={(e: any) =>
                   setData({
                     ...data,
@@ -92,6 +93,7 @@ const Signup = () => {
               <Form.Control
                 placeholder="Plant name"
                 required
+                autoComplete="off"
                 onChange={(e: any) =>
                   setData({
                     ...data,
@@ -128,6 +130,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Plant ID"
                 required
+                autoComplete="off"
                 onChange={(e: any) =>
                   setData({
                     ...data,
@@ -144,6 +147,7 @@ const Signup = () => {
                 type="email"
                 placeholder="Enter email"
                 required
+                autoComplete="off"
                 onChange={(e: any) =>
                   setData({
                     ...data,
