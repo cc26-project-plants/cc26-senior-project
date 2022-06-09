@@ -26,7 +26,7 @@ const TopBar = () => {
         <div className="flex gap-2 mr-2 ">
           <Link href="/myPage">
             <button
-              className="w-40 h-20 inline-block text-sm leading-none rounded-lg
+              className="w-40 h-20 inline-block text-xl leading-none rounded-lg
               no-underline text-white border-teal-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
               shadow-gray-200 
@@ -41,7 +41,7 @@ const TopBar = () => {
               onClick={(e: any) => {
                 handleLogOut(e);
               }}
-              className="w-40 h-20 inline-block text-sm leading-none rounded-lg
+              className="w-40 h-20 inline-block text-xl leading-none rounded-lg
               no-underline text-white border-teal-500 bg-apple-300
               hover:border-transparent hover:text-white hover:bg-apple-400
               shadow-gray-200 

@@ -46,8 +46,8 @@ const ChartBox = () => {
       <div className="flex flex-row justify-around mt-7 mb-10 ">
         <button
           onClick={displayLight}
-          className="w-20 text-xs md:w-40 md:text-sm inline-block md:px-4 md:py-2 leading-none border rounded
-          no-underline text-apple-500 border-white 
+          className="w-20 text-xs md:w-40 md:text-xl md:h-14 inline-block md:px-4 md:py-2 leading-none border rounded
+          no-underline text-teal-900  border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
@@ -57,8 +57,8 @@ const ChartBox = () => {
 
         <button
           onClick={displayTemp}
-          className="w-20 text-xs md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
-          no-underline text-apple-500 border-white 
+          className="w-20 text-xs md:w-40 md:text-base md:h-14  inline-block  md:px-4 md:py-2 leading-none border rounded
+          no-underline text-teal-900 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
@@ -67,8 +67,8 @@ const ChartBox = () => {
         </button>
         <button
           onClick={displaySoilWater}
-          className="w-20 text-xs md:w-40 inline-block tmd:ext-sm md:px-4 md:py-2 leading-none border rounded
-          no-underline text-apple-500 border-white 
+          className="w-20 text-xs md:w-40 inline-block md:text-base md:h-14 md:px-4 md:py-2 leading-none border rounded
+          no-underline text-teal-900  border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "
@@ -77,8 +77,8 @@ const ChartBox = () => {
         </button>
         <button
           onClick={displayHumidity}
-          className="w-20 text-xs md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
-          no-underline text-apple-500 border-white 
+          className="w-20 text-xs md:w-40 inline-block md:text-xl md:h-14 md:px-4 md:py-2 leading-none border rounded
+          no-underline text-teal-900  border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
           "

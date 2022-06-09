@@ -22,11 +22,8 @@ export default function MqttProvider({
   let topic : string = "light/request";
 
   useEffect(() => {
-    // console.log("client", client);
     client.on("connect", () => setConnectionStatus(true));
     client.publish(topic, messages);
-    console.log("publisher.publish:", messages);
-    // console.log("Pass");
   }, [lightToggle]);
 
   return (
