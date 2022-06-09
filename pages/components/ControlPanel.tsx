@@ -20,7 +20,6 @@ const ControlPanel = () => {
   const [waterToggle, setWaterToggle] = useState<boolean>(false);
 
   function handleRange(e) {
-    console.log(e.target.value);
     setValue(e.target.value);
   }
 

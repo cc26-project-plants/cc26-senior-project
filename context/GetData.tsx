@@ -12,9 +12,6 @@ export default function DataProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const TEST_USER_ID = "wp2jBNN3c8Ydd075zYSI";
-  const TEST_PLANT_ID = "LKZvyihQuUbrszjk1h1u";
-
   const [temp, setTemp] = useState<number>(0);
   const [humdidity, setHumidity] = useState<number>(0);
   const [light, setLight] = useState<number>(0);
@@ -28,13 +25,7 @@ export default function DataProvider({
     plantId: string[];
     currentPlantId: string;
   }
-  const [userData, setUserData] = useState<testUserInput>({
-    userId: TEST_USER_ID,
-    userName: "Grace",
-    plantName: ["Bob", "Rob", "Job"],
-    plantId: [TEST_PLANT_ID, TEST_PLANT_ID, TEST_PLANT_ID],
-    currentPlantId: TEST_PLANT_ID,
-  });
+  const [userData, setUserData] = useState<any>({});
 
   interface newPlantInput {
     newPlantId: string;
@@ -45,17 +36,14 @@ export default function DataProvider({
     newPlantName: "",
   });
 
-  const getCurrentPlantId = (): any => {
-    const currentPlantId = userData["currentPlantId"];
-    return currentPlantId;
-  };
-
   const getAllData = async () => {
     const currentPlantId = userData.currentPlantId;
 
     const response = await axios.get(
       `https://happa-26-backend.an.r.appspot.com/plantStats/${currentPlantId}`
     );
+
+    if (!response.data.success) return;
     const allData = response.data.data.data.status;
     const allPlantStats = allData.slice(1);
 
@@ -90,8 +78,8 @@ export default function DataProvider({
   };
 
   useEffect(() => {
-    getAllData();
-  }, []);
+    if (userData.currentPlantId) getAllData();
+  }, [userData.currentPlantId]);
 
   return (
     <DataContext.Provider
@@ -104,7 +92,6 @@ export default function DataProvider({
         light,
         userData,
         setUserData,
-
         newPlantData,
         setNewPlantData,
       }}

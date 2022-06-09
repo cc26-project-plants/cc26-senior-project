@@ -6,7 +6,7 @@ import { useData } from "../../context/GetData";
 const WelcomeScreen = () => {
   const router = useRouter();
 
-  const { userData, setUserData } = useData();
+  const { userData, setUserData, setCurrentPlantId } = useData();
 
   return (
     <div
