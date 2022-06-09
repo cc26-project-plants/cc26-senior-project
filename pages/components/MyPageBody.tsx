@@ -16,13 +16,8 @@ const MyPageBody = () => {
       `https://happa-26-backend.an.r.appspot.com/users/data/${userData.userId}`
     );
 
-    const plantData = response.data.data.data.id;
-    setUserData({
-      userId: plantData.userId,
-      userName: plantData.userName,
-      plantName: plantData.plantName,
-      plantId: plantData.plantId,
-    });
+    const newUserData = response.data.data;
+    setUserData(newUserData);
     userData.currentPlantId = plantId;
   };
 
