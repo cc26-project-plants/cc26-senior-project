@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useData } from "../context/GetData";
 import MyPageTopBar from "./components/MyPageTopBar";
 import SideBar from "./components/SideBar";
+import TopBar from "./components/TopBar";
 
 const AddPlant = () => {
   const router = useRouter();
@@ -66,7 +67,7 @@ const AddPlant = () => {
   return (
     <div>
       <div className="text-white font-thin placeholder-gray-200">
-      <MyPageTopBar />
+      <TopBar />
       <div className="flex flex-row h-full">
         <SideBar />
         
