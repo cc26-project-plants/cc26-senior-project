@@ -43,10 +43,10 @@ const ChartBox = () => {
   };
   return (
     <div className="font-mono flex flex-col w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
-      <div className="flex flex-row md:justify-around mt-7 md:mb-10 ">
+      <div className="flex flex-row md:justify-around md:mt-7 md:mb-10 ">
         <button
           onClick={displayLight}
-          className="w-full h-24 md:h-10 text-lg md:w-40 md:text-sm inline-block md:px-4 md:py-2 leading-none border rounded
+          className="w-full h-24 md:h-10 text-lg md:w-40 md:text-sm inline-block md:px-4 md:py-2 leading-none border md:rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -57,7 +57,7 @@ const ChartBox = () => {
 
         <button
           onClick={displayTemp}
-          className="w-full h-24 md:h-10 text-lg md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
+          className="w-full h-24 md:h-10 text-lg md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border md:rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -67,7 +67,7 @@ const ChartBox = () => {
         </button>
         <button
           onClick={displaySoilWater}
-          className="w-full h-24 md:h-10 text-lg md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
+          className="w-full h-24 md:h-10 text-lg md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border md:rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md
@@ -77,7 +77,7 @@ const ChartBox = () => {
         </button>
         <button
           onClick={displayHumidity}
-          className="w-full h-24 md:h-10 text-lg md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border rounded
+          className="w-full h-24 md:h-10 text-lg md:w-40 inline-block md:text-sm md:px-4 md:py-2 leading-none border md:rounded
           no-underline text-apple-500 border-white 
           hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md

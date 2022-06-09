@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 
 import { useData } from "../../context/GetData";
 
@@ -10,9 +11,20 @@ const MyPageBody = () => {
     plant: userData.plantName[0],
   });
 
-  function handleClick(name) {
-    setDisplayPlant({ plant: name });
-  }
+  const handleClick = async (plantId) => {
+    const response = await axios.get(
+      `https://happa-26-backend.an.r.appspot.com/users/data/${userData.userId}`
+    );
+
+    const plantData = response.data.data.data.id;
+    setUserData({
+      userId: plantData.userId,
+      userName: plantData.userName,
+      plantName: plantData.plantName,
+      plantId: plantData.plantId,
+    });
+    userData.currentPlantId = plantId;
+  };
 
   useEffect(() => {
     setPlantNames(userData.plantName.slice(1));
@@ -63,7 +75,7 @@ const MyPageBody = () => {
           return (
             <div
               onClick={() => {
-                handleClick(plant);
+                handleClick(userData.plantId[index]);
               }}
               key={index}
               className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"

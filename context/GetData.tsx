@@ -3,7 +3,6 @@ import axios from "axios";
 import moment from "moment";
 
 const DataContext = createContext<any>({});
-
 export function useData() {
   return useContext(DataContext);
 }
@@ -46,7 +45,7 @@ export default function DataProvider({
     newPlantName: "",
   });
 
-  const getCurrentPlantId = () : any => {
+  const getCurrentPlantId = (): any => {
     const currentPlantId = userData["currentPlantId"];
     return currentPlantId;
   };
