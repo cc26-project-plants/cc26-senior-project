@@ -60,7 +60,6 @@ const AddPlant = () => {
       `https://happa-26-backend.an.r.appspot.com/plants/${plantData.email}`,
       newPlant
     );
-    // console.log("[res/sendNewPlant]", response.data.success)
     return response.data
   };
 
@@ -84,6 +83,7 @@ const AddPlant = () => {
                   <Form.Control
                     placeholder="Plant name"
                     required
+                    autoComplete="off"
                     onChange={(e: any) =>
                       setPlantData({
                         ...plantData,
@@ -127,6 +127,7 @@ const AddPlant = () => {
                     type="text"
                     placeholder="Plant ID"
                     required
+                    autoComplete="off"
                     onChange={(e: any) =>
                       setPlantData({
                         ...plantData,
@@ -146,6 +147,7 @@ const AddPlant = () => {
                     type="email"
                     placeholder="Enter email"
                     required
+                    autoComplete="off"
                     onChange={(e: any) =>
                       setPlantData({
                         ...plantData,

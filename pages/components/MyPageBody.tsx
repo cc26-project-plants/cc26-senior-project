@@ -19,7 +19,7 @@ const MyPageBody = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center shadow-lg  bg-apple-200">
+    <div className="w-screen h-screen flex flex-col justify-center items-center shadow-lg  bg-apple-200 ">
       <div className="flex flex-row container mg-auto my-10 h-64">
         <div className="bg-gray-400 bg-opacity-50 p-10 font-mono mx-8 rounded-md outline outline-white w-1/4 min-w-fit  min-h-fit">
           <div className="flex flex-column font-mono">

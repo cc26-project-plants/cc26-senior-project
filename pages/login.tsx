@@ -19,8 +19,9 @@ const Login = () => {
   const ERROR_MESSAGE =
     "Email not found or the password did not match the email.";
   const { setUserData } = useData();
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -84,6 +85,7 @@ const Login = () => {
             <Form.Label className="text-white">Email</Form.Label>
             <Form.Control
               type="email"
+              autoComplete="off"
               onChange={(e: any) =>
                 setData({
                   ...data,
@@ -99,6 +101,7 @@ const Login = () => {
             <Form.Label className="text-white">Password</Form.Label>
             <Form.Control
               type="password"
+              autoComplete="off"
               onChange={(e: any) =>
                 setData({
                   ...data,
