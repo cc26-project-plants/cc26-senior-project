@@ -12,6 +12,7 @@ export default function DataProvider({
 }: {
   children: React.ReactNode;
 }) {
+  
   const [temp, setTemp] = useState<number>(0);
   const [humdidity, setHumidity] = useState<number>(0);
   const [light, setLight] = useState<number>(0);
