@@ -4,19 +4,28 @@ import Link from "next/link";
 import { useData } from "../../context/GetData";
 
 const MyPageBody = () => {
-  const { userData, setUserData } = useData();
-  const [plantNames, setPlantNames] = useState([]);
-  const [displayPlant, setDisplayPlant] = useState({
-    plant: userData.plantName[0],
-  });
+  const { userData, setUserData, setCurrentPlantId } = useData();
+  const [plantName, setPlantName] = useState("");
 
-  function handleClick(name) {
-    setDisplayPlant({ plant: name });
-  }
+  const handleClick = (index) => {
+    const plantId = userData.plantId[index];
+    findPlantName();
+
+    setUserData({
+      ...userData,
+      currentPlantId: plantId,
+    });
+  };
+
+  const findPlantName = () => {
+    const plantIndex = userData.plantId.indexOf(userData.currentPlantId);
+    const newPlantName = userData.plantName[plantIndex];
+    setPlantName(newPlantName);
+  };
 
   useEffect(() => {
-    setPlantNames(userData.plantName.slice(1));
-  }, []);
+    findPlantName();
+  }, [userData]);
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center shadow-lg  bg-apple-200 ">
@@ -43,9 +52,9 @@ const MyPageBody = () => {
         "
           />
           <div className="ml-6">
-            <div className="text-teal-900">Plant Name: {displayPlant.plant}</div>
-            <div className="text-teal-900">Plant Type: Aloe{/* {userData.plantType} */}</div>
-            <div className="text-teal-900">
+            <div className="text-red-600">Plant Name: {plantName}</div>
+            <div>Plant Type: Aloe</div>
+            <div>
               Plant Plofile:
               <br />
               <div className="ml-5 mt-3 max-h-20 text-sm text-black">
@@ -60,21 +69,23 @@ const MyPageBody = () => {
       </div>
       <div className="md:flex text-lg font-mono">your other plants</div>
 
-      <div className="hidden md:flex md:flex-row  justify-center gap-16 flex-wrap mb-11">
-        {plantNames.map((plant: string, index: number) => {
-          return (
-            <div
-              onClick={() => {
-                handleClick(plant);
-              }}
-              key={index}
-              className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
-            >
-              <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md">
-                Name: {plant}
+      <div className="flex flex-row  justify-center gap-16 flex-wrap mb-11">
+        {userData.plantName.map((plant: string, index: number) => {
+          if (plant !== plantName) {
+            return (
+              <div
+                onClick={() => {
+                  handleClick(index);
+                }}
+                key={index}
+                className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
+              >
+                <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md">
+                  Name: {plant}
+                </div>
               </div>
-            </div>
-          );
+            );
+          }
         })}
       </div>
     </div>

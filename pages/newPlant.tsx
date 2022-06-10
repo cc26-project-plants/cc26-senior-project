@@ -1,11 +1,11 @@
 import NewPlantBody from "./components/NewPlantBody"
-import MyPageTopBar from "./components/MyPageTopBar";
 import SideBar from "./components/SideBar";
+import TopBar from "./components/TopBar";
 
 const newPlant = () => {
   return (
     <div className="h-screen w-screen">
-      <MyPageTopBar />
+      <TopBar />
       <div className="flex flex-row h-full">
         <SideBar />
         <NewPlantBody />

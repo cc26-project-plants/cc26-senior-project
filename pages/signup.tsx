@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { Card, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import axios from "axios";
 
 import { useAuth } from "../context/AuthContext";
@@ -175,7 +175,6 @@ const Signup = () => {
               />
             </Form.Group>
             <button
-              // variant="primary"
               type="submit"
               className=" text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 mb-9  rounded-md outline-white mt-2 hover:text-white hover:bg-teal-400"
             >
