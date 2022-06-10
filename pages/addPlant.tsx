@@ -8,7 +8,7 @@ import TopBar from "./components/TopBar";
 
 const AddPlant = () => {
   const router = useRouter();
-  const { newPlantData, setNewPlantData } = useData();
+  const { newPlantData, setNewPlantData, setUserData } = useData();
 
   interface plantInput {
     plantName: string;
@@ -30,6 +30,10 @@ const AddPlant = () => {
     const checkAddPlant = await sendNewPlant(newPlant);
 
     if (checkAddPlant.success) {
+      setUserData({
+        ...checkAddPlant.data,
+        currentPlantId: checkAddPlant.data.plantId
+      })
       setNewPlantData({
         newPlantId: checkAddPlant.data.plantId.at(-1),
         newPlantName: checkAddPlant.data.plantName.at(-1),
