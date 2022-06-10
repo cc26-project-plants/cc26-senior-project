@@ -22,7 +22,6 @@ const ControlPanel = () => {
   function handleRange(e) {
     setValue(e.target.value);
   }
-
   return (
     <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
       <div className="flex flex-col  mt-14 mb-10">

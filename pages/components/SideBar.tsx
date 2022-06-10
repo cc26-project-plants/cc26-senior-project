@@ -1,7 +1,9 @@
 const SideBar = () => {
   return (
-    <div className=" w-80  bg-apple-300 list-none ">
-      <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-52"></div>
+    <div className="hidden md:flex w-80  bg-apple-300">
+      <div className=" w-80  bg-apple-300 list-none ">
+        <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-52"></div>
+      </div>
     </div>
   );
 };

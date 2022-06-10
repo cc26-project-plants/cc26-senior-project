@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Card, Form } from "react-bootstrap";
 import axios from "axios";
-import Link from "next/link";
 import { useData } from "../context/GetData";
-import MyPageTopBar from "./components/MyPageTopBar";
 import SideBar from "./components/SideBar";
+import TopBar from "./components/TopBar";
 
 const AddPlant = () => {
   const router = useRouter();
@@ -65,7 +64,7 @@ const AddPlant = () => {
   return (
     <div>
       <div className="text-white font-thin placeholder-gray-200">
-        <MyPageTopBar />
+        <TopBar />
         <div className="flex flex-row h-full">
           <SideBar />
 
@@ -156,7 +155,6 @@ const AddPlant = () => {
                   </Form.Group>
 
                   <button
-                    // variant="primary"
                     type="submit"
                     className="w-1/2 text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
                   >

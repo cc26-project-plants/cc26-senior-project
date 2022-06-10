@@ -23,7 +23,7 @@ const NewPlantBody = () => {
         </div>
 
         <div className="font-mono mt-10 ml-5">
-          <h2>New plant successfully added!</h2>
+          <h2>New plant added successfully!</h2>
         </div>
       </div>
     </div>
