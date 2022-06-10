@@ -35,7 +35,7 @@ const MyPageBody = () => {
             <div className="leading-10">
               User Name:
               <br />
-              <div className="text-2xl">{userData.userName}</div>
+              <div className="text-2xl text-teal-900">{userData.userName}</div>
             </div>
             <Link href="/addPlant">
               <button className="text-white mt-12 h-10 bg-teal-600 outline outline-1 rounded-md outline-white hover:text-white hover:bg-teal-400">
@@ -44,19 +44,20 @@ const MyPageBody = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-row font-mono bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/2 min-w-fit  min-h-fit">
+
+        <div className="md:flex md:flex-row font-mono bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-screen md:w-1/2 min-w-fit  min-h-fit">
           <div
-            className="bg-aloe scale-100 bg-center bg-cover w-4/12 h-40 text-center
-        rounded-xl shadow-lg shadow-apple-300 border-white border-4
+            className="bg-aloe scale-100 bg-center bg-cover md:w-4/12 md:h-40 text-center
+        rounded-xl shadow-lg shadow-apple-300 border-white md:border-4
         "
           />
           <div className="ml-6">
             <div className="text-red-600">Plant Name: {plantName}</div>
-            <div>Plant Type: Aloe{/* {userData.plantType} */}</div>
+            <div>Plant Type: Aloe</div>
             <div>
               Plant Plofile:
               <br />
-              <div className="ml-5 max-h-20 text-sm">
+              <div className="ml-5 mt-3 max-h-20 text-sm text-black">
                 <div>average temperature: 30</div>
                 <div>average humidity: 50</div>
                 <div>average soilLevel: 250</div>
@@ -64,8 +65,9 @@ const MyPageBody = () => {
             </div>
           </div>
         </div>
+
       </div>
-      <p className="font-mono">your other plants</p>
+      <div className="md:flex text-lg font-mono">your other plants</div>
 
       <div className="flex flex-row  justify-center gap-16 flex-wrap mb-11">
         {userData.plantName.map((plant: string, index: number) => {

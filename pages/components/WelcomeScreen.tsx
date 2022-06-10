@@ -19,7 +19,6 @@ const WelcomeScreen = () => {
       <div className="flex flex-row  justify-center gap-16 flex-wrap mb-11">
         {userData.plantName.map((plant: string, index: number) => {
           return (
-            // eslint-disable-next-line react/jsx-key
             <div
               onClick={() => {
                 userData.currentPlantId = userData.plantId[index];

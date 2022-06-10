@@ -12,9 +12,6 @@ const ControlPanel = () => {
     setMessages2,
     setPlantID,
   } = useMqtt();
-  const { messages, setMessages, lightToggle, setLightToggle } = useMqtt();
-  const [lightRange, setLightRange] = useState(0);
-  const [value, setValue] = useState(0);
 
   const { userData, setUserData } = useData();
   const [lightRange, setLightRange] = useState<number>(0);
@@ -25,12 +22,6 @@ const ControlPanel = () => {
   function handleRange(e) {
     setValue(e.target.value);
   }
-
-  function handleRange(e) {
-    console.log(e.target.value);
-    setValue(e.target.value);
-  }
-
   return (
     <div className="font-mono  w-full  bg-apple bg-apple-200 shadow-gray-400 shadow-lg">
       <div className="flex flex-col  mt-14 mb-10">
