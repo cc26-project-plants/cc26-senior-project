@@ -41,6 +41,7 @@ const ControlPanel = () => {
               }
             }}
           />
+
           <div>
             <input
               onChange={(e) => {

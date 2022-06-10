@@ -14,8 +14,8 @@ const Login = () => {
 
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
-  const { currentUser, login } = useAuth();
 
+  const { currentUser, login } = useAuth();
   const ERROR_MESSAGE =
     "Email not found or the password did not match the email.";
   const { setUserData } = useData();
@@ -30,13 +30,13 @@ const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
-    await login(data?.email, data?.password);
-    if (!currentUser || !currentUser.email) {
+    try {
+      await login(data.email, data.password);
+      await setUserAndMove();
+    } catch {
       setErrorMessage(ERROR_MESSAGE);
-      return;
     }
-
-    await setUserAndMove();
+    setLoading(false);
   };
 
   const signInWithGoogle = async (e: any) => {
@@ -80,6 +80,7 @@ const Login = () => {
           <h2 className="text-center text-white font-thin">
             Welcome to Happa!
           </h2>
+
           <h2 className="text-center text-white font-thin">Log In</h2>
           <Form.Group id="email">
             <Form.Label className="text-white">Email</Form.Label>
@@ -97,6 +98,9 @@ const Login = () => {
               placeholder="Enter email"
             />
           </Form.Group>
+          {errorMessage && (
+            <h2 className="text-md text-yellow-300">{ERROR_MESSAGE}</h2>
+          )}
           <Form.Group id="password">
             <Form.Label className="text-white">Password</Form.Label>
             <Form.Control
@@ -149,8 +153,3 @@ const Login = () => {
 };
 
 export default Login;
-
-{
-  /* <> {<p className="text-red-400 mt-6">{errorMessage}</p>}</>
-   <h1 className="text-red-400 mt-6">{errorMessage}</h1> */
-}

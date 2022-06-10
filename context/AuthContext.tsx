@@ -33,16 +33,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signup = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password);
-  }
+  };
 
   const login = (email: string, password: string) => {
     signInWithEmailAndPassword(auth, email, password);
-  }
+  };
 
   const logout = async () => {
     setCurrentUser(null);
     auth.signOut();
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -55,7 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setCurrentUser(null);
       }
       setLoading(false);
-    })
+    });
 
     return () => unsubscribe();
   }, []);

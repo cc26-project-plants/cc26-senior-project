@@ -1,3 +1,4 @@
+const colorNames = require("daisyui/src/colors/colorNames");
 const { url } = require("inspector");
 const colors = require("tailwindcss/colors");
 
@@ -8,9 +9,11 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
+      amber: colors.amber,
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
+      red: colors.red,
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,
