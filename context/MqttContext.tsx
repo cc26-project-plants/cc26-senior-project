@@ -8,10 +8,13 @@ import * as mqtt from "mqtt";
 // let client: mqtt.MqttClient = mqtt.connect("wss://happa-26-mqtt.an.r.appspot.com:8808");
 
 const MqttContext = createContext<any>({});
-var client = mqtt.connect("wss://hairdresser.cloudmqtt.com:36484", {
-  username: "zabazjfs",
-  password: "YgpLm5xPCxBY",
-});
+var client = mqtt.connect(
+  `wss://${process.env.CLOUD_MQTT_URL}:${process.env.CLOUD_MQTT_PORT}`,
+  {
+    username: process.env.CLOUD_MQTT_USERNAME,
+    password: process.env.CLOUD_MQTT_PASSWORD,
+  }
+);
 
 export function useMqtt() {
   return useContext(MqttContext);

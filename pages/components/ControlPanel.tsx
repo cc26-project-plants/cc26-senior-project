@@ -12,9 +12,6 @@ const ControlPanel = () => {
     setMessages2,
     setPlantID,
   } = useMqtt();
-  const { messages, setMessages, lightToggle, setLightToggle } = useMqtt();
-  const [lightRange, setLightRange] = useState(0);
-  const [value, setValue] = useState(0);
 
   const { userData, setUserData } = useData();
   const [lightRange, setLightRange] = useState<number>(0);
@@ -23,11 +20,6 @@ const ControlPanel = () => {
   const [waterToggle, setWaterToggle] = useState<boolean>(false);
 
   function handleRange(e) {
-    setValue(e.target.value);
-  }
-
-  function handleRange(e) {
-    console.log(e.target.value);
     setValue(e.target.value);
   }
 
@@ -50,6 +42,7 @@ const ControlPanel = () => {
               }
             }}
           />
+
           <div>
             <input
               onChange={(e) => {
