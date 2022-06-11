@@ -5,7 +5,7 @@ import TopBar from "./components/TopBar";
 import ChartBox from "./components/ChartBox";
 import ControlPanel from "./components/ControlPanel";
 import { useVisibility } from "../context/VisibilityContext";
-import MobileNavbar from "./components/mobileNavbar";
+import MobileNavbar from "./components/MobileNavbar";
 
 const Main = () => {
   const { chart, control } = useVisibility();

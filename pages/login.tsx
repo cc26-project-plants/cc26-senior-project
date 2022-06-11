@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
@@ -8,6 +8,8 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/GetData";
+
+interface loginData {}
 
 const Login = () => {
   const router = useRouter();
@@ -27,7 +29,7 @@ const Login = () => {
     password: "",
   });
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -74,7 +76,7 @@ const Login = () => {
       <div className="bg-loginBg  h-screen w-screen flex flex-row md:items-center md:justify-start items-center  justify-center ">
         <div className=" md:w-1/6  "></div>
         <form
-          onSubmit={signInWithGoogle}
+          onSubmit={handleSubmit}
           className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white   md:shrink-0 md:w-1/3 "
         >
           <h2 className="text-center text-white font-thin">
