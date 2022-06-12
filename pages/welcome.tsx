@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
 import WelcomePage from "./components/WelcomeScreen";
 
 const Welcome = () => {
+  const [routesMain, setRoutesMain] = useState({
+    btnTextMyPage: "My Page",
+    routeMyPage: "/myPage",
+    header: "Welcome",
+  });
   return (
     <div className="flex flex-col h-screen w-screen">
-      <TopBar />
+      <TopBar routesMain={routesMain} />
       <div className="flex flex-row h-fit w-full">
         <SideBar />
         <WelcomePage />

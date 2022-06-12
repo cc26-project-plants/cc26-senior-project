@@ -13,15 +13,16 @@ const Signup = () => {
 
   const { setUserData } = useData();
 
-  interface inputData{
-    userName: string,
-    plantName: string,
-    plantType: string,
-    plantID: string,
-    email: string,
-    _password: string,
+  interface inputData {
+    userName: string;
+    plantName: string;
+    plantType: string;
+    plantID: string;
+    email: string;
+    _password: string;
   }
-  const [data, setData] = useState <inputData> ({
+
+  const [data, setData] = useState<inputData>({
     userName: "",
     plantName: "",
     plantType: "",
@@ -30,9 +31,7 @@ const Signup = () => {
     _password: "",
   });
 
-  const handleSignup = async (e: any) => {
-    e.preventDefault();
-
+  const handleSignup = async () => {
     await signup(data.email, data._password);
     const newUser = createUser();
     const newUserData = await sendNewUser(newUser);
@@ -41,7 +40,12 @@ const Signup = () => {
   };
 
   const createUser = () => {
-    const newUser: { userName: string, email: string, plantId: string, plantName: string, plantType: string 
+    const newUser: {
+      userName: string;
+      email: string;
+      plantId: string;
+      plantName: string;
+      plantType: string;
     } = {
       userName: data.userName,
       email: data.email,

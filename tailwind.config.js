@@ -50,6 +50,7 @@ module.exports = {
         loginBg: "url('/images/loginBg.png')",
         aloe: "url('/images/aloe.jpg')",
         cactus: "url('/images/cactus.png')",
+        logo: "url('/images/happaLogo.svg')",
       }),
     },
   },

@@ -6,16 +6,22 @@ import { useData } from "../context/GetData";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
 
+interface plantInput {
+  plantName: string;
+  plantType: string;
+  plantID: string;
+  email: string;
+}
+
 const AddPlant = () => {
   const router = useRouter();
   const { newPlantData, setNewPlantData, setUserData } = useData();
+  const [routesMain, setRoutesMain] = useState({
+    btnText: "My Page",
+    route: "/myPage",
+    header: "New Plant",
+  });
 
-  interface plantInput {
-    plantName: string;
-    plantType: string;
-    plantID: string;
-    email: string;
-  }
   const [plantData, setPlantData] = useState<plantInput>({
     plantName: "",
     plantType: "",
@@ -32,8 +38,8 @@ const AddPlant = () => {
     if (checkAddPlant.success) {
       setUserData({
         ...checkAddPlant.data,
-        currentPlantId: checkAddPlant.data.plantId
-      })
+        currentPlantId: checkAddPlant.data.plantId,
+      });
       setNewPlantData({
         newPlantId: checkAddPlant.data.plantId.at(-1),
         newPlantName: checkAddPlant.data.plantName.at(-1),
@@ -67,8 +73,8 @@ const AddPlant = () => {
 
   return (
     <div>
-      <div className="text-white font-thin placeholder-gray-200">
-        <TopBar />
+      <div className="text-white font-thin placeholder-gray-200 overflow-hidden">
+        <TopBar routesMain={routesMain} />
         <div className="flex flex-row h-full">
           <SideBar />
 

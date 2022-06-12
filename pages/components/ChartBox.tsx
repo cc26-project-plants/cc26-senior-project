@@ -6,7 +6,6 @@ import TempLevel from "../charts/TempLevel";
 import SoilMoist from "../charts/SoilMoisture";
 import HumidityLevel from "../charts/HumidityLevel";
 
-
 const ChartBox = () => {
   const [showLight, setShowLight] = useState<boolean>(true);
   const [showTemp, setShowTemp] = useState<boolean>(false);
@@ -44,10 +43,7 @@ const ChartBox = () => {
       <div className="flex flex-row md:justify-around mt-7 md:mb-10 ">
         <button
           onClick={displayLight}
-          className="w-full h-24 md:h-14 text-xs md:w-40 md:text-xl inline-block md:px-4 md:py-2 leading-none border rounded
-          no-underline text-teal-900 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
-          shadow-apple-400 shadow-md
+          className="chartBtn
           "
         >
           Light
@@ -55,30 +51,21 @@ const ChartBox = () => {
 
         <button
           onClick={displayTemp}
-          className="w-full h-24 md:h-14 text-xs md:text-base md:w-40 inline-block  md:px-4 md:py-2 leading-none border rounded
-          no-underline text-teal-900 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
-          shadow-apple-400 shadow-md
+          className="chartBtn
           "
         >
           Temperature
         </button>
         <button
           onClick={displaySoilWater}
-          className="w-full h-24 md:h-14 text-xs md:w-40 inline-block md:text-base md:px-4 md:py-2 leading-none border rounded
-          no-underline text-teal-900 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
-          shadow-apple-400 shadow-md
+          className="chartBtn
           "
         >
           Soil Moisture
         </button>
         <button
           onClick={displayHumidity}
-          className="w-full h-24 md:h-14 text-xs md:w-40 inline-block md:text-xl md:px-4 md:py-2 leading-none border rounded
-          no-underline text-tesl-900 border-white 
-          hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
-          shadow-apple-400 shadow-md
+          className="chartBtn
           "
         >
           Humidity
