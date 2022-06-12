@@ -5,10 +5,11 @@ import WelcomePage from "./components/WelcomeScreen";
 
 const Welcome = () => {
   const [routesMain, setRoutesMain] = useState({
-    btnTextMyPage: "My Page",
-    routeMyPage: "/myPage",
+    btnText: "My Page",
+    route: "/myPage",
     header: "Welcome",
   });
+
   return (
     <div className="flex flex-col h-screen w-screen">
       <TopBar routesMain={routesMain} />
