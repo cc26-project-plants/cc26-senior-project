@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { useAuth } from "../../context/AuthContext";
 
-const TopBar = () => {
+const TopBar = ({ routesMain }) => {
   const router = useRouter();
 
   const { logout, setCurrentUser } = useAuth();
@@ -15,41 +15,40 @@ const TopBar = () => {
     router.push("/");
   };
 
+  //Refactor
+  const createBtn = () => {
+    for (const keys in routesMain) {
+      return (
+        <button
+          className="topBarBtn
+        "
+          onClick={() => router.push(routesMain.route)}
+        >
+          {routesMain.btnText}
+        </button>
+      );
+    }
+  };
+
   return (
     <div>
       <div className="hidden md:flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
-        <div className="w-40 h-16 bg-leaf bg-contain bg-no-repeat bg-center text-center mt-0 ml-12">
+        <div className="w-40 h-16 bg-logo bg-contain bg-no-repeat bg-center text-center mt-0 ml-12">
           <h4 className="flex justify-start mt-10 ml-6 text-apple-500">
-            Happa
+            {routesMain.header}
           </h4>
         </div>
         <div className="flex gap-2 mr-2 ">
-          <Link href="/myPage">
-            <button
-              className="w-40 h-20 inline-block text-xl leading-none rounded-lg
-              no-underline text-white border-teal-500 bg-apple-300
-              hover:border-transparent hover:text-white hover:bg-apple-400
-              shadow-gray-200 
+          {createBtn()}
+          <button
+            onClick={(e: any) => {
+              handleLogOut(e);
+            }}
+            className="topBarBtn
               "
-            >
-              My Page
-            </button>
-          </Link>
-
-          <Link href="/">
-            <button
-              onClick={(e: any) => {
-                handleLogOut(e);
-              }}
-              className="w-40 h-20 inline-block text-xl leading-none rounded-lg
-              no-underline text-white border-teal-500 bg-apple-300
-              hover:border-transparent hover:text-white hover:bg-apple-400
-              shadow-gray-200 
-              "
-            >
-              Log Out
-            </button>
-          </Link>
+          >
+            Log Out
+          </button>
         </div>
       </div>
     </div>
