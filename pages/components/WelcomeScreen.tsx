@@ -1,5 +1,4 @@
 import React from "react";
-import next from "next";
 import { useRouter } from "next/router";
 import { useData } from "../../context/GetData";
 

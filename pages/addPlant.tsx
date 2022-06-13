@@ -5,6 +5,7 @@ import axios from "axios";
 import { useData } from "../context/GetData";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
+import MobileNavbar from "./components/MobileNavbar";
 
 interface plantInput {
   plantName: string;
@@ -73,12 +74,15 @@ const AddPlant = () => {
 
   return (
     <div>
-      <div className="text-white font-thin placeholder-gray-200 overflow-hidden">
+      <div className="font-thin placeholder-gray-200 overflow-hidden">
+        <div className="bg-teal-400 md:hidden">
+          <MobileNavbar />
+        </div>
         <TopBar routesMain={routesMain} />
         <div className="flex flex-row h-full">
           <SideBar />
 
-          <Card>
+          <Card className="text-white">
             <Card.Body className="bg-apple-200  h-screen w-screen ">
               <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
                 <Form

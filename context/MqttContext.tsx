@@ -30,7 +30,7 @@ export default function MqttProvider({
   const [messages2, setMessages2] = useState<string>("");
   const [plantID, setPlantID] = useState<string>("");
   const [lightToggle, setLightToggle] = useState<boolean>(false);
-  //TODO
+
   const [lightStatus, setLightStatus] = useState<boolean>(false);
   let topic: string = `light/${plantID}/request`;
 

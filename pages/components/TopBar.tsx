@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { useAuth } from "../../context/AuthContext";
@@ -15,19 +14,16 @@ const TopBar = ({ routesMain }) => {
     router.push("/");
   };
 
-  //Refactor
   const createBtn = () => {
-    for (const keys in routesMain) {
-      return (
-        <button
-          className="topBarBtn
-        "
-          onClick={() => router.push(routesMain.route)}
-        >
-          {routesMain.btnText}
-        </button>
-      );
-    }
+    return (
+      <button
+        className="topBarBtn
+      "
+        onClick={() => router.push(routesMain.route)}
+      >
+        {routesMain.btnText}
+      </button>
+    );
   };
 
   return (

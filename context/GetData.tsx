@@ -5,7 +5,7 @@ import moment from "moment";
 const DataContext = createContext<any>({});
 export function useData() {
   return useContext(DataContext);
-}
+};
 
 export default function DataProvider({
   children,
