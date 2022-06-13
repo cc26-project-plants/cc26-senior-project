@@ -6,6 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const TopBar = ({ routesMain }) => {
   const router = useRouter();
+  console.log(routesMain)
 
   const { logout, setCurrentUser } = useAuth();
 
@@ -44,8 +45,7 @@ const TopBar = ({ routesMain }) => {
             onClick={(e: any) => {
               handleLogOut(e);
             }}
-            className="topBarBtn
-              "
+            className="topBarBtn"
           >
             Log Out
           </button>

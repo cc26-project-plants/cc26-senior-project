@@ -12,6 +12,7 @@ const Welcome = () => {
   return (
     <div className="flex flex-col h-screen w-screen">
       <TopBar routesMain={routesMain} />
+     {/* <TopBar /> */}
       <div className="flex flex-row h-fit w-full">
         <SideBar />
         <WelcomePage />
