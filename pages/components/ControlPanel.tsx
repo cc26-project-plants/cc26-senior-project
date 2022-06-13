@@ -42,7 +42,7 @@ const ControlPanel = () => {
             }}
           />
 
-          <div>
+          {/* <div>
             <input
               onChange={(e) => {
                 handleRange(e);
@@ -61,7 +61,7 @@ const ControlPanel = () => {
               <span className="select-none">|</span>
               <span className="select-none">|</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="md:w-8/12 md:ml-52 mt-14 bg-apple-100 shadow-lg flex flex-row justify-center gap-10 shadow-gray-600 rounded-lg p-3">
