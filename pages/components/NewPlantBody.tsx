@@ -13,7 +13,7 @@ const NewPlantBody = () => {
             shadow-lg shadow-apple-300 border-white border-4"
           />
           <div className="ml-6">
-            <div className="text-red-600">
+            <div>
               <div>New Plant ID : {newPlantData.newPlantId}</div>
               <div className="mt-10">
                 New Plant Name : {newPlantData.newPlantName}

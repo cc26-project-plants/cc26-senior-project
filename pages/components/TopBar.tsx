@@ -33,10 +33,11 @@ const TopBar = ({ routesMain }) => {
   return (
     <div>
       <div className="hidden md:flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
-        <div className="w-40 h-16 bg-logo bg-contain bg-no-repeat bg-center text-center mt-0 ml-12">
-          <h4 className="flex justify-start mt-10 ml-6 text-apple-500">
+        <div className=" flex flex-row  text-center mt-0 ml-12">
+          <h4 className="flex justify-start mt-10  text-apple-500">
             {routesMain.header}
           </h4>
+          <div className=" w-32 h-16 bg-logo bg-contain bg-no-repeat bg-center -ml-9"></div>
         </div>
         <div className="flex gap-2 mr-2 ">
           {createBtn()}
@@ -44,8 +45,7 @@ const TopBar = ({ routesMain }) => {
             onClick={(e: any) => {
               handleLogOut(e);
             }}
-            className="topBarBtn
-              "
+            className="topBarBtn"
           >
             Log Out
           </button>

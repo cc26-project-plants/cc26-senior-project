@@ -51,7 +51,7 @@ const MyPageBody = () => {
         "
           />
           <div className="ml-6">
-            <div className="text-red-600">Plant Name: {plantName}</div>
+            <div>Plant Name: {plantName}</div>
             <div>Plant Type: Aloe{/* {userData.plantType} */}</div>
             <div>
               Plant Plofile:
