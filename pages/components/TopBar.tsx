@@ -6,7 +6,6 @@ import { useAuth } from "../../context/AuthContext";
 
 const TopBar = ({ routesMain }) => {
   const router = useRouter();
-  console.log(routesMain)
 
   const { logout, setCurrentUser } = useAuth();
 
