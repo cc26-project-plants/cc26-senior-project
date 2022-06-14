@@ -18,7 +18,7 @@ const ControlPanel = () => {
   const { userData, setUserData } = useData();
 
   return (
-    <div className="font-mono  w-full  bg-roppongi-200 shadow-gray-300 shadow-lg inset-0">
+    <div className="font-sans  w-full  bg-roppongi-200 shadow-gray-300 shadow-lg inset-0">
 
       <div className="flex flex-col md:flex-row place-content-center bg-roppongi-300 md:w-8/12  md:h-96  md:ml-40 innset-0 shadow-gray-600 shadow-lg rounded border-white mt-14 mb-10">
         <div className="md:w-4/12 md:h-60 md:my-auto  bg-roppongi-100 shadow-lg flex flex-column  shadow-gray-600 rounded-lg p-3">

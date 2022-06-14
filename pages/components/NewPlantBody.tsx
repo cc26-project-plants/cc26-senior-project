@@ -7,7 +7,7 @@ const NewPlantBody = () => {
   return (
     <div className="w-screen h-screen  justify-center shadow-lg  bg-roppongi-200">
       <div className="flex flex-column container mg-auto my-10 h-64">
-        <div className="flex flex-row font-mono bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/2 min-w-fit  min-h-fit">
+        <div className="flex flex-row font-sans bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-1/2 min-w-fit  min-h-fit">
           <div
             className="bg-aloe
             scale-50 md:scale-100 bg-center bg-cover w-4/12 h-40 text-centerrounded-xl 
@@ -23,7 +23,7 @@ const NewPlantBody = () => {
           </div>
         </div>
 
-        <div className="font-mono mt-10 ml-5">
+        <div className="font-sans mt-10 ml-5">
           <h2>New plant added successfully!</h2>
         </div>
       </div>

@@ -33,8 +33,8 @@ const MyPageBody = () => {
       <div className="overflow-auto flex flex-column md:flex md:flex-row md:w-screen md:h-screen">
         <div className="md:flex md:flex-row container -ml-2 md:ml-6 my-10 md:h-64">
 
-          <div className="bg-gray-400 bg-opacity-50 p-10 my-6 md:my-0 font-mono rounded-md outline outline-white ml-6 w-5/6 md:w-1/4">
-            <div className="flex flex-column font-mono">
+          <div className="bg-gray-400 bg-opacity-50 p-10 my-6 md:my-0 font-sans rounded-md outline outline-white ml-6 w-5/6 md:w-1/4">
+            <div className="flex flex-column font-sans">
               <div className="leading-10">
                 User Name:
                 <br />
@@ -48,7 +48,7 @@ const MyPageBody = () => {
             </div>
           </div>
 
-          <div className="flex flex-row font-mono bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-screen md:w-5/12 min-w-fit  mx-auto md:mx-0">
+          <div className="flex flex-row font-sans bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-screen md:w-5/12 min-w-fit  mx-auto md:mx-0">
             <div
               className="bg-aloe scale-100 bg-center bg-cover w-4/12 h-40 text-center
           rounded-xl shadow-lg shadow-apple-300 border-white border-4"
@@ -74,7 +74,7 @@ const MyPageBody = () => {
           <div className="ml-6 w-0 md:w-1/4"></div>
 
           <div className="container bg-gray-400 bg-opacity-50 outline outline-white rounded  min-w-fit  w-screen md:w-5/12 ">
-            <p className="font-mono mx-auto text-center text-xl">your other plants</p>
+            <p className="font-sans mx-auto text-center text-xl">your other plants</p>
               <div className="flex flex-row justify-center gap-16 flex-wrap mb-11 py-2 md:py-0 md:mt-10">
                 {userData.plantName.map((plant: string, index: number) => {
                   if (plant !== plantName) {

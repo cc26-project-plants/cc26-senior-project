@@ -39,7 +39,7 @@ const ChartBox = () => {
     setShowHumidity(true);
   };
   return (
-    <div className="font-mono flex flex-col w-full bg-roppongi-200 shadow-gray-400 shadow-lg">
+    <div className="font-sans flex flex-col w-full bg-roppongi-200 shadow-gray-400 shadow-lg">
       <div className="flex flex-row md:justify-around mt-7 md:mb-10 ">
         <button
           onClick={displayLight}
