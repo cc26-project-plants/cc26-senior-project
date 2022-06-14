@@ -10,10 +10,6 @@
 }
 
 .topBarBtn {
-  /* @apply w-40 h-16 text-xl leading-none rounded-lg
-        no-underline text-white border-teal-500 bg-apple-300
-        hover:border-transparent hover:text-white hover:bg-apple-400
-        shadow-gray-200; */
         @apply w-36 h-20 text-2xl text-center flex items-center justify-center font-mono leading-none rounded
         no-underline bg-roppongi-400 text-white  shadow-lg shadow-gray-400
         transition  hover:text-roppongi-600 hover:bg-roppongi-50
