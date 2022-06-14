@@ -16,8 +16,7 @@ const TopBar = ({ routesMain }) => {
   const createBtn = () => {
     return (
       <button
-        className="topBarBtn
-      "
+        className="topBarBtn"
         onClick={() => router.push(routesMain.route)}
       >
         {routesMain.btnText}
@@ -32,7 +31,7 @@ const TopBar = ({ routesMain }) => {
           <h4 className="flex justify-start mt-10  text-apple-500">
             {routesMain.header}
           </h4>
-          <div className=" w-32 h-16 bg-logo2 bg-contain bg-no-repeat bg-center -ml-12 mt-2"></div>
+          <div className=" w-32 h-16 bg-logo2 bg-contain bg-no-repeat bg-center -ml-12 mt-3"></div>
         </div>
         <div className="flex flex-row items-center gap-2 mr-2">
           {createBtn()}

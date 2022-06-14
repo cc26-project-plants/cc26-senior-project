@@ -5,14 +5,13 @@ import TopBar from "./components/TopBar";
 import MobileNavbar from "./components/MobileNavbar";
 
 const MyPage = () => {
-
-  interface makeRoute{
-    btnText: string,
-    route:  string
+  interface makeRoute {
+    btnText: string;
+    route: string;
   }
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "Back to Main",
-    route: "/main"
+    route: "/main",
   });
 
   return (

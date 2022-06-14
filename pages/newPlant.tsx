@@ -7,16 +7,15 @@ import MobileNavbar from "./components/MobileNavbar";
 const NewPlant = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
 
-  interface makeRoute{
-    btnText: string,
-    route:  string
+  interface makeRoute {
+    btnText: string;
+    route: string;
   }
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
-    route: "/myPage"
+    route: "/myPage",
   });
 
-  
   return (
     <div className="h-screen w-screen">
       <div className=" bg-apple-200  md:hidden">

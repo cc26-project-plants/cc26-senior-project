@@ -5,10 +5,9 @@ import TopBar from "./components/TopBar";
 import WelcomePage from "./components/WelcomeScreen";
 
 const Welcome = () => {
-
-  interface makeRoute{
-    btnText: string,
-    route:  string,
+  interface makeRoute {
+    btnText: string;
+    route: string;
   }
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
