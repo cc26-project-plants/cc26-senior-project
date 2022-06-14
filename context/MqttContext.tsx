@@ -28,7 +28,6 @@ export default function MqttProvider({
   let topicWater: string = `water/${plantID}/request`;
 
   useEffect(() => {
-    console.log(process.env.CLOUD_MQTT_URL);
     client.on("connect", () => setConnectionStatus(true));
     client.publish(topic, messages);
   }, [lightToggle]);
