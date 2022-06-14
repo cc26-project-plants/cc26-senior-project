@@ -5,7 +5,7 @@ import { useData } from "../../context/GetData";
 
 const MyPageBody = () => {
   const { userData, setUserData, setCurrentPlantId } = useData();
-  const [plantName, setPlantName] = useState("");
+  const [plantName, setPlantName] = useState<string>("");
 
   const handleClick = (index) => {
     const plantId = userData.plantId[index];
@@ -51,8 +51,8 @@ const MyPageBody = () => {
         "
           />
           <div className="ml-6">
-            <div className="text-red-600">Plant Name: {plantName}</div>
-            <div>Plant Type: Aloe{/* {userData.plantType} */}</div>
+            <div>Plant Name: {plantName}</div>
+            <div>Plant Type: Aloe</div>
             <div>
               Plant Plofile:
               <br />

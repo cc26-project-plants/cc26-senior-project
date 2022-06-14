@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMqtt } from "../../context/MqttContext";
 import { useData } from "../../context/GetData";
 
@@ -41,27 +41,6 @@ const ControlPanel = () => {
               }
             }}
           />
-
-          {/* <div>
-            <input
-              onChange={(e) => {
-                handleRange(e);
-              }}
-              type="range"
-              min="0"
-              max="100"
-              value={value}
-              className="range range-accent"
-              step="25"
-            />
-            <div className="w-full flex justify-between text-xs px-2">
-              <span className="select-none">|</span>
-              <span className="select-none">|</span>
-              <span className="select-none">|</span>
-              <span className="select-none">|</span>
-              <span className="select-none">|</span>
-            </div>
-          </div> */}
         </div>
 
         <div className="md:w-8/12 md:ml-52 mt-14 bg-apple-100 shadow-lg flex flex-row justify-center gap-10 shadow-gray-600 rounded-lg p-3">
