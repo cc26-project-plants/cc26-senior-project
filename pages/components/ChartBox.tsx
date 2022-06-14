@@ -39,39 +39,34 @@ const ChartBox = () => {
     setShowHumidity(true);
   };
   return (
-    <div className="font-mono flex flex-col w-full bg-roppongi-200 shadow-gray-400 shadow-lg">
+    <div className="font-sans flex flex-col w-full bg-roppongi-200 shadow-gray-400 shadow-lg">
       <div className="flex flex-row md:justify-around mt-7 md:mb-10 ">
         <button
           onClick={displayLight}
-          className="chartBtn
-          "
+          className="chartBtn"
         >
           Light
         </button>
-
         <button
           onClick={displayTemp}
-          className="chartBtn
-          "
+          className="chartBtn"
         >
           Temperature
         </button>
         <button
           onClick={displaySoilWater}
-          className="chartBtn
-          "
+          className="chartBtn"
         >
           Soil Moisture
         </button>
         <button
           onClick={displayHumidity}
-          className="chartBtn
-          "
+          className="chartBtn"
         >
           Humidity
         </button>
       </div>
-      <div className="flex flex-row  justify-center mt-2 ">
+      <div className="flex flex-row justify-center mt-2 ">
         <div className="w-screen  md:w-3/4  bg-roppongi-50 shadow-lg shadow-gray-600 rounded-lg p-3">
           {showLight && <LightLevel />}
           {showTemp && <TempLevel />}
