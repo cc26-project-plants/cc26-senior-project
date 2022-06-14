@@ -28,7 +28,7 @@ const TopBar = ({ routesMain }) => {
   return (
     <div>
       <div className="hidden md:flex justify-between font-mono max-w-screen h-20 bg-apple-50 align-middle drop-shadow-lg">
-        <div className=" flex flex-row  text-center  ml-12 ">
+        <div className=" flex flex-row  text-center ml-28 ">
           <h4 className="flex justify-start mt-10 text-2xl text-apple-500 font-bold">
             Happa
           </h4>
