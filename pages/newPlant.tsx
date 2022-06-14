@@ -5,8 +5,6 @@ import TopBar from "./components/TopBar";
 import MobileNavbar from "./components/MobileNavbar";
 
 const NewPlant = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-
   interface makeRoute {
     btnText: string;
     route: string;

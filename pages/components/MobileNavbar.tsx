@@ -15,7 +15,7 @@ const MobileNavbar = () => {
   return (
     <div className=" bg-roppongi-100  flex flex-row gap-3 drop-shadow-lg">
       <div>
-        <h2 className="normal-case text-xl m-7 -mr-1  ">Happa</h2>
+        <h2 className="normal-case text-xl m-7 -mr-1">Happa</h2>
       </div>
       <div className="mt-6">
         <div className="dropdown">

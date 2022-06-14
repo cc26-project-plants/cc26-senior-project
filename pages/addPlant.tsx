@@ -74,7 +74,7 @@ const AddPlant = () => {
   return (
     <div>
       <div className="font-thin placeholder-gray-200 overflow-hidden">
-        <div className="bg-teal-400 md:hidden">
+        <div className= "md:hidden">
           <MobileNavbar />
         </div>
         <TopBar routesMain={routesMain} />

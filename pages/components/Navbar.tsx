@@ -4,7 +4,6 @@ const Navbar = () => {
   const { setChart, setControl } = useVisibility();
   const menu: { name: string; link: any }[] = [
     { name: "Plant Status", link: "status" },
-
     { name: "Control Panel", link: "control" },
   ];
 

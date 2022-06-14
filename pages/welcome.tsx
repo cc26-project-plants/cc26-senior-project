@@ -16,7 +16,7 @@ const Welcome = () => {
   return (
     <div className="flex flex-col h-screen w-screen">
       <TopBar routesMain={routesMain} />
-      <div className=" md:hidden">
+      <div className="md:hidden">
         <MobileNavbar />
       </div>
       <div className="flex flex-row h-fit w-full">

@@ -16,15 +16,10 @@ const ControlPanel = () => {
   } = useMqtt();
 
   const { userData, setUserData } = useData();
-  const [lightRange, setLightRange] = useState<number>(0);
-  const [value, setValue] = useState(0);
 
-  function handleRange(e) {
-    setValue(e.target.value);
-  }
   return (
     <div className="font-mono  w-full  bg-roppongi-200 shadow-gray-400 shadow-lg">
-      <div className="flex flex-col  mt-14 mb-10">
+      <div className="flex flex-col mt-14 mb-10">
         <div className="md:w-8/12 md:ml-52 bg-roppongi-100 shadow-lg flex flex-row justify-center gap-10 shadow-gray-600 rounded-lg p-3">
           <h2 className=" text-2xl text-roppongi-900 select-none">Light</h2>
           <input
