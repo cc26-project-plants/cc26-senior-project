@@ -2,6 +2,7 @@ import { useState } from "react";
 import MyPageBody from "./components/MyPageBody";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
+import MobileNavbar from "./components/MobileNavbar";
 
 const MyPage = () => {
   interface makeRoute {
@@ -14,9 +15,13 @@ const MyPage = () => {
   });
 
   return (
-    <div className="h-screen w-screen overflow-hidden ">
+    <div className="h-screen w-screen overflow-auto ">
+
+      <div className=" bg-apple-200  md:hidden">
+        <MobileNavbar />
+      </div>
       <TopBar routesMain={routesMain} />
-      <div className="flex flex-row h-full">
+      <div className="flex flex-row">
         <SideBar />
         <MyPageBody />
       </div>

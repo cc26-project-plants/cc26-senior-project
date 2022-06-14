@@ -82,7 +82,7 @@ const AddPlant = () => {
           <SideBar />
 
           <Card className="text-white">
-            <Card.Body className="bg-apple-200  h-screen w-screen ">
+            <Card.Body className="bg-roppongi-200  h-screen w-screen ">
               <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
                 <Form
                   onSubmit={handleAddPlant}
@@ -169,7 +169,7 @@ const AddPlant = () => {
 
                   <button
                     type="submit"
-                    className="w-1/2 text-white min-w-1/2 w-100 bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
+                    className="w-1/2 text-white min-w-1/2 w-100 bg-roppongi-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
                   >
                     Add New Plant
                   </button>

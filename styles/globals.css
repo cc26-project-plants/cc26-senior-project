@@ -3,22 +3,21 @@
 @tailwind utilities;
 
 .chartBtn {
-  @apply w-full h-24 md:h-16 text-xs md:w-40 inline-block  md:text-xl md:px-4 md:py-2 leading-none border rounded
-          no-underline text-teal-900 border-white 
-          transition hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
-          shadow-apple-400 shadow-md;
+  @apply w-full h-24 md:h-16 text-xs md:w-40 inline-block  md:text-xl md:px-4 md:py-2 leading-none rounded
+          no-underline text-roppongi-50 border-white bg-roppongi-800
+          transition hover:border-transparent hover:text-roppongi-700 hover:bg-white focus:bg-white focus:text-roppongi-700 mt-4 lg:mt-0
+          shadow-gray-400 shadow-lg;
 }
 
 .topBarBtn {
-  @apply w-40 h-16 text-xl leading-none rounded-lg
-        no-underline text-white border-teal-500 bg-apple-300
-        hover:border-transparent hover:text-white hover:bg-apple-400
-        shadow-gray-400 shadow-md;
-}
+        @apply w-36 h-20 text-2xl text-center flex items-center justify-center font-mono leading-none rounded
+        no-underline bg-roppongi-400 text-white  shadow-lg shadow-gray-400
+        transition  hover:text-roppongi-600 hover:bg-roppongi-50
+  }
 
 .navBarBtn {
-  @apply w-64 h-24 text-xl text-center flex items-center justify-center font-mono leading-none border rounded
-    no-underline text-teal-800 border-white
-    transition hover:border-transparent hover:text-teal-600 hover:bg-apple-50 mt-4 
-    shadow-md shadow-apple-500;
+  @apply w-64 h-12 text-2xl text-center flex items-center justify-center font-mono leading-none rounded
+    no-underline bg-roppongi-900 text-white  shadow-lg shadow-gray-400
+    transition  hover:text-roppongi-600 hover:bg-roppongi-50 mt-4 
+  
 }
