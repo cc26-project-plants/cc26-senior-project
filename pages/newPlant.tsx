@@ -8,13 +8,11 @@ const NewPlant = () => {
 
   interface makeRoute{
     btnText: string,
-    route:  string,
-    header: string
+    route:  string
   }
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
-    route: "/myPage",
-    header: "New Plant",
+    route: "/myPage"
   });
 
   

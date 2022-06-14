@@ -4,15 +4,14 @@ import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
 
 const MyPage = () => {
+
   interface makeRoute{
     btnText: string,
-    route:  string,
-    header: string
+    route:  string
   }
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "Back to Main",
-    route: "/main",
-    header: "My Page",
+    route: "/main"
   });
 
   return (
