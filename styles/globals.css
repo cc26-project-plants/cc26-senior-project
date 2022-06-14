@@ -3,15 +3,22 @@
 @tailwind utilities;
 
 .chartBtn {
-  @apply w-full h-24 md:h-14 text-xs md:w-40 inline-block md:text-base md:px-4 md:py-2 leading-none border rounded
+  @apply w-full h-24 md:h-16 text-xs md:w-40 inline-block  md:text-base md:px-4 md:py-2 leading-none border rounded
           no-underline text-teal-900 border-white 
           transition hover:border-transparent hover:text-teal-500 hover:bg-white focus:bg-white focus:text-teal-500 mt-4 lg:mt-0
           shadow-apple-400 shadow-md;
 }
 
 .topBarBtn {
-  @apply w-40 h-20 inline-block text-xl leading-none rounded-lg
+  @apply w-40 h-16 text-xl leading-none rounded-lg
         no-underline text-white border-teal-500 bg-apple-300
         hover:border-transparent hover:text-white hover:bg-apple-400
         shadow-gray-200;
+}
+
+.navBarBtn {
+  @apply w-64 h-24 text-xl text-center flex items-center justify-center font-mono leading-none border rounded
+    no-underline text-teal-800 border-white
+    transition hover:border-transparent hover:text-teal-600 hover:bg-apple-50 mt-4 
+    shadow-md shadow-apple-500;
 }

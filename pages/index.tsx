@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Login from "./login";
 
 const Index = () => {
@@ -9,6 +8,6 @@ const Index = () => {
       <Login />
     </div>
   );
-}
+};
 
 export default Index;

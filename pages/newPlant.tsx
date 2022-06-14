@@ -3,13 +3,21 @@ import NewPlantBody from "./components/NewPlantBody";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
 
-const newPlant = () => {
+const NewPlant = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [routesMain, setRoutesMain] = useState({
+
+  interface makeRoute{
+    btnText: string,
+    route:  string,
+    header: string
+  }
+  const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
     route: "/myPage",
     header: "New Plant",
   });
+
+  
   return (
     <div className="h-screen w-screen">
       <TopBar routesMain={routesMain} />
@@ -21,4 +29,4 @@ const newPlant = () => {
   );
 };
 
-export default newPlant;
+export default NewPlant;
