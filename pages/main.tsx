@@ -10,16 +10,14 @@ import MobileNavbar from "./components/MobileNavbar";
 const Main = () => {
   const { chart, control } = useVisibility();
 
-  interface makeRoute{
-    btnText: string,
-    route:  string,
-    header: string
+  interface makeRoute {
+    btnText: string;
+    route: string;
   }
 
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
     route: "/myPage",
-    header: "Happa",
   });
 
   return (

@@ -6,18 +6,15 @@ import TopBar from "./components/TopBar";
 const NewPlant = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
 
-  interface makeRoute{
-    btnText: string,
-    route:  string,
-    header: string
+  interface makeRoute {
+    btnText: string;
+    route: string;
   }
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
     route: "/myPage",
-    header: "New Plant",
   });
 
-  
   return (
     <div className="h-screen w-screen">
       <TopBar routesMain={routesMain} />
