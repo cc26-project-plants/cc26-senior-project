@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const webpack = require("webpack");
 const { parsed: myEnv } = require("dotenv").config({
   path: "./.env",
