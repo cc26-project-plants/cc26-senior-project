@@ -4,6 +4,11 @@ const { parsed: myEnv } = require("dotenv").config({
   path: "./.env",
 });
 
+const webpack = require("webpack");
+const { parsed: myEnv } = require("dotenv").config({
+  path: "./.env",
+});
+
 const nextConfig = {
   reactStrictMode: true,
   webpack(config) {

@@ -17,18 +17,18 @@ const Main = () => {
 
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
-    route: "/myPage",
+    route: "/myPage"
   });
 
   return (
-    <div className="h-screen w-screen md:overflow-hidden justify-center fle flex-row bg-apple-200">
+    <div className="h-screen w-screen md:overflow-hidden justify-center fle flex-row bg-roppongi-200">
       <TopBar routesMain={routesMain} />
       <div className="md:flex md:flex-row hidden h-full">
         <Navbar />
         {control && <ControlPanel />}
         {chart && <ChartBox />}
       </div>
-      <div className=" bg-apple-200  md:hidden">
+      <div className=" bg-roppongi-200  md:hidden">
         <MobileNavbar />
         <ChartBox />
         <ControlPanel />

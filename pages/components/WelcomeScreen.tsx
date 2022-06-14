@@ -10,7 +10,7 @@ const WelcomeScreen = () => {
   return (
     <div
       className="w-screen h-screen flex flex-col justify-center items-center 
-      shadow-lg  bg-apple-200"
+      shadow-lg  bg-roppongi-200"
     >
       <div>
         <h1 className="text-7xl mt-22 mb-12 md:mb-32 text-center">

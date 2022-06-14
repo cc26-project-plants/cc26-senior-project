@@ -13,7 +13,7 @@ const MobileNavbar = () => {
     router.push("/");
   };
   return (
-    <div className=" bg-apple-50 flex flex-row gap-3 drop-shadow-lg">
+    <div className=" bg-roppongi-100  flex flex-row gap-3 drop-shadow-lg">
       <div>
         <h2 className="normal-case text-xl m-7 -mr-1  ">Happa</h2>
       </div>
@@ -37,7 +37,7 @@ const MobileNavbar = () => {
           </label>
           <ul
             tabIndex={tabIndex}
-            className="menu  dropdown-content bg-apple-300 p-2 shadow rounded-box w-52 "
+            className="menu  dropdown-content bg-roppongi-200 text-roppongi-900 p-2 shadow rounded-box w-52 "
           >
             <li onClick={() => router.push("/myPage")}>
               <h2>My Page</h2>

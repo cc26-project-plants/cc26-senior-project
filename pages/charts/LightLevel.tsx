@@ -19,11 +19,18 @@ const LightLevel = () => {
   const data = {
     labels: timeStamp,
     datasets: [
-      {
+      // {
+      //   label: "Light Level",
+      //   data: light,
+      //   backgroundColor: "#ebde81",
+      //   borderColor: "#fad45c",
+      //   borderWidth: 1.5,
+      // },
+            {
         label: "Light Level",
         data: light,
-        backgroundColor: "#ebde81",
-        borderColor: "#fad45c",
+        backgroundColor: "#C4D9D0",
+        borderColor: "#6CA28B",
         borderWidth: 1.5,
       },
     ],

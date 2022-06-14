@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <div className="hidden md:flex">
-      <div className="w-80  bg-apple-300 list-none">
+      <div className="w-80  bg-roppongi-50 list-none">
         <div className="mt-24">
           {menu.map((menu) => (
             <li
