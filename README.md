@@ -38,5 +38,6 @@ $ npm start
   
   
 ### Project Structure
-![architecture](https://github.com/mikako-shirai/dump/blob/master/diagram.png)  
+![Architecture](https://github.com/mikako-shirai/dump/blob/master/cc26-senior-project/architecture.png)  
+![Tech Stack](https://github.com/mikako-shirai/dump/blob/master/cc26-senior-project/tech_stack.png)  
   
