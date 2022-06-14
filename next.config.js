@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-import dotenv from "dotenv";
-import webpack from "webpack";
-
-const { parsed: myEnv } = dotenv.config({
+const webpack = require("webpack");
+const { parsed: myEnv } = require("dotenv").config({
   path: "./.env",
 });
 
@@ -15,4 +13,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
