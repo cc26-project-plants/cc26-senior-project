@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const webpack = require("webpack");
+const { parsed: myEnv } = require("dotenv").config({
+  path: "./.env",
+});
 
 const nextConfig = {
   reactStrictMode: true,
@@ -8,4 +12,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
