@@ -22,9 +22,12 @@ const HumidityLevel = () => {
       {
         label: "Humidity Levels",
         data: humdidity,
-        backgroundColor: ["rgba(75,192,192,1)"],
-        borderColor: "black",
-        borderWidth: 2,
+        borderColor: "rgba(89, 121, 251, 0.66)",
+        borderWidth: 1,
+        fill: {
+          target: "start",
+          above: "rgba(116, 141, 223, 0.55)",
+        },
       },
     ],
   };
@@ -41,6 +44,6 @@ const HumidityLevel = () => {
   );
 
   return <Line data={data} />;
-}
+};
 
 export default HumidityLevel;
