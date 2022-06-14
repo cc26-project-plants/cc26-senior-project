@@ -2,6 +2,7 @@
   "name": "Project Plants",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,7 +22,8 @@
     "next": "12.1.6",
     "react": "18.1.0",
     "react-bootstrap": "^2.4.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "webpack": "^5.73.0"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
