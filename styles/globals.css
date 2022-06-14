@@ -13,7 +13,7 @@
   @apply w-40 h-16 text-xl leading-none rounded-lg
         no-underline text-white border-teal-500 bg-apple-300
         hover:border-transparent hover:text-white hover:bg-apple-400
-        shadow-gray-200;
+        shadow-gray-400 shadow-md;
 }
 
 .navBarBtn {
