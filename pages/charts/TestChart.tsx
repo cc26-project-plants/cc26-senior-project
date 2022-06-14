@@ -64,13 +64,3 @@ const TestChart = () => {
 };
 
 export default TestChart;
-
-//{
-//   y: 26.5,
-//   marker: {
-//     symbol:
-//       "url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/87/loudly-crying-face_1f62d.png)",
-//     width: 25,
-//     height: 25,
-//   },
-// },

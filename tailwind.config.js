@@ -51,6 +51,7 @@ module.exports = {
         aloe: "url('/images/aloe.jpg')",
         cactus: "url('/images/cactus.png')",
         logo: "url('/images/happaLogo.svg')",
+        logo2: "url('/images/happa_sprout.png')",
       }),
     },
   },

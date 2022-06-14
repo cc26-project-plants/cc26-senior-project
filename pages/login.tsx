@@ -9,8 +9,6 @@ import { auth } from "../config/firebase";
 import { useAuth } from "../context/AuthContext";
 import { useData } from "../context/GetData";
 
-interface loginData {}
-
 const Login = () => {
   const router = useRouter();
 
@@ -18,11 +16,11 @@ const Login = () => {
   provider.setCustomParameters({ prompt: "select_account" });
 
   const { currentUser, login } = useAuth();
-  const ERROR_MESSAGE =
-    "Email not found or the password did not match the email.";
   const { setUserData } = useData();
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const ERROR_MESSAGE =
+    "Email not found or the password did not match the email.";
 
   const [data, setData] = useState({
     email: "",
@@ -35,7 +33,8 @@ const Login = () => {
     try {
       await login(data.email, data.password);
       await setUserAndMove();
-    } catch {
+    } catch (err) {
+      console.log(err);
       setErrorMessage(ERROR_MESSAGE);
     }
     setLoading(false);
@@ -62,6 +61,7 @@ const Login = () => {
       `https://happa-26-backend.an.r.appspot.com/users/${currentUser.email}`
     );
     const userData = response.data.data;
+    console.log(userData);
     return userData;
   };
 
@@ -76,7 +76,9 @@ const Login = () => {
       <div className="bg-loginBg  h-screen w-screen flex flex-row md:items-center md:justify-start items-center  justify-center ">
         <div className=" md:w-1/6  "></div>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
           className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white   md:shrink-0 md:w-1/3 "
         >
           <h2 className="text-center text-white font-thin">

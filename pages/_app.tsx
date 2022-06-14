@@ -11,15 +11,15 @@ import MqttProvider from "../context/MqttContext";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <MqttProvider>
-      <VisibilityProvider>
-        <DataProvider>
-          <AuthProvider>
+    <AuthProvider>
+      <MqttProvider>
+        <VisibilityProvider>
+          <DataProvider>
             <Component {...pageProps} />
-          </AuthProvider>
-        </DataProvider>
-      </VisibilityProvider>
-    </MqttProvider>
+          </DataProvider>
+        </VisibilityProvider>
+      </MqttProvider>
+    </AuthProvider>
   );
 };
 
