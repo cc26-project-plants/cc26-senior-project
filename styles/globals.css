@@ -16,8 +16,8 @@
   }
 
 .navBarBtn {
-  @apply w-64 h-12 text-2xl text-center flex items-center justify-center font-mono leading-none rounded
+  @apply w-64 h-16 text-2xl text-center flex items-center justify-center font-mono leading-none rounded
     no-underline bg-roppongi-900 text-white  shadow-lg shadow-gray-400
-    transition  hover:text-roppongi-600 hover:bg-roppongi-50 mt-4 
+    transition  hover:text-roppongi-600 hover:bg-roppongi-50 mt-4 pt-8 pb-8 
   
 }

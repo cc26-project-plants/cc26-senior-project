@@ -81,7 +81,9 @@ module.exports = {
         logo: "url('/images/happaLogo.svg')",
         logo2: "url('/images/happa_sprout.png')",
         happa: "url('/images/happa-logo.png')",
-        whitehappa: "url('/images/happa_white2.png')"
+        whitehappa: "url('/images/happa_white2.png')",
+        light: "url('/images/light.svg')",
+        water:"url('/images/water.svg')"
       }),
     },
   },
