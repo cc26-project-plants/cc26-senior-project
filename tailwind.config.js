@@ -43,6 +43,34 @@ module.exports = {
         800: "#194524",
         900: "#102A1A",
       },
+      bamboo: {
+        50: "#FFFFFF",
+        100: "#F3F9F7",
+        200: "#DDEEE7",
+        300: "#C6E2D7",
+        400: "#83C0A8",
+        500: "#6DB699",
+        600: "#5EAD8F",
+      },
+      roppongi: {
+        50: "#F4F7F6",
+        100: "#DCE8E3",
+        200: "#C4D9D0",
+        300: "#81AE9C",
+        400: "#6CA28B",
+        500: "#639B84",
+        600: "#45876C",
+        700: "#347D5E",
+        800: "#1B6A49",
+        900: "#1A6745",
+      },
+      buttoncolor: {
+        50: "#FFFFFF",
+        100: "#F7F8F7",
+        200: "#F4F7F6",
+        300: "#ACB5B3",
+        400: "#102B26",
+      },
     },
     extend: {
       backgroundImage: (theme) => ({
@@ -53,6 +81,7 @@ module.exports = {
         logo: "url('/images/happaLogo.svg')",
         logo2: "url('/images/happa_sprout.png')",
         happa: "url('/images/happa-logo.png')",
+        whitehappa: "url('/images/happa_white2.png')"
       }),
     },
   },
