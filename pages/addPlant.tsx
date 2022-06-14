@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Card, Form } from "react-bootstrap";
 import axios from "axios";
+
 import { useData } from "../context/GetData";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
@@ -16,12 +17,13 @@ interface plantInput {
 
 const AddPlant = () => {
   const router = useRouter();
+
   const { newPlantData, setNewPlantData, setUserData } = useData();
+
   const [routesMain, setRoutesMain] = useState({
     btnText: "My Page",
     route: "/myPage"
   });
-
   const [plantData, setPlantData] = useState<plantInput>({
     plantName: "",
     plantType: "",
@@ -82,11 +84,11 @@ const AddPlant = () => {
           <SideBar />
 
           <Card className="text-white">
-            <Card.Body className="bg-roppongi-200  h-screen w-screen">
-              <div className=" w-1/3 min-w-fit min-h-min max-h-screen mt-16">
+            <Card.Body className="bg-roppongi-500 bg-opacity-60 h-screen w-screen flex items-center">
+              <div className="w-1/3 min-w-fit min-h-min max-h-screen -mt-20 md:-mt-20 flex justify-center items-center">
                 <Form
                   onSubmit={handleAddPlant}
-                  className=" bg-gray-400 max-h-screen bg-opacity-50 p-3 object-contain rounded-md outline outline-white"
+                  className=" bg-roppongi-50 bg-opacity-100 text-roppongi-800 max-h-screen p-3 object-contain rounded-md outline outline-white"
                 >
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className="font-semibold">
@@ -169,7 +171,7 @@ const AddPlant = () => {
 
                   <button
                     type="submit"
-                    className="w-1/2 text-white min-w-1/2 w-100 bg-roppongi-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
+                    className="w-1/2 text-xl text-white font-light min-w-1/2 w-100 bg-roppongi-550 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-roppongi-700"
                   >
                     Add New Plant
                   </button>

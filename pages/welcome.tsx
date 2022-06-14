@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import MobileNavbar from "./components/MobileNavbar";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
@@ -9,12 +10,14 @@ const Welcome = () => {
     btnText: string;
     route: string;
   }
+
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
     route: "/myPage",
   });
+
   return (
-    <div className="flex flex-col h-screen w-screen">
+    <div className="flex flex-col h-screen w-screen overflow-auto">
       <TopBar routesMain={routesMain} />
       <div className="md:hidden">
         <MobileNavbar />

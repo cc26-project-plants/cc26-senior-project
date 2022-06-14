@@ -23,7 +23,6 @@ export default function MqttProvider({
   const [lightToggle, setLightToggle] = useState<boolean>(false);
   const [waterToggle, setWaterToggle] = useState<boolean>(false);
 
-  const [lightStatus, setLightStatus] = useState<boolean>(false);
   let topic: string = `light/${plantID}/request`;
   let topicWater: string = `water/${plantID}/request`;
 

@@ -29,37 +29,36 @@ const MyPageBody = () => {
   }, [userData]);
 
    return (
-    <div className="md:w-screen md:h-screen items-center shadow-lg  bg-roppongi-200 ">
-      <div className="overflow-auto flex flex-column md:flex md:flex-row md:w-screen md:h-screen">
-        <div className="md:flex md:flex-row container -ml-2 md:ml-6 my-10 md:h-64">
+    <div className="md:w-screen md:h-screen items-center shadow-lg bg-roppongi-100 bg-white">
+      <div className="overflow-auto flex flex-column justify-center items-center md:flex md:flex-row md:w-screen md:h-screen">
+        <div className="md:flex md:flex-row container -ml-2 md:ml-12 my-10 md:h-64 mt-16 md:-mt-10">
 
-          <div className="bg-gray-400 bg-opacity-50 p-10 my-6 md:my-0 font-sans rounded-md outline outline-white ml-6 w-5/6 md:w-1/4">
+          <div className="bg-white my-6 md:my-0 font-sans w-5/6 -mt-14 md:w-1/4 ml-6 p-10 rounded-2xl md:shadow-buttoncolor-300 md:shadow-2xl">
             <div className="flex flex-column font-sans">
               <div className="leading-10">
-                User Name:
-                <br />
-                <div className="text-2xl">{userData.userName}</div>
+                <div className="text-roppongi-800 font-light text-4xl">Hello, {userData.userName}!</div>
               </div>
+              <div className=" text-roppongi-800 font-extralight text-lg mt-10">Want to add new family?</div>
               <Link href="/addPlant">
-                <button className="text-white mt-12 h-10 bg-roppongi-700 outline outline-1 rounded-md outline-white hover:text-white hover:bg-roppongi-400">
+                <button className="text-white mt-3 h-fit bg-roppongi-600 outline outline-1 rounded-2xl py-2.5 hover:text-white hover:bg-roppongi-900">
                   Add new Plant
                 </button>
               </Link>
             </div>
           </div>
 
-          <div className="flex flex-row font-sans bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white w-screen md:w-5/12 min-w-fit  mx-auto md:mx-0">
+          <div className="flex flex-row font-sans text-roppongi-600 bg-roppongi-200 bg-opacity-60 p-10 w-screen md:w-2/5 min-w-fit md:ml-20 rounded-2xl shadow-buttoncolor-350 shadow-2xl overflow-scroll">
             <div
-              className="bg-aloe scale-100 bg-center bg-cover w-4/12 h-40 text-center
-          rounded-xl shadow-lg shadow-apple-300 border-white border-4"
+              className="bg-aloe scale-90 bg-center bg-cover w-28 h-28 md:w-40 md:h-40 text-center
+          rounded-xl shadow-lg shadow-buttoncolor-350 border-white border-3"
             />
-            <div className="ml-6">
-              <div>Plant Name: {plantName}</div>
-              <div>Plant Type: Aloe</div>
+            <div className="ml-2 md:ml-6 text-sm">
+              <div>Plant Name: <span className="md:text-xl font-medium text-roppongi-800">{plantName}</span></div>
+              <div>Plant Type: <span className="md:text-xl font-medium text-roppongi-800">Aloe</span></div>
               <div>
                 Plant Plofile:
                 <br />
-                <div className="ml-5 max-h-20 text-sm">
+                <div className="text-sm md:text-lg text-roppongi-800 font-medium ml-5 max-h-20">
                   <div>average temperature: 30</div>
                   <div>average humidity: 50</div>
                   <div>average soilLevel: 250</div>
@@ -70,12 +69,14 @@ const MyPageBody = () => {
 
         </div>
 
-        <div className="md:flex md:flex-row container -ml-2 md:ml-6 my-10 md:h-64">
-          <div className="ml-6 w-0 md:w-1/4"></div>
+        <div className="md:flex md:flex-row container -ml-2 md:ml-12 my-10 md:h-64 -mt-14 md:mt-0">
 
-          <div className="container bg-gray-400 bg-opacity-50 outline outline-white rounded  min-w-fit  w-screen md:w-5/12 ">
-            <p className="font-sans mx-auto text-center text-xl">your other plants</p>
-              <div className="flex flex-row justify-center gap-16 flex-wrap mb-11 py-2 md:py-0 md:mt-10">
+          <div className="my-6 md:my-0 font-sans w-5/6 -mt-14 md:w-1/4 ml-6 p-10 md:shadow-buttoncolor-300">
+          </div>
+
+          <div className="container font-sans text-roppongi-600 bg-roppongi-200 bg-opacity-60 p-4 w-screen md:w-2/5 min-w-fit md:ml-20 rounded-2xl shadow-buttoncolor-350 shadow-2xl overflow-scroll">
+            <p className="text-roppongi-800 font-sans mx-auto text-center text-xl mt-0">your other plants</p>
+              <div className="flex flex-row justify-center gap-16 flex-wrap mb-2 py-2 md:py-0 md:mt-2">
                 {userData.plantName.map((plant: string, index: number) => {
                   if (plant !== plantName) {
                     return (
@@ -84,10 +85,10 @@ const MyPageBody = () => {
                           handleClick(index);
                         }}
                         key={index}
-                        className="bg-aloe scale-100 bg-center mr-5 bg-cover w-40 h-40 text-center rounded-xl shadow-lg  border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
+                        className="bg-aloe scale-95 bg-center mt-0 md:mt-0 bg-cover w-40 h-40 md:w-2/5 text-center rounded-xl shadow-lg border-white border-3 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
                       >
-                        <div className=" shadow-inner shadow-gray-200  bg-white rounded-b-md">
-                          Name: {plant}
+                        <div className="text-roppongi-700 bg-white rounded-b-md shadow-gray-200 shadow-inner">
+                          {plant}
                         </div>
                       </div>
                     );

@@ -11,12 +11,12 @@ import { useData } from "../context/GetData";
 
 const Login = () => {
   const router = useRouter();
-
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
 
   const { currentUser, login } = useAuth();
   const { setUserData } = useData();
+
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const ERROR_MESSAGE =

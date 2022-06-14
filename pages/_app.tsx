@@ -5,9 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../config/firebase";
 import { AuthProvider } from "../context/AuthContext";
 import DataProvider from "../context/GetData";
-import "../styles/globals.css";
 import VisibilityProvider from "../context/VisibilityContext";
 import MqttProvider from "../context/MqttContext";
+import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
