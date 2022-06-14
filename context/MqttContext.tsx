@@ -27,15 +27,21 @@ export default function MqttProvider({
   const [messages2, setMessages2] = useState<string>("");
   const [plantID, setPlantID] = useState<string>("");
   const [lightToggle, setLightToggle] = useState<boolean>(false);
+  const [waterToggle, setWaterToggle] = useState<boolean>(false);
 
   const [lightStatus, setLightStatus] = useState<boolean>(false);
   let topic: string = `light/${plantID}/request`;
+  let topicWater: string = `water/${plantID}/request`;
 
   useEffect(() => {
     client.on("connect", () => setConnectionStatus(true));
     client.publish(topic, messages);
-    console.log(plantID);
   }, [lightToggle]);
+
+  useEffect(() => {
+    client.on("connect", () => setConnectionStatus(true));
+    client.publish(topicWater, messages2);
+  }, [waterToggle]);
 
   return (
     <MqttContext.Provider
@@ -48,6 +54,8 @@ export default function MqttProvider({
         setMessages2,
         plantID,
         setPlantID,
+        waterToggle,
+        setWaterToggle,
       }}
     >
       {children}

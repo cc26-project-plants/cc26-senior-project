@@ -34,7 +34,7 @@ const Navbar = () => {
             </li>
           ))}
         </div>
-        <div className="w-70 h-60 bg-leaf bg-no-repeat bg-center mt-16"></div>
+        <div className="w-70 h-60 bg-contain bg-happa  bg-no-repeat bg-center mt-16"></div>
       </div>
     </div>
   );

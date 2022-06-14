@@ -61,7 +61,6 @@ const Login = () => {
       `https://happa-26-backend.an.r.appspot.com/users/${currentUser.email}`
     );
     const userData = response.data.data;
-    console.log(userData);
     return userData;
   };
 
