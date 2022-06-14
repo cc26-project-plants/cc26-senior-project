@@ -82,8 +82,8 @@ const AddPlant = () => {
           <SideBar />
 
           <Card className="text-white">
-            <Card.Body className="bg-roppongi-200  h-screen w-screen ">
-              <div className=" w-1/3 min-w-fit min-h-min max-h-screen">
+            <Card.Body className="bg-roppongi-200  h-screen w-screen">
+              <div className=" w-1/3 min-w-fit min-h-min max-h-screen mt-16">
                 <Form
                   onSubmit={handleAddPlant}
                   className=" bg-gray-400 max-h-screen bg-opacity-50 p-3 object-contain rounded-md outline outline-white"
