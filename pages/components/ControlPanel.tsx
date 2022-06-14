@@ -11,13 +11,13 @@ const ControlPanel = () => {
     messages2,
     setMessages2,
     setPlantID,
+    waterToggle,
+    setWaterToggle,
   } = useMqtt();
 
   const { userData, setUserData } = useData();
   const [lightRange, setLightRange] = useState<number>(0);
   const [value, setValue] = useState(0);
-
-  const [waterToggle, setWaterToggle] = useState<boolean>(false);
 
   function handleRange(e) {
     setValue(e.target.value);
@@ -48,9 +48,15 @@ const ControlPanel = () => {
           <input
             type="checkbox"
             className="toggle toggle-lg toggle-accent"
-            onChange={() =>
-              !waterToggle ? setWaterToggle(true) : setWaterToggle(false)
-            }
+            onChange={() => {
+              if (!waterToggle) {
+                setMessages2("1");
+                setWaterToggle(true);
+              } else {
+                setMessages2("0");
+                setWaterToggle(false);
+              }
+            }}
           />
         </div>
       </div>

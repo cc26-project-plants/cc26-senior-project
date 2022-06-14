@@ -19,8 +19,7 @@ const AddPlant = () => {
   const { newPlantData, setNewPlantData, setUserData } = useData();
   const [routesMain, setRoutesMain] = useState({
     btnText: "My Page",
-    route: "/myPage",
-    header: "New Plant",
+    route: "/myPage"
   });
 
   const [plantData, setPlantData] = useState<plantInput>({
