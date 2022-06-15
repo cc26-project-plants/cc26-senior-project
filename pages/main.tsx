@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import { useVisibility } from "../context/VisibilityContext";
 import Navbar from "./components/Navbar";
 import TopBar from "./components/TopBar";
 import ChartBox from "./components/ChartBox";
 import ControlPanel from "./components/ControlPanel";
-import { useVisibility } from "../context/VisibilityContext";
 import MobileNavbar from "./components/MobileNavbar";
 
 const Main = () => {
@@ -28,7 +29,7 @@ const Main = () => {
         {control && <ControlPanel />}
         {chart && <ChartBox />}
       </div>
-      <div className=" bg-roppongi-200  md:hidden">
+      <div className="bg-roppongi-200 md:hidden overflow-auto">
         <MobileNavbar />
         <ChartBox />
         <ControlPanel />

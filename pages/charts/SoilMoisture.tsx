@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 
 import { useData } from "../../context/GetData";
+
 const SoilMoist = () => {
   const { soilWater, timeStamp } = useData();
   const data = {

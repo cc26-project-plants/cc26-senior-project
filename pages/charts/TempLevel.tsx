@@ -27,8 +27,8 @@ const TempLevel = () => {
         borderWidth: 2,
         fill: {
           target: "start",
-          above: "rgba(255, 184, 63, 0.61)", // Area will be red above the origin
-          below: "rgba(101, 64, 255, 1)", // And blue below the origin
+          above: "rgba(255, 184, 63, 0.61)",
+          below: "rgba(101, 64, 255, 1)",
         },
         pointRadius: 3,
         pointHitRadius: 5,

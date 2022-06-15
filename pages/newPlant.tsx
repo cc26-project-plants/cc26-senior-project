@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import NewPlantBody from "./components/NewPlantBody";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
@@ -9,6 +10,7 @@ const NewPlant = () => {
     btnText: string;
     route: string;
   }
+
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
     route: "/myPage",

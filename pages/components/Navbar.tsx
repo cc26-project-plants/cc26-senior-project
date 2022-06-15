@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <div className="hidden md:flex">
-      <div className="w-80  bg-roppongi-50 list-none">
+      <div className="w-80 bg-roppongi-50 list-none">
         <div className="mt-24">
           {menu.map((menu) => (
             <li
@@ -33,7 +33,7 @@ const Navbar = () => {
             </li>
           ))}
         </div>
-        <div className="w-70 h-60 bg-contain bg-happa  bg-no-repeat bg-center mt-16"></div>
+        <div className="w-68 h-52 bg-contain bg-happa bg-no-repeat bg-center mt-12"></div>
       </div>
     </div>
   );

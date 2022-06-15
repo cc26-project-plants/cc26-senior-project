@@ -11,7 +11,6 @@ export default function VisibilityProvider({
 }: {
   children: React.ReactNode;
 }) {
-  //Navbar control
   const [control, setControl] = useState(false);
   const [chart, setChart] = useState(true);
 
