@@ -18,7 +18,7 @@ const Main = () => {
 
   const [routesMain, setRoutesMain] = useState<makeRoute>({
     btnText: "My Page",
-    route: "/myPage"
+    route: "/myPage",
   });
 
   return (
@@ -30,7 +30,7 @@ const Main = () => {
         {chart && <ChartBox />}
       </div>
       <div className="bg-roppongi-200 md:hidden overflow-auto">
-        <MobileNavbar />
+        <MobileNavbar routesMain={routesMain} />
         <ChartBox />
         <ControlPanel />
       </div>

@@ -19,8 +19,8 @@ const NewPlant = () => {
   return (
     <div className="h-screen w-screen">
       <div className=" bg-apple-200  md:hidden">
-        <MobileNavbar />
-      </div>    
+        <MobileNavbar routesMain={routesMain} />
+      </div>
       <TopBar routesMain={routesMain} />
       <div className="flex flex-row h-full">
         <SideBar />

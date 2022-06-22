@@ -29,14 +29,14 @@ const TopBar = ({ routesMain }) => {
           <h4 className="flex justify-start mt-10 text-roppongi-500 font-sans">
             {routesMain.header}
           </h4>
-          <div className=" w-32 h-14 bg-logo2 bg-contain bg-no-repeat bg-center -ml-14 mt-3 cursor-pointer"></div>
+          <div
+            onClick={() => router.push("/main")}
+            className=" w-32 h-14 bg-logo2 bg-contain bg-no-repeat bg-center -ml-14 mt-3 cursor-pointer"
+          ></div>
         </div>
         <div className="flex flex-row items-center gap-1.5 mr-5 font-sans font-extralight">
           {createBtn()}
-          <button
-            onClick={handleLogOut}
-            className="topBarBtn"
-          >
+          <button onClick={handleLogOut} className="topBarBtn">
             Log Out
           </button>
         </div>

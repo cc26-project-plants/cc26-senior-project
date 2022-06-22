@@ -20,7 +20,7 @@ const Welcome = () => {
     <div className="flex flex-col h-screen w-screen overflow-auto">
       <TopBar routesMain={routesMain} />
       <div className="md:hidden">
-        <MobileNavbar />
+        <MobileNavbar routesMain={routesMain} />
       </div>
       <div className="flex flex-row h-fit w-full">
         <SideBar />

@@ -12,11 +12,15 @@
 .topBarBtn {
   @apply w-36 h-fit pt-6 pb-6 text-xl text-center flex items-center justify-center font-sans leading-none rounded-2xl
     no-underline bg-roppongi-300 text-white shadow-buttoncolor-300 shadow-lg
-    transition  hover:text-roppongi-600 hover:bg-roppongi-50
+    transition  hover:text-roppongi-600 hover:bg-roppongi-50;
 }
 
 .navBarBtn {
   @apply w-48 h-fit text-2xl text-center font-thin flex items-center justify-center font-sans leading-none rounded-full
   no-underline bg-roppongi-550 text-white shadow-buttoncolor-300 shadow-xl
-  transition  hover:text-roppongi-600 hover:bg-roppongi-50 mt-7 pt-5 pb-5
+  transition  hover:text-roppongi-600 hover:bg-roppongi-50 mt-7 pt-5 pb-5;
+}
+
+.plantProfile {
+  @apply bg-aloe scale-100 bg-center bg-cover w-48 h-36 md:w-52 md:h-72 text-center rounded-xl shadow-lg border-white border-4 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse mb-2 select-none;
 }
