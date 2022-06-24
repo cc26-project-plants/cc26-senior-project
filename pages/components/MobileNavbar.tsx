@@ -8,13 +8,11 @@ const MobileNavbar = ({ routesMain }) => {
   const { logout, setCurrentUser } = useAuth();
 
   const handleLogOut = async () => {
-    await logout();
-    setCurrentUser(null);
+    logout();
     router.push("/");
   };
 
   const handleRoute = () => {
-    console.log(routesMain);
     if (routesMain.btnText === "My Page") {
       return (
         <li onClick={() => router.push("/myPage")}>

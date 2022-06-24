@@ -7,7 +7,7 @@ const MyPageBody = () => {
   const { userData, setUserData, setCurrentPlantId } = useData();
   const [plantName, setPlantName] = useState<string>("");
 
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
     const plantId = userData.plantId[index];
     findPlantName();
 

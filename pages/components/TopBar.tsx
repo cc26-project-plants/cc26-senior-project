@@ -4,7 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const TopBar = ({ routesMain }) => {
   const router = useRouter();
-  const { logout, setCurrentUser } = useAuth();
+  const { logout } = useAuth();
 
   const handleLogOut = () => {
     logout();
