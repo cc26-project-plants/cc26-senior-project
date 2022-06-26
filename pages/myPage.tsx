@@ -17,7 +17,7 @@ const MyPage = () => {
   });
 
   return (
-    <div className="h-screen w-screen overflow-auto">
+    <div className="h-screen w-screen overflow-auto-hidden">
       <div className=" bg-roppongi-200 md:hidden">
         <MobileNavbar />
       </div>
