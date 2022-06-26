@@ -1,4 +1,3 @@
-<<<<<<< HEAD:styles/globals.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,14 +7,6 @@
     no-underline text-roppongi-50 border-white bg-roppongi-600 md:font-light
     transition hover:border-transparent hover:text-roppongi-700 hover:bg-white focus:bg-white focus:text-roppongi-700 mt-4 lg:mt-0
     shadow-buttoncolor-350 shadow-lg;
-=======
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
->>>>>>> c90949de2428ce21ac18acf192be53cc6b3eea64:frontend/styles/globals.css
 }
 
 .topBarBtn {
@@ -24,7 +15,6 @@ body {
     transition  hover:text-roppongi-600 hover:bg-roppongi-50;
 }
 
-<<<<<<< HEAD:styles/globals.css
 .navBarBtn {
   @apply w-48 h-fit text-2xl text-center font-thin flex items-center justify-center font-sans leading-none rounded-full
   no-underline bg-roppongi-550 text-white shadow-buttoncolor-300 shadow-xl
@@ -33,8 +23,4 @@ body {
 
 .plantProfile {
   @apply bg-aloe scale-100 bg-center bg-cover w-48 h-36 md:w-52 md:h-72 text-center rounded-xl shadow-lg border-white border-4 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse mb-2 select-none;
-=======
-* {
-  box-sizing: border-box;
->>>>>>> c90949de2428ce21ac18acf192be53cc6b3eea64:frontend/styles/globals.css
 }
