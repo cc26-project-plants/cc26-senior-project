@@ -47,7 +47,7 @@ const MyPageBody = () => {
             </div>
           </div>
 
-          <div className="flex flex-row font-sans text-roppongi-600 bg-roppongi-200 bg-opacity-60 p-10 w-screen md:w-2/5 min-w-fit md:ml-20 rounded-2xl shadow-buttoncolor-350 shadow-2xl overflow-scroll">
+          <div className="flex flex-row font-sans text-roppongi-600 bg-roppongi-200 bg-opacity-60 p-10 w-screen md:w-2/5 min-w-fit md:ml-20 rounded-2xl shadow-buttoncolor-350 shadow-2xl">
             <div
               className="bg-aloe scale-90 bg-center bg-cover w-28 h-28 md:w-40 md:h-40 text-center
           rounded-xl shadow-lg shadow-buttoncolor-350 border-white border-3"
@@ -74,7 +74,7 @@ const MyPageBody = () => {
           <div className="my-6 md:my-0 font-sans w-5/6 -mt-14 md:w-1/4 ml-6 p-10 md:shadow-buttoncolor-300">
           </div>
 
-          <div className="container font-sans text-roppongi-600 bg-roppongi-200 bg-opacity-60 p-4 w-screen md:w-2/5 min-w-fit md:ml-20 rounded-2xl shadow-buttoncolor-350 shadow-2xl overflow-scroll">
+          <div className="container font-sans text-roppongi-600 bg-roppongi-200 bg-opacity-60 p-4 w-screen md:w-2/5 min-w-fit md:ml-20 rounded-2xl shadow-buttoncolor-350 shadow-2xl overflow-y-scroll">
             <p className="text-roppongi-800 font-sans mx-auto text-center text-xl mt-0">your other plants</p>
               <div className="flex flex-row justify-center gap-16 flex-wrap mb-2 py-2 md:py-0 md:mt-2">
                 {userData.plantName.map((plant: string, index: number) => {
