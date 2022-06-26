@@ -5,11 +5,11 @@ import { useData } from "../../context/GetData";
 const WelcomeScreen = () => {
   const router = useRouter();
 
-  const { userData, setUserData, setCurrentPlantId } = useData();
+  const { userData } = useData();
 
   return (
     <div
-      className="w-screen h-screen flex flex-col justify-center items-center 
+      className="w-screen h-full md:h-screen flex flex-col justify-center items-center 
       shadow-lg  bg-roppongi-200"
     >
       <div>
@@ -26,7 +26,7 @@ const WelcomeScreen = () => {
                 router.push("/main");
               }}
               key={index}
-              className="bg-aloe scale-100 bg-center bg-cover w-48 h-36 md:w-52 md:h-72 text-center rounded-xl shadow-lg border-white border-5 cursor-pointer transition duration-300 hover:scale-105 flex flex-col-reverse"
+              className="plantProfile"
             >
               <div className="text-roppongi-700 shadow-inner shadow-gray-200 bg-white rounded-b-md pt-0.5 pb-0.5">
                 {plant}

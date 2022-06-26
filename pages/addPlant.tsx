@@ -22,7 +22,7 @@ const AddPlant = () => {
 
   const [routesMain, setRoutesMain] = useState({
     btnText: "My Page",
-    route: "/myPage"
+    route: "/myPage",
   });
   const [plantData, setPlantData] = useState<plantInput>({
     plantName: "",
@@ -76,8 +76,8 @@ const AddPlant = () => {
   return (
     <div>
       <div className="font-thin placeholder-gray-200 overflow-hidden">
-        <div className= "md:hidden">
-          <MobileNavbar />
+        <div className="md:hidden">
+          <MobileNavbar routesMain={routesMain} />
         </div>
         <TopBar routesMain={routesMain} />
         <div className="flex flex-row h-full">

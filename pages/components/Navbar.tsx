@@ -26,7 +26,7 @@ const Navbar = () => {
                     setControl(false);
                   }
                 }}
-                className=" navBarBtn"
+                className="navBarBtn"
               >
                 {menu.name}
               </a>

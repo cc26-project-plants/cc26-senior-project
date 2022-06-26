@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Form } from "react-bootstrap";
@@ -11,12 +11,12 @@ import { useData } from "../context/GetData";
 
 const Login = () => {
   const router = useRouter();
+
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
 
   const { currentUser, login } = useAuth();
   const { setUserData } = useData();
-
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const ERROR_MESSAGE =
@@ -27,17 +27,16 @@ const Login = () => {
     password: "",
   });
 
-  const handleSubmit = async (e: SyntheticEvent) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await login(data.email, data.password);
-      await setUserAndMove();
-    } catch (err) {
-      console.log(err);
-      setErrorMessage(ERROR_MESSAGE);
-    }
-    setLoading(false);
+    login(data.email, data.password)
+      .then(async () => {
+        await setUserAndMove();
+      })
+      .catch(() => {
+        setErrorMessage(ERROR_MESSAGE);
+      });
   };
 
   const signInWithGoogle = async (e: any) => {
@@ -75,9 +74,7 @@ const Login = () => {
       <div className="bg-loginBg  h-screen w-screen flex flex-row md:items-center md:justify-start items-center  justify-center ">
         <div className=" md:w-1/6  "></div>
         <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
+          onSubmit={(e) => handleSubmit(e)}
           className="bg-gray-400 bg-opacity-50 p-10 rounded-md outline outline-white   md:shrink-0 md:w-1/3 "
         >
           <h2 className="text-center text-white font-thin">
@@ -85,51 +82,55 @@ const Login = () => {
           </h2>
 
           <h2 className="text-center text-white font-thin">Log In</h2>
-          <Form.Group id="email">
-            <Form.Label className="text-white">Email</Form.Label>
-            <Form.Control
-              type="email"
-              autoComplete="off"
-              onChange={(e: any) =>
-                setData({
-                  ...data,
-                  email: e.target.value,
-                })
-              }
-              required
-              value={data.email}
-              placeholder="Enter email"
-            />
-          </Form.Group>
+
+          <label className="block text-white text-sm font-bold mb-2">
+            Username
+          </label>
+          <input
+            type="email"
+            autoComplete="off"
+            onChange={(e: any) =>
+              setData({
+                ...data,
+                email: e.target.value,
+              })
+            }
+            required
+            value={data.email}
+            placeholder="Enter email"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+
           {errorMessage && (
             <h2 className="text-md text-yellow-300">{ERROR_MESSAGE}</h2>
           )}
-          <Form.Group id="password">
-            <Form.Label className="text-white">Password</Form.Label>
-            <Form.Control
-              type="password"
-              autoComplete="off"
-              onChange={(e: any) =>
-                setData({
-                  ...data,
-                  password: e.target.value,
-                })
-              }
-              value={data.password}
-              required
-              placeholder="Password"
-            />
-          </Form.Group>
+
+          <label className="block text-white text-sm font-bold mb-2 mt-4">
+            Password
+          </label>
+          <input
+            type="password"
+            autoComplete="off"
+            onChange={(e: any) =>
+              setData({
+                ...data,
+                password: e.target.value,
+              })
+            }
+            value={data.password}
+            required
+            placeholder="Password"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
 
           <div className="flex justify-center flex-col">
             <button
-              disabled={loading}
               className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"
               type="submit"
-              onClick={handleSubmit}
             >
               Log In
             </button>
+
             <button
               disabled={loading}
               className="w-1/2 text-white min-w-1/2 justify-center bg-teal-600 outline outline-1 h-16 rounded-md outline-white mt-6 hover:text-white hover:bg-teal-400"

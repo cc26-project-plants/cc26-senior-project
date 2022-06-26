@@ -1,10 +1,7 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
-
-import { auth } from "../config/firebase";
 import {
   getAuth,
   signOut,
-  signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -27,6 +24,7 @@ export function useAuth() {
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
+  const auth = getAuth();
 
   const [currentUser, setCurrentUser] = useState<any>();
   const [loading, setLoading] = useState(true);
@@ -35,29 +33,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const login = (email: string, password: string) => {
-    signInWithEmailAndPassword(auth, email, password);
+  const login = async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = async () => {
-    setCurrentUser(null);
-    auth.signOut();
+  const logout = () => {
+    signOut(auth);
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
-        setCurrentUser({
+        return setCurrentUser({
           uid: user.uid,
           email: user.email,
         });
-      } else {
-        setCurrentUser(null);
       }
       setLoading(false);
     });
-
-    return () => unsubscribe();
   }, []);
 
   return (
@@ -67,4 +60,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       {!loading && children}
     </AuthContext.Provider>
   );
-};
+}
